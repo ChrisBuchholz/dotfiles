@@ -1,5 +1,6 @@
-# Check for an interactive session
-[ -z "$PS1" ] && return
+if [ -f /etc/bashrc ]; then
+    . /etc/bashrc
+fi
 
 PATH=/home/cb/bin:$PATH
 
