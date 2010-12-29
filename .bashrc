@@ -1,11 +1,10 @@
-if [ -f /etc/bashrc ]; then
-    . /etc/bashrc
-fi
-
-PATH=/home/cb/bin:$PATH
+[ -z "$PS1" ] && return
 
 alias ls='ls --color=auto'
+
 PS1='[\u@\h \W]\$ '
+PATH=/home/cb/bin:$PATH
+EDITOR=vim
 
 # Set $TERM for libvte terminals that set $TERM wrong (like gnome-terminal) 
 { 
