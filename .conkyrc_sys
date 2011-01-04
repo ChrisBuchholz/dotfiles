@@ -43,9 +43,6 @@ ${cpugraph 20}
 ROOT: $alignr ${fs_free /} / ${fs_size /}
 ${fs_bar 3 /}
 
-Battery: ${alignr} ${battery_percent}%
-${battery_bar 3}
-
 Load: $alignr $loadavg
 Processes: $alignr $processes
 Running: $alignr $running_processes
