@@ -1,5 +1,0 @@
-XTerm*background: black
-XTerm*foreground: white
-XTerm*saveLines: 1024
-XTerm*scrollBar: false
-XTerm*font: Liberation Mono 
