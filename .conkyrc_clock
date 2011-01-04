@@ -12,7 +12,7 @@ minimum_size 500
 no_buffers yes
 override_utf8_locale yes
 own_window yes
-own_window_title conky
+own_window_title conky_clock
 own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
 own_window_transparent yes
 own_window_type normal
@@ -25,5 +25,8 @@ xftalpha 1
 xftfont Liberation:pixelsize=9
 
 TEXT
-${font Zekton:pixelsize=80}${alignr}${time %H:%M}
-${font Zekton:pixelsize=32}${alignr}${time %A, %B %d %Y}
+${font Zekton:pixelsize=80}${alignr}${time %H:%M}${font}
+
+$hr
+
+${font Zekton:pixelsize=32}${alignr}${time %A, %B %d %Y}${font}

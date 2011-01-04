@@ -1,4 +1,5 @@
 XTerm*background: black
 XTerm*foreground: white
 XTerm*saveLines: 1024
-Xterm*scrollBar: false
+XTerm*scrollBar: false
+XTerm*font: Liberation Mono 
