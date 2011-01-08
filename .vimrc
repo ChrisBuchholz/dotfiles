@@ -29,7 +29,7 @@ endif
 " make fullscren gui actually fill the whole screen
 if has('gui_running')
     set fuopt+=maxhorz
-    set guifont=Meslo_LG_M_DZ:h12
+    set guifont=Monospace:h10
 endif
 
 " switch syntax highlighting on when terminal has colors
