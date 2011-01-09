@@ -9,6 +9,9 @@ main = do
     xmproc <- spawnPipe "xmobar /home/cb/.xmobarrc"
     xmonad $ defaultConfig
         { terminal = "urxvt"
+        , borderWidth = 4
+        , normalBorderColor = "#363636"
+        , focusedBorderColor = "#5c5c5c"
         , manageHook = manageDocks <+> manageHook defaultConfig
         , layoutHook = avoidStruts  $  layoutHook defaultConfig
         , logHook = dynamicLogWithPP $ xmobarPP
@@ -20,7 +23,7 @@ main = do
         [ ((mod4Mask .|. shiftMask, xK_z), spawn "xscreensaver-command -lock")
         , ((controlMask, xK_Print), spawn "sleep 0.2; scrot -s")
         , ((0, xK_Print), spawn "scrot")
-	, ((0, 0x1008ff11), spawn "amixer set Master 2dB- unmute")
-	, ((0, 0x1008ff13), spawn "amixer set Master 2dB+ unmute")
-	, ((0, 0x1008ff12), spawn "amixer set Master toggle")
+        , ((0, 0x1008ff11), spawn "amixer set Master 2dB- unmute")
+        , ((0, 0x1008ff13), spawn "amixer set Master 2dB+ unmute")
+        , ((0, 0x1008ff12), spawn "amixer set Master toggle")
         ]
