@@ -15,5 +15,5 @@ Config { font = "9x15:monospace-8"
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "%StdinReader% }{ %wifi% * %sound% * %multicpu% * %memory% * %swap% * %battery% <fc=#ee9a00>%date%</fc>"
+       , template = "%StdinReader% }{ %wifi% | %sound% | %multicpu% | %memory% | %swap% | %battery% <fc=#ee9a00>%date%</fc>"
        }
