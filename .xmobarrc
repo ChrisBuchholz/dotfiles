@@ -1,5 +1,5 @@
 Config { font = "-*-Fixed-Bold-R-Normal-*-13-*-*-*-*-*-*-*"
-       , bgColor = ""
+       , bgColor = "black"
        , fgColor = "grey"
        , position = TopW L 100
        , lowerOnStart = True
@@ -8,8 +8,8 @@ Config { font = "-*-Fixed-Bold-R-Normal-*-13-*-*-*-*-*-*-*"
                     , Run Battery [] 10
                     , Run Swap [] 10
                     , Run Network "eth1" [] 10
-                    , Run Com "/home/cb/bin/wifi-state.sh" [] "wifi" 10
-                    , Run Com "/home/cb/bin/sound-state.sh" [] "sound" 10
+                    , Run Com "/home/cb/bin/wifi-state.sh" [] "wifi" 100
+                    , Run Com "/home/cb/bin/sound-state.sh" [] "sound" 1
                     , Run Date "%a %b %_d %H:%M" "date" 10
                     , Run StdinReader
                     ]
