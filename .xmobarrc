@@ -1,5 +1,5 @@
 Config { font = "9x15:monospace-8"
-       , bgColor = "black"
+       , bgColor = "#363636"
        , fgColor = "grey"
        , position = TopW L 100
        , lowerOnStart = True
@@ -8,12 +8,12 @@ Config { font = "9x15:monospace-8"
                     , Run Battery [] 10
                     , Run Swap [] 10
                     , Run Network "eth1" [] 10
-                    , Run Com "/home/cb/bin/wifi-state.sh" [] "wifi" 100
+                    , Run Com "/home/cb/bin/wifi-state.sh" [] "wifi" 30
                     , Run Com "/home/cb/bin/sound-state.sh" [] "sound" 1
                     , Run Date "%a %b %_d %H:%M" "date" 10
                     , Run StdinReader
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "%StdinReader% }{ %wifi% | %sound% | %multicpu% | %memory% | %swap% | %battery% <fc=#ee9a00>%date%</fc>"
+       , template = "%StdinReader% }{ %wifi% | %multicpu% | %memory% | %swap% | %battery% | %sound% <fc=#ee9a00>%date%</fc>"
        }

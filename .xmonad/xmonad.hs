@@ -10,8 +10,8 @@ main = do
     xmonad $ defaultConfig
         { terminal = "urxvt"
         , borderWidth = 4
-        , normalBorderColor = "#363636"
-        , focusedBorderColor = "#5c5c5c"
+        , normalBorderColor = "#5c5c5c"
+        , focusedBorderColor = "#757575"
         , manageHook = manageDocks <+> manageHook defaultConfig
         , layoutHook = avoidStruts  $  layoutHook defaultConfig
         , logHook = dynamicLogWithPP $ xmobarPP
