@@ -1,5 +1,5 @@
 Config { font = "-*-Fixed-Bold-R-Normal-*-13-*-*-*-*-*-*-*"
-       , bgColor = "black"
+       , bgColor = ""
        , fgColor = "grey"
        , position = TopW L 100
        , lowerOnStart = True
@@ -7,11 +7,13 @@ Config { font = "-*-Fixed-Bold-R-Normal-*-13-*-*-*-*-*-*-*"
                     , Run Memory ["-t","Mem: <usedratio>%"] 10
                     , Run Battery [] 10
                     , Run Swap [] 10
-                    , Run Network "eth1" [] 10 
-                    , Run Date "%a %b %_d %l:%M" "date" 10
+                    , Run Network "eth1" [] 10
+                    , Run Com "/home/cb/bin/wifi-state.sh" [] "wifi" 10
+                    , Run Com "/home/cb/bin/sound-state.sh" [] "sound" 10
+                    , Run Date "%a %b %_d %H:%M" "date" 10
                     , Run StdinReader
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "%StdinReader% }{ %eth1% * %multicpu% * %memory% * %swap% * %battery% <fc=#ee9a00>%date%</fc>"
+       , template = "%StdinReader% }{ %wifi% * %sound% * %multicpu% * %memory% * %swap% * %battery% <fc=#ee9a00>%date%</fc>"
        }
