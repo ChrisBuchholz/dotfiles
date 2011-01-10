@@ -1,8 +1,9 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =6
+let g:netrw_dirhist_cnt =7
 let g:netrw_dirhist_1='/home/cb'
-let g:netrw_dirhist_2='/home/cb/.config'
-let g:netrw_dirhist_3='/home/cb/.config/openbox'
-let g:netrw_dirhist_4='/home/cb'
-let g:netrw_dirhist_5='/home/cb/.config'
-let g:netrw_dirhist_6='/home/cb/.config/tint2'
+let g:netrw_dirhist_2='/home/cb/.xmonad'
+let g:netrw_dirhist_3='/home/cb'
+let g:netrw_dirhist_4='/home'
+let g:netrw_dirhist_5='/home/cb'
+let g:netrw_dirhist_6='/home/cb/bin'
+let g:netrw_dirhist_7='/home/cb'
