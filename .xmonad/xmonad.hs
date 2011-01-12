@@ -5,6 +5,11 @@ import XMonad.Util.Run(spawnPipe)
 import XMonad.Util.EZConfig(additionalKeys)
 import System.IO
 
+myManageHooks = composeAll
+    [ className =? "Gimp"             --> doFloat
+    , className =? "Transmission" --> doFloat
+    ]
+
 main = do
     xmproc <- spawnPipe "xmobar /home/cb/.xmobarrc"
     xmonad $ defaultConfig
@@ -12,7 +17,7 @@ main = do
         , borderWidth = 4
         , normalBorderColor = "#5c5c5c"
         , focusedBorderColor = "#757575"
-        , manageHook = manageDocks <+> manageHook defaultConfig
+        , manageHook = manageDocks <+> myManageHooks <+> manageHook defaultConfig
         , layoutHook = avoidStruts  $  layoutHook defaultConfig
         , logHook = dynamicLogWithPP $ xmobarPP
                         { ppOutput = hPutStrLn xmproc
@@ -22,7 +27,6 @@ main = do
         } `additionalKeys`
         [ ((mod4Mask .|. shiftMask, xK_z), spawn "xscreensaver-command -lock")
         , ((controlMask, xK_Print), spawn "sleep 0.2; scrot -s")
-        , ((0, xK_Print), spawn "scrot")
         , ((0, 0x1008ff11), spawn "amixer set Master 2dB- unmute")
         , ((0, 0x1008ff13), spawn "amixer set Master 2dB+ unmute")
         , ((0, 0x1008ff12), spawn "amixer set Master toggle")

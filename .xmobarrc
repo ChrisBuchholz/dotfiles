@@ -5,7 +5,7 @@ Config { font = "9x15:monospace-8"
        , lowerOnStart = True
        , commands = [ Run MultiCpu ["-L","3","-H","50","--normal","green","--high","red"] 10
                     , Run Memory ["-t","Mem: <usedratio>%"] 10
-                    , Run Battery [] 10
+                    , Run Battery ["-L", "10", "--low", "red"] 10
                     , Run Swap [] 10
                     , Run Network "eth1" [] 10
                     , Run Com "/home/cb/bin/wifi-state.sh" [] "wifi" 30
