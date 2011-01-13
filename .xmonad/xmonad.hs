@@ -5,16 +5,22 @@ import XMonad.Util.Run(spawnPipe)
 import XMonad.Util.EZConfig(additionalKeys)
 import System.IO
 
+myTerminal    = "urxvt"
+myBorderWidth = 3
+myWorkspaces  = ["main","www","work","other"]
+myModMask = mod4Mask
+
 myManageHooks = composeAll
-    [ className =? "Gimp"             --> doFloat
+    [ className =? "Gimp"         --> doFloat
     , className =? "Transmission" --> doFloat
     ]
 
 main = do
     xmproc <- spawnPipe "xmobar /home/cb/.xmobarrc"
     xmonad $ defaultConfig
-        { terminal = "urxvt"
-        , borderWidth = 4
+        { terminal = myTerminal
+        , borderWidth = myBorderWidth
+        , workspaces = myWorkspaces
         , normalBorderColor = "#5c5c5c"
         , focusedBorderColor = "#757575"
         , manageHook = manageDocks <+> myManageHooks <+> manageHook defaultConfig
@@ -23,7 +29,7 @@ main = do
                         { ppOutput = hPutStrLn xmproc
                         , ppTitle = xmobarColor "green" "" . shorten 50
                         }
-        , modMask = mod4Mask     -- Rebind Mod to the Windows key
+        , modMask = myModMask
         } `additionalKeys`
         [ ((mod4Mask .|. shiftMask, xK_z), spawn "xscreensaver-command -lock")
         , ((controlMask, xK_Print), spawn "sleep 0.2; scrot -s")
