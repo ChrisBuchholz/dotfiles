@@ -6,6 +6,8 @@ PATH=/home/cb/bin:$PATH
 EDITOR=vim
 VISUAL=vim
 
+export MOZ_DISABLE_PANGO=1
+
 # Set $TERM for libvte terminals that set $TERM wrong (like gnome-terminal) 
 { 
     [ "_$TERM" = "_xterm" ] && type ldd && type grep && type tput && [ -L "/proc/$PPID/exe" ] && { 

@@ -7,7 +7,7 @@ import System.IO
 
 myTerminal    = "urxvt"
 myBorderWidth = 3
-myWorkspaces  = ["main","www","work","other"]
+myWorkspaces  = ["1","2","3","4","5","6","7","8"]
 myModMask = mod4Mask
 
 myManageHooks = composeAll

@@ -1,6 +1,6 @@
 URxvt*termName:          rxvt-256color
 URxvt*urgentOnBell:      true
-URxvt*visualBell: true
+URxvt*visualBell:        true
 URxvt*skipBuiltinGlyphs: true
 URxvt*scrollBar_right:   false
 URxvt*scrollBar:         false
@@ -9,22 +9,24 @@ URxvt*scrollstyle:       rxvt
 URxvt*saveLines:         12000
 URxvt.buffered:          true
 
-!URxvt*cursorColor:      #803232
-!URxvt*cursorBlink:      false 
+!URxvt*cursorColor: #803232
+!URxvt*cursorBlink: false 
 
-URxvt*font:              xft:Monospace:pixelsize=10:antialias=false:hinting=true
-URxvt*boldFont:          xft:Monospace:pixelsize=10:antialias=true:bold:hinting=true
-URxvt*italicFont:        xft:Monospace:pixelsize=10:antialias=true:italic:autohint=true:hinting=true
-URxvt*bolditalicFont:    xft:Monospace:pixelsize=10:antialias=true:bold:italic:autohint=true:hinting=true
-URxvt*background:        #000000
-URxvt*foreground:        #ffffff
+URxvt*font:           xft:Monospace:pixelsize=10:antialias=false:hinting=true
+URxvt*boldFont:       xft:Monospace:pixelsize=10:antialias=true:bold:hinting=true
+URxvt*italicFont:     xft:Monospace:pixelsize=10:antialias=true:italic:autohint=true:hinting=true
+URxvt*bolditalicFont: xft:Monospace:pixelsize=10:antialias=true:bold:italic:autohint=true:hinting=true
+URxvt*background:     #000000
+URxvt*foreground:     #ffffff
 
 URxvt.perl-ext-common:   default,matcher
-URxvt.urlLauncher:       chromium-browser-bin
+URxvt.urlLauncher:       firefox-beta-bin
 URxvt.matcher.button:    2
 URxvt*matcher.pattern.1: \\b(mailto|http|https|ftp|file):[/]*[\\w-]\\.[\\w./?&@#-]*[\\w/-]
 URxvt*matcher.pattern.2: \\bwww\\.[\\w-]\\.[\\w./?&@#-]*[\\w/-]
 URxvt*colorUL:           #86a2be
+
+URxvt*cursorColor: #803232
 
 URxvt*color0:            #101010
 URxvt*color1:            #f13a21
