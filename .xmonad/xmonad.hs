@@ -7,12 +7,12 @@ import System.IO
 
 myTerminal    = "urxvt"
 myBorderWidth = 3
-myWorkspaces  = ["1","2","3","4","5","6","7","8"]
+myWorkspaces  = ["1:TTY","2:www","3:float","4","5","6","7","8"]
 myModMask = mod4Mask
 
 myManageHooks = composeAll
-    [ className =? "Gimp"         --> doFloat
-    , className =? "Transmission" --> doFloat
+    [ className =? "Gimp"             --> doFloat
+    , className =? "Transmission-GTK" --> doFloat
     ]
 
 main = do
