@@ -6,13 +6,6 @@ PATH=/usr/local/sbin:/usr/local/bin:$PATH
 EDITOR=vim
 VISUAL=vim
 
-export LANG="da_DK.UTF-8"
-export LC_ALL="da_DK.UTF-8" 
-export CLICOLOR=1
-export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
-
-export MOZ_DISABLE_PANGO=1
-
 # Set $TERM for libvte terminals that set $TERM wrong (like gnome-terminal) 
 #{ 
 #    [ "_$TERM" = "_xterm" ] && type ldd && type grep && type tput && [ -L "/proc/$PPID/exe" ] && { 
@@ -27,6 +20,15 @@ export MOZ_DISABLE_PANGO=1
 #        fi 
 #    } 
 #} >/dev/null 2>/dev/null
+TERM=xterm-256color
+
+export LANG="da_DK.UTF-8"
+export LC_ALL="da_DK.UTF-8" 
+export CLICOLOR=1
+export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
+
+export MOZ_DISABLE_PANGO=1
+
 
 ### functions
 
