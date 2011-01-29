@@ -1,27 +1,32 @@
 [ -z "$PS1" ] && return
 
 PS1='[\u@\h \W]\$ '
-PATH=/home/cb/bin:$PATH
+PATH=/usr/local/sbin:/usr/local/bin:$PATH
 
 EDITOR=vim
 VISUAL=vim
 
+export LANG="da_DK.UTF-8"
+export LC_ALL="da_DK.UTF-8" 
+export CLICOLOR=1
+export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
+
 export MOZ_DISABLE_PANGO=1
 
 # Set $TERM for libvte terminals that set $TERM wrong (like gnome-terminal) 
-{ 
-    [ "_$TERM" = "_xterm" ] && type ldd && type grep && type tput && [ -L "/proc/$PPID/exe" ] && { 
-        if ldd /proc/$PPID/exe | grep libvte; then 
-            if [ "`tput -Tgnome-256color colors`" = "256" ]; then 
-                TERM=gnome-256color 
-            elif [ "`tput -Txterm-256color colors`" = "256" ]; then 
-                TERM=xterm-256color 
-            elif tput -T gnome; then 
-                TERM=gnome 
-            fi 
-        fi 
-    } 
-} >/dev/null 2>/dev/null
+#{ 
+#    [ "_$TERM" = "_xterm" ] && type ldd && type grep && type tput && [ -L "/proc/$PPID/exe" ] && { 
+#        if ldd /proc/$PPID/exe | grep libvte; then 
+#            if [ "`tput -Tgnome-256color colors`" = "256" ]; then 
+#                TERM=gnome-256color 
+#            elif [ "`tput -Txterm-256color colors`" = "256" ]; then 
+#                TERM=xterm-256color 
+#            elif tput -T gnome; then 
+#                TERM=gnome 
+#            fi 
+#        fi 
+#    } 
+#} >/dev/null 2>/dev/null
 
 ### functions
 
@@ -52,13 +57,5 @@ mktar() { tar cvf  "${1%%/}.tar"     "${1%%/}/"; }
 mktgz() { tar cvzf "${1%%/}.tar.gz"  "${1%%/}/"; }
 mktbz() { tar cvjf "${1%%/}.tar.bz2" "${1%%/}/"; }
 
-# aliases
-alias ls='ls --color=auto'
-
-## dir shortcuts
-alias documents='cd ~/Documents'
-alias downloads='cd ~/Downloads'
-alias photos='cd ~/Photos'
-alias torrents='cd ~/Downloads/torrents'
-alias videos='cd ~/Videos'
-alias projects='cd ~/Projects'
+# Aliases
+alias ls='ls -Gp'

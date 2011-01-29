@@ -53,7 +53,6 @@ set shiftwidth=4
 set softtabstop=4
 set expandtab
 set hidden
-set listchars=tab:▸\ ,eol:¬
 set scrolloff=3
 set vb t_vb=
 set showmatch
