@@ -1,7 +1,7 @@
 [ -z "$PS1" ] && return
 
 PS1='[\u@\h \W]\$ '
-PATH=/usr/local/sbin:/usr/local/bin:$PATH
+PATH=/usr/local/sbin:/usr/local/bin:/usr/local/Cellar/python/2.7.1/bin:$PATH
 
 EDITOR=vim
 VISUAL=vim
@@ -39,7 +39,7 @@ extract () {
           *.tar.bz2)   tar xvjf $1    ;;
           *.tar.gz)    tar xvzf $1    ;;
           *.bz2)       bunzip2 $1     ;;
-          *.rar)       rar x $1       ;;
+          *.rar)       unrar x $1     ;;
           *.gz)        gunzip $1      ;;
           *.tar)       tar xvf $1     ;;
           *.tbz2)      tar xvjf $1    ;;
