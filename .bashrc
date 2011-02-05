@@ -21,7 +21,7 @@ PATH=/usr/local/sbin:/usr/local/bin:/usr/local/Cellar/python/2.7.1/bin:$PATH
 TERM=xterm-256color
 
 export EDITOR=vim
-export VISUAL=macvim
+export VISUAL=mvim
 export LANG="da_DK.UTF-8"
 export LC_ALL="da_DK.UTF-8" 
 export CLICOLOR=1
@@ -57,6 +57,10 @@ mktar() { tar cvf  "${1%%/}.tar"     "${1%%/}/"; }
 mktgz() { tar cvzf "${1%%/}.tar.gz"  "${1%%/}/"; }
 mktbz() { tar cvjf "${1%%/}.tar.bz2" "${1%%/}/"; }
 
+# open man pages in Preview.app
+pman () {
+    man -t $1 | open -f -a /Applications/Preview.app
+}
 
 
 ### aliases
