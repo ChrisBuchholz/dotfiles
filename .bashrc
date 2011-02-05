@@ -27,8 +27,6 @@ export LC_ALL="da_DK.UTF-8"
 export CLICOLOR=1
 export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 
-export MOZ_DISABLE_PANGO=1
-
 
 ### functions
 
