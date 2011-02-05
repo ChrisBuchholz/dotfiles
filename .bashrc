@@ -3,8 +3,6 @@
 PS1='[\u@\h \W]\$ '
 PATH=/usr/local/sbin:/usr/local/bin:/usr/local/Cellar/python/2.7.1/bin:$PATH
 
-EDITOR=vim
-VISUAL=vim
 
 # Set $TERM for libvte terminals that set $TERM wrong (like gnome-terminal) 
 #{ 
@@ -22,6 +20,8 @@ VISUAL=vim
 #} >/dev/null 2>/dev/null
 TERM=xterm-256color
 
+export EDITOR=vim
+export VISUAL=macvim
 export LANG="da_DK.UTF-8"
 export LC_ALL="da_DK.UTF-8" 
 export CLICOLOR=1
