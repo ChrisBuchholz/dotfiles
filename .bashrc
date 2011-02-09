@@ -66,3 +66,4 @@ pman () {
 ### aliases
 
 alias ls='ls -Gp'
+alias sshtnnl='ssh -D 8080 -f -C -q -N'
