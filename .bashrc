@@ -1,9 +1,20 @@
 [ -z "$PS1" ] && return
 
-PS1='[\u@\h \W]\$ '
-PATH=/usr/local/sbin:/usr/local/bin:/usr/local/Cellar/python/2.7.1/bin:$PATH
 
+export PS1='[\u@\h \W]\$ '
 
+### PATH
+# put /usr/local/{sbin,bin} first
+export PATH=/usr/local/sbin:/usr/local/bin:$PATH
+
+# include $HOME/bin if it exists
+[[ -e $HOME/bin ]] && export PATH=$HOME/bin:$PATH
+
+# find and include homebrew-built python
+python_bin=`echo $(brew --cellar python)/*/bin`
+[[ -e $python_bin ]] && export PATH=$python_bin:$PATH
+
+### set general environmental variables
 # Set $TERM for libvte terminals that set $TERM wrong (like gnome-terminal) 
 #{ 
 #    [ "_$TERM" = "_xterm" ] && type ldd && type grep && type tput && [ -L "/proc/$PPID/exe" ] && { 
@@ -18,8 +29,7 @@ PATH=/usr/local/sbin:/usr/local/bin:/usr/local/Cellar/python/2.7.1/bin:$PATH
 #        fi 
 #    } 
 #} >/dev/null 2>/dev/null
-TERM=xterm-256color
-
+export TERM=xterm-256color
 export EDITOR=vim
 export VISUAL=mvim
 export LANG="da_DK.UTF-8"
@@ -29,7 +39,6 @@ export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 
 
 ### functions
-
 # easy extraction
 extract () {
   if [ -f $1 ] ; then
@@ -64,6 +73,6 @@ pman () {
 
 
 ### aliases
-
 alias ls='ls -Gp'
 alias sshtnnl='ssh -D 8080 -f -C -q -N -p 443' # usage: `sshtnnl username@remoteserver`
+alias brewup='brew update; brew install `brew outdated`'

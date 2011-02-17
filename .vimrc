@@ -70,6 +70,12 @@ set viminfo='1000,f1,:1000,/1000
 set history=500
 set lazyredraw
 
+" enable filetype plugin
+filetype plugin on
+
+" autocommands!
+autocmd FileType make set noexpandtab
+
 " encoding
 set encoding=utf8
 set fileencoding=utf8
