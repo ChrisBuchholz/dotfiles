@@ -2,16 +2,18 @@
 
 export PS1='[\u@\h \W]\$ '
 
-### PATH
-# put /usr/local/{sbin,bin} first
-export PATH=/usr/local/sbin:/usr/local/bin:$PATH
+if [ `uname` == 'Darwin' ]; then
+    ### PATH
+    # put /usr/local/{sbin,bin} first
+    export PATH=/usr/local/sbin:/usr/local/bin:$PATH
 
-# include $HOME/bin if it exists
-[[ -e $HOME/bin ]] && export PATH=$HOME/bin:$PATH
+    # include $HOME/bin if it exists
+    [[ -e $HOME/bin ]] && export PATH=$HOME/bin:$PATH
 
-# find and include homebrew-built python
-python_bin=`echo $(brew --cellar python)/*/bin`
-[[ -e $python_bin ]] && export PATH=$python_bin:$PATH
+    # find and include homebrew-built python
+    python_bin=`echo $(brew --cellar python)/*/bin`
+    [[ -e $python_bin ]] && export PATH=$python_bin:$PATH
+fi
 
 ### set general environmental variables
 # Set $TERM for libvte terminals that set $TERM wrong (like gnome-terminal) 
