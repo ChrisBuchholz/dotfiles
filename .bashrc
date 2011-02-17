@@ -75,5 +75,6 @@ pman () {
 
 ### aliases
 alias ls='ls -Gp'
-alias sshtnnl='ssh -D 8080 -f -C -q -N -p 443' # usage: `sshtnnl username@remoteserver`
+alias sshtnnl='ssh -D 8080 -f -C -q -N -p 443' # ssh tunnel on port 443
+                                               # usage: `sshtnnl username@remoteserver`
 alias brewup='brew update; brew install `brew outdated`'
