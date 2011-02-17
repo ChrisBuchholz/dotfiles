@@ -2,6 +2,7 @@
 
 export PS1='[\u@\h \W]\$ '
 
+### modify path if on Darwin ~ Mac OS X
 if [ `uname` == 'Darwin' ]; then
     ### PATH
     # put /usr/local/{sbin,bin} first
