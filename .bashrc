@@ -1,6 +1,5 @@
 [ -z "$PS1" ] && return
 
-
 export PS1='[\u@\h \W]\$ '
 
 ### PATH
