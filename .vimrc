@@ -10,7 +10,7 @@ let g:email = 'christoffer.buchholz@gmail.com'
 set backspace=indent,eol,start
 
 " keep 50 lines of command-history
-set history=50
+set history=1000
 
 " show the cursor position at all times
 set ruler
@@ -26,18 +26,14 @@ if has('mouse')
     set mouse=a
 endif
 
-" make fullscren gui actually fill the whole screen
-if has('gui_running')
-    set fuopt+=maxhorz
-    set guifont=Monospace:h10
-endif
-
 " switch syntax highlighting on when terminal has colors
 " also switch on highlighting the last used search pattern
+" and set proper typeface
 if &t_Co > 2 || has('gui_running')
+    set guifont=Monospace:h10
     syntax on
     set hlsearch
-    set popt+=syntax:y
+    set fuopt+=maxhorz
 endif
 
 " preferences
@@ -67,7 +63,6 @@ set nowrap
 set ignorecase
 set smartcase
 set viminfo='1000,f1,:1000,/1000
-set history=500
 set lazyredraw
 
 " enable filetype plugin

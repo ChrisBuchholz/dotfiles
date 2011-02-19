@@ -10,6 +10,7 @@
 *.vi
 .couchapprc
 *~
+*.pyc
 
 # OS and Editor generated files #
 ################################
