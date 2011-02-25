@@ -8,12 +8,19 @@ if [ `uname` == 'Darwin' ]; then
     # put /usr/local/{sbin,bin} first
     export PATH=/usr/local/sbin:/usr/local/bin:$PATH
 
+    export MANPATH=$HOMEBREWDIR/share/man:$MANPATH
+
     # include $HOME/bin if it exists
-    [[ -e $HOME/bin ]] && export PATH=$HOME/bin:$PATH
+    [[ -e $HOME/.local/bin ]] && export PATH=$HOME/.local/bin:$PATH
+
+    # include $HOME/.gem/ruby/1.8/bin if exists
+    [[ -e $HOME/.gem/ruby/1.8/bin ]] && export PATH=$HOME/.gem/ruby/1.8/bin:$PATH
 
     # find and include homebrew-built python
     python_bin=`echo $(brew --cellar python)/*/bin`
+    python_man=`echo $(brew --cellar python)/*/man`
     [[ -e $python_bin ]] && export PATH=$python_bin:$PATH
+    [[ -e $python_man ]] && export MANPATH=$python_man:$MANPATH
 fi
 
 ### set general environmental variables
@@ -38,6 +45,10 @@ export LANG="da_DK.UTF-8"
 export LC_ALL="da_DK.UTF-8" 
 export CLICOLOR=1
 export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
+
+
+# enable git completion
+source ${HOME}/.git-completion.bash
 
 
 ### functions
