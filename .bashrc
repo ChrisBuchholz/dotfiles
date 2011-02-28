@@ -21,6 +21,10 @@ if [ `uname` == 'Darwin' ]; then
     python_man=`echo $(brew --cellar python)/*/man`
     [[ -e $python_bin ]] && export PATH=$python_bin:$PATH
     [[ -e $python_man ]] && export MANPATH=$python_man:$MANPATH
+
+    # find and include cabal-installations
+    cabal_bin=${HOME}/.cabal/bin
+    export PATH=$cabal_bin:$PATH
 fi
 
 ### set general environmental variables
