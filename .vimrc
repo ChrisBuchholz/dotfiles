@@ -26,14 +26,35 @@ if has('mouse')
     set mouse=a
 endif
 
+if has("gui_running")
+    " disable toolbar, menubar, scrollbars
+    set guioptions=aiA " Disable toolbar, menu bar, scroll bars
+    " hide mouse when typing
+    set mousehide
+    " font
+    set guifont=Meslo\ LG\ M\ DZ:h11
+    " max horizontal height of window
+    set fuopt+=maxhorz
+endif
+
+if has("title")
+    set title
+endif
+
+if has("title") && (has("gui_running") || &title)
+    set titlestring=
+    set titlestring+=%f\ " file name
+    set titlestring+=%h%m%r%w
+    set titlestring+=\ -\ %{v:progname}
+    set titlestring+=\ -\ %{substitute(getcwd(),\ $HOME,\ '~',\ '')}
+endif
+
 " switch syntax highlighting on when terminal has colors
 " also switch on highlighting the last used search pattern
 " and set proper typeface
 if &t_Co > 2 || has('gui_running')
-    set guifont=Monospace:h10
     syntax on
     set hlsearch
-    set fuopt+=maxhorz
 endif
 
 " preferences
@@ -101,26 +122,6 @@ endfunction
 nmap _$ :call Preserve("%s/\\s\\+$//e")<CR>
 nmap _= :call Preserve("normal gg=G")<CR>
 
-if has("gui_running")
-    " disable toolbar, menubar, scrollbars
-    set guioptions=aiA " Disable toolbar, menu bar, scroll bars
-    " hide mouse when typing
-    set mousehide
-    " font
-    set guifont=Monospace\ 8
-endif
-
-if has("title")
-    set title
-endif
-
-if has("title") && (has("gui_running") || &title)
-    set titlestring=
-    set titlestring+=%f\ " file name
-    set titlestring+=%h%m%r%w
-    set titlestring+=\ -\ %{v:progname}
-    set titlestring+=\ -\ %{substitute(getcwd(),\ $HOME,\ '~',\ '')}
-endif
 
 " various UTF-8 mappings
 
