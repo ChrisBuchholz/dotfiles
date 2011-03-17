@@ -32,9 +32,9 @@ if has("gui_running")
     " hide mouse when typing
     set mousehide
     " font
-    set guifont=Meslo\ LG\ M\ DZ:h11
+    "set guifont=Meslo\ LG\ M\ DZ:h11
     " max horizontal height of window
-    set fuopt+=maxhorz
+    "set fuopt+=maxhorz
 endif
 
 if has("title")
@@ -83,7 +83,7 @@ set smartindent
 set nowrap
 set ignorecase
 set smartcase
-set viminfo='1000,f1,:1000,/1000
+"set viminfo='1000,f1,:1000,/1000
 set lazyredraw
 
 " enable filetype plugin
