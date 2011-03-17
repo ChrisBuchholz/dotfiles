@@ -120,6 +120,7 @@ if [ `uname` == 'Linux' ]; then
         } 
     } >/dev/null 2>/dev/null
 
+    PATH=~/.local/bin:$PATH
 fi
 
 # on Mac OS X (darwin)
