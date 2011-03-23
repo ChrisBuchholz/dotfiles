@@ -32,7 +32,7 @@ if has("gui_running")
     " hide mouse when typing
     set mousehide
     " font
-    set guifont=Meslo\ LG\ M\ DZ:h8
+    set guifont=Meslo\ LG\ M\ DZ\ 8
     " max horizontal height of window
     "set fuopt+=maxhorz
 endif
