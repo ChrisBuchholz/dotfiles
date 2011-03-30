@@ -97,6 +97,9 @@ set encoding=utf8
 set fileencoding=utf8
 set fileformat=unix
 
+" nerdtree
+map <F2> :NERDTreeToggle<CR>
+
 " tabs
 map gn :tabnew<CR>
 map gw :tabclose<CR>
