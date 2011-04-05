@@ -1,0 +1,3 @@
+#!/bin/bash
+
+sudo iwconfig eth1 power off
