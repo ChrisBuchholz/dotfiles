@@ -89,6 +89,9 @@ set lazyredraw
 " enable filetype plugin
 filetype plugin on
 
+" indentation
+filetype plugin indent on
+
 " autocommands!
 autocmd FileType make set noexpandtab
 
