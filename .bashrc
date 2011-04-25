@@ -165,11 +165,17 @@ if [ `uname` == 'Darwin' ]; then
     }
 
     alias brewup='brew update; brew install `brew outdated`'
+    
+    # set up virtualenvwrapper
+    WORKON_HOME=$HOME/.virtualenvs
+    source `echo $(brew --cellar python)/*/bin/virtualenvwrapper.sh`
 fi
 
 
 
 # generals
+
+
 
 
 export TERM=xterm-256color
