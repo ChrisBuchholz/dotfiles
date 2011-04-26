@@ -153,8 +153,8 @@ if [ `uname` == 'Darwin' ]; then
     export PATH=/usr/local/share/python:$PATH
 
     # find and include cabal-installations
-    cabal_bin=${HOME}/.cabal/bin
-    export PATH=$cabal_bin:$PATH
+    #cabal_bin=${HOME}/.cabal/bin
+    #export PATH=$cabal_bin:$PATH
 
     export VISUAL=mvim
     export LANG="da_DK.UTF-8"
