@@ -149,6 +149,9 @@ if [ `uname` == 'Darwin' ]; then
     [[ -e $python_bin ]] && export PATH=$python_bin:$PATH
     [[ -e $python_man ]] && export MANPATH=$python_man:$MANPATH
 
+    # also include python scripts
+    export PATH=/usr/local/share/python:$PATH
+
     # find and include cabal-installations
     cabal_bin=${HOME}/.cabal/bin
     export PATH=$cabal_bin:$PATH
@@ -168,7 +171,12 @@ if [ `uname` == 'Darwin' ]; then
     
     # set up virtualenvwrapper
     WORKON_HOME=$HOME/.virtualenvs
-    source `echo $(brew --cellar python)/*/bin/virtualenvwrapper.sh`
+    source /usr/local/share/python/virtualenvwrapper.sh
+
+    # couchdb daemon setup
+    alias couchdb_restart='/usr/bin/sudo launchctl stop org.apache.couchdb'
+    alias couchdb_start='/usr/bin/sudo launchctl load -w /Library/LaunchDaemons/org.apache.couchdb.plist'
+    alias couchdb_stop='/usr/bin/sudo launchctl unload /Library/LaunchDaemons/org.apache.couchdb.plist'
 fi
 
 

@@ -34,7 +34,7 @@ if has("gui_running")
     " font
     set guifont=Meslo\ LG\ M\ DZ\ 8
     " max horizontal height of window
-    "set fuopt+=maxhorz
+    set fuopt+=maxhorz
 endif
 
 if has("title")
