@@ -177,6 +177,9 @@ if [ `uname` == 'Darwin' ]; then
     alias couchdb_restart='/usr/bin/sudo launchctl stop org.apache.couchdb'
     alias couchdb_start='/usr/bin/sudo launchctl load -w /Library/LaunchDaemons/org.apache.couchdb.plist'
     alias couchdb_stop='/usr/bin/sudo launchctl unload /Library/LaunchDaemons/org.apache.couchdb.plist'
+
+    # setup node.js
+    export NODE_PATH=/usr/local/lib/node:$NODE_PATH
 fi
 
 
