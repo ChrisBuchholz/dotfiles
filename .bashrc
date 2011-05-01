@@ -125,6 +125,10 @@ if [ `uname` == 'Linux' ]; then
     # set up virtualenvwrapper
     WORKON_HOME=$HOME/.virtualenvs
     source /usr/local/bin/virtualenvwrapper.sh
+
+    # setup node.js
+    export NODE_PATH=/usr/local/lib/node:$NODE_PATH
+    export NODE_ENV=production
 fi
 
 # on Mac OS X (darwin)
@@ -180,6 +184,7 @@ if [ `uname` == 'Darwin' ]; then
 
     # setup node.js
     export NODE_PATH=/usr/local/lib/node:$NODE_PATH
+    export NODE_ENV=development
 fi
 
 
