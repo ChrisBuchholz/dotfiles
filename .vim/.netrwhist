@@ -1,6 +1,8 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_cnt =6
 let g:netrw_dirhist_1='/Users/cb/Projekter/Aktiver/pup'
 let g:netrw_dirhist_2='/Users/cb/Projekter/Aktiver/pup/pup'
 let g:netrw_dirhist_3='/home/cb'
 let g:netrw_dirhist_4='/Users/cb'
+let g:netrw_dirhist_5='/Users/cb/Projekter/scootchat'
+let g:netrw_dirhist_6='/Users/cb/Projekter/scootchat/views'
