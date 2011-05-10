@@ -185,6 +185,9 @@ if [ `uname` == 'Darwin' ]; then
     # setup node.js
     export NODE_PATH=/usr/local/lib/node:$NODE_PATH
     export NODE_ENV=development
+
+    # setup npm
+    source /usr/local/lib/node_modules/npm/lib/utils/completion.sh
 fi
 
 
