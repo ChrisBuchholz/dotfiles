@@ -1,5 +1,3 @@
-jan="boom"
-
 # on linux
 if [ `uname` == 'Linux' ]; then
     # ~/.bashrc: executed by bash(1) for non-login shells.
@@ -195,7 +193,6 @@ fi
 
 
 # generals
-
 
 
 
