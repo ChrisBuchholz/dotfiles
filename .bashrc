@@ -124,7 +124,7 @@ if [ `uname` == 'Linux' ]; then
 
     # set up virtualenvwrapper
     WORKON_HOME=$HOME/.virtualenvs
-    source /usr/bin/virtualenvwrapper.sh
+    source /usr/local/bin/virtualenvwrapper.sh
 
     # setup node.js
     export NODE_PATH=/usr/local/lib/node:$NODE_PATH
