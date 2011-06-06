@@ -15,6 +15,9 @@ set history=1000
 " show the cursor position at all times
 set ruler
 
+" ignore case
+set noic
+
 " display incomplete commands
 set showcmd
 
@@ -102,6 +105,9 @@ set fileformat=unix
 
 " nerdtree
 map <F2> :NERDTreeToggle<CR>
+
+" pydiction
+let g:pydiction_location = '~/.vim/ftplugin/pydiction/complete-dict'
 
 " tabs
 map gn :tabnew<CR>
