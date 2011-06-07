@@ -7,6 +7,7 @@ filetype off
 
 " call pathogen
 call pathogen#runtime_append_all_bundles()
+call pathogen#helptags()
 
 " credentials
 let g:name = 'Christoffer Buchholz'
@@ -15,7 +16,7 @@ let g:email = 'christoffer.buchholz@gmail.com'
 " allow backspacing over everything in insert-mode
 set backspace=indent,eol,start
 
-" keep 50 lines of command-history
+" keep 1000 lines of command-history
 set history=1000
 
 " show the cursor position at all times
@@ -86,19 +87,16 @@ set matchpairs+=<:>
 set matchtime=3
 set wrap
 set linebreak
-filetype indent on
 set autoindent
 set smartindent
 set nowrap
 set ignorecase
 set smartcase
+
 "set viminfo='1000,f1,:1000,/1000
 set lazyredraw
 
-" enable filetype plugin
-filetype plugin on
-
-" indentation
+" enable filetype plugin and indentation
 filetype plugin indent on
 
 " autocommands!
