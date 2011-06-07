@@ -2,6 +2,12 @@
 " this must be first, because it changes other settings as a side-effect
 set nocompatible
 
+" filetype off fix for pathogen
+filetype off
+
+" call pathogen
+call pathogen#runtime_append_all_bundles()
+
 " credentials
 let g:name = 'Christoffer Buchholz'
 let g:email = 'christoffer.buchholz@gmail.com'
