@@ -49,6 +49,10 @@ if has("gui_running")
     set mousehide
     " font
     set guifont=Meslo\ LG\ M\ DZ\ 8
+endif
+
+if has("gui_macvim")
+    " set macvim specific stuff
     " max horizontal height of window
     set fuopt+=maxhorz
 endif
