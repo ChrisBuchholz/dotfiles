@@ -232,6 +232,5 @@ mktgz() { tar cvzf "${1%%/}.tar.gz"  "${1%%/}/"; }
 mktbz() { tar cvjf "${1%%/}.tar.bz2" "${1%%/}/"; }
 
 ### aliases
-alias ls='ls -Gp'
 alias sshtnnl='ssh -D 8080 -f -C -q -N -p 443' # ssh tunnel on port 443
                                                # usage: `sshtnnl username@remoteserver`

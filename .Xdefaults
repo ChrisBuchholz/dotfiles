@@ -12,15 +12,15 @@ URxvt.buffered:          true
 !URxvt*cursorColor: #803232
 !URxvt*cursorBlink: false 
 
-URxvt*font:           xft:Monospace:pixelsize=10:antialias=false:hinting=true
-URxvt*boldFont:       xft:Monospace:pixelsize=10:antialias=true:bold:hinting=true
-URxvt*italicFont:     xft:Monospace:pixelsize=10:antialias=true:italic:autohint=true:hinting=true
-URxvt*bolditalicFont: xft:Monospace:pixelsize=10:antialias=true:bold:italic:autohint=true:hinting=true
+URxvt*font:           xft:Meslo\ LG\ M\ DZ:pixelsize=11:antialias=false:hinting=true
+URxvt*boldFont:       xft:Meslo\ LG\ M\ DZ:pixelsize=11:antialias=true:bold:hinting=true
+URxvt*italicFont:     xft:Meslo\ LG\ M\ DZ:pixelsize=11:antialias=true:italic:autohint=true:hinting=true
+URxvt*bolditalicFont: xft:Meslo\ LG\ M\ DZ:pixelsize=11:antialias=true:bold:italic:autohint=true:hinting=true
 URxvt*background:     #000000
 URxvt*foreground:     #ffffff
 
 URxvt.perl-ext-common:   default,matcher
-URxvt.urlLauncher:       firefox-beta-bin
+URxvt.urlLauncher:       chromium
 URxvt.matcher.button:    2
 URxvt*matcher.pattern.1: \\b(mailto|http|https|ftp|file):[/]*[\\w-]\\.[\\w./?&@#-]*[\\w/-]
 URxvt*matcher.pattern.2: \\bwww\\.[\\w-]\\.[\\w./?&@#-]*[\\w/-]
