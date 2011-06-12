@@ -130,6 +130,10 @@ if [ `uname` == 'Linux' ]; then
     # setup node.js
     export NODE_PATH=/usr/local/lib/node:$NODE_PATH
     export NODE_ENV=production
+
+    # use pacman in color
+    alias sudo='sudo '
+    alias pacman='pacman-color'
 fi
 
 # on Mac OS X (darwin)

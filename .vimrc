@@ -48,7 +48,7 @@ if has("gui_running")
     " hide mouse when typing
     set mousehide
     " font
-    set guifont=Meslo\ LG\ M\ DZ\ 8
+    set guifont=Meslo\ LG\ M\ DZ\ 9
 endif
 
 if has("gui_macvim")
