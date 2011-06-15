@@ -3,4 +3,4 @@
 ## crontab entry example:
 ## 0-59 * * * * /home/cb/.local/bin/wfix
 
-sudo iwconfig eth1 power off
+iwconfig eth1 power off
