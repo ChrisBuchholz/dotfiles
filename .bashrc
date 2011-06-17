@@ -1,7 +1,7 @@
 # if $STY is not set...
-if [ -z "$STY" ]; then
-    exec screen -U
-fi
+#if [ -z "$STY" ]; then
+#    exec screen -U
+#fi
 
 # on linux
 if [ `uname` == 'Linux' ]; then
