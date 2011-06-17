@@ -12,10 +12,10 @@ URxvt.buffered:          true
 !URxvt*cursorColor: #803232
 !URxvt*cursorBlink: false 
 
-URxvt*font:           xft:Meslo\ LG\ M\ DZ:pixelsize=11:antialias=false:hinting=true
-URxvt*boldFont:       xft:Meslo\ LG\ M\ DZ:pixelsize=11:antialias=true:bold:hinting=true
-URxvt*italicFont:     xft:Meslo\ LG\ M\ DZ:pixelsize=11:antialias=true:italic:autohint=true:hinting=true
-URxvt*bolditalicFont: xft:Meslo\ LG\ M\ DZ:pixelsize=11:antialias=true:bold:italic:autohint=true:hinting=true
+URxvt*font:           xft:Monospace:pixelsize=11:antialias=false:hinting=true
+URxvt*boldFont:       xft:Monospace:pixelsize=11:antialias=true:bold:hinting=true
+URxvt*italicFont:     xft:Monospace:pixelsize=11:antialias=true:italic:autohint=true:hinting=true
+URxvt*bolditalicFont: xft:Monospace:pixelsize=11:antialias=true:bold:italic:autohint=true:hinting=true
 URxvt*background:     #000000
 URxvt*foreground:     #ffffff
 
