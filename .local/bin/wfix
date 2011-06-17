@@ -1,6 +1,6 @@
 #!/bin/bash
 
 ## crontab entry example:
-## 0-59 * * * * /home/cb/.local/bin/wfix
+## *0,*5 * * * * /home/cb/.local/bin/wfix
 
 iwconfig eth1 power off
