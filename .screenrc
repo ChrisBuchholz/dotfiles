@@ -1,5 +1,6 @@
-hardstatus alwayslastline 
-hardstatus string '%{= kG}[ %{G}%H %{g}][%= %{= kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B} %d/%m %{W}%c %{g}]'
+hardstatus alwayslastline
+backtick 1 60 0 sh -c 'cd /sys/class/power_supply/BAT0 && echo $((100 * `cat energy_now` / `cat energy_full`))%'
+hardstatus string '%{= kG}[ %{G}%H %{g}][%= %{= kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][bat:%1`%{B} %d/%m %{W}%c %{g}]'
 vbell on
 startup_message off
 defutf8 on
