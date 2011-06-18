@@ -21,7 +21,7 @@ URxvt*foreground:     #ffffff
 
 URxvt.perl-ext-common:   default,matcher
 URxvt.urlLauncher:       chromium
-URxvt.matcher.button:    2
+URxvt.matcher.button:    1
 URxvt*matcher.pattern.1: \\b(mailto|http|https|ftp|file):[/]*[\\w-]\\.[\\w./?&@#-]*[\\w/-]
 URxvt*matcher.pattern.2: \\bwww\\.[\\w-]\\.[\\w./?&@#-]*[\\w/-]
 URxvt*colorUL:           #86a2be
