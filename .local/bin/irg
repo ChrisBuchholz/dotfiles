@@ -7,4 +7,5 @@ ssh cb@178.79.133.30 -p 443 -o PermitLocalCommand=no ": > .irssi/fnotify ; tail 
     else
         notify-send "${heading}" "${message}"
     fi
+    echo "${heading} ${message} [$( date )]"
 done
