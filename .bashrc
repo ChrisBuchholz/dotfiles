@@ -180,7 +180,8 @@ if [ `uname` == 'Darwin' ]; then
     
     # set up virtualenvwrapper
     WORKON_HOME=$HOME/.virtualenvs
-    source /usr/local/share/python/virtualenvwrapper.sh
+    virtualenvwrapper_path=/usr/local/share/python/virtualenvwrapper.sh
+    [[ -e $virtualenvwrapper_path ]] && source $virtualenvwrapper_path
 
     # couchdb daemon setup
     alias couchdb_restart='/usr/bin/sudo launchctl stop org.apache.couchdb'
@@ -192,7 +193,8 @@ if [ `uname` == 'Darwin' ]; then
     export NODE_ENV=development
 
     # setup npm
-    source /usr/local/lib/node_modules/npm/lib/utils/completion.sh
+    npm_path=/usr/local/lib/node_modules/npm/lib/utils/completion.sh
+    [[ -e npm_path ]] && source $npm_path
 fi
 
 
