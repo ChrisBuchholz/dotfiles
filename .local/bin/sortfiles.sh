@@ -46,7 +46,7 @@ do
     esac
 done
 
-for f in $( find . -maxdepth 1 -type f | sort -n )
+for f in $( find . -maxdepth 1 -type f | sort -nk2 )
 do
     extension=`echo ${f#./*.}`
     num=`printf "%0${padding}d" $iter`
