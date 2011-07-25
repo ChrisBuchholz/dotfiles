@@ -117,7 +117,7 @@ set encoding=utf8
 set fileencoding=utf8
 set fileformat=unix
 
-" jslint
+" :make
 nmap <F4> :w<CR>:make<CR>:cw<CR>
 
 " nerdtree
