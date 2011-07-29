@@ -82,6 +82,8 @@ set bg=dark
 syntax sync fromstart
 let g:molokai_original=1
 colorscheme molokai
+set list listchars=tab:▷⋅,trail:⋅,nbsp:⋅
+set statusline=%F%m%r%h%w\ [TYPE=%Y\ %{&ff}]\ [%l/%L\ (%p%%)
 set number
 set numberwidth=5
 set cursorline
@@ -109,6 +111,10 @@ set lazyredraw
 " enable filetype plugin and indentation
 filetype plugin indent on
 
+au FileType py set autoindent
+au FileType py set smartindent
+au FileType py set textwidth=79 " PEP-8 Friendly
+
 " autocommands!
 autocmd FileType make set noexpandtab
 
@@ -135,6 +141,13 @@ nmap <C-k> [e
 nmap <C-j> ]e
 vmap <C-k> [egv
 vmap <C-j> ]egv
+
+" Viewport Controls
+" ie moving between split panes
+map <silent>,h <C-w>h
+map <silent>,j <C-w>j
+map <silent>,k <C-w>k
+map <silent>,l <C-w>l
 
 " strip trailing whitespaces
 function! Preserve(command)
