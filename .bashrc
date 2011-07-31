@@ -177,8 +177,6 @@ if [ `uname` == 'Darwin' ]; then
         man -t $1 | open -f -a /Applications/Preview.app
     }
 
-    alias brewup='brew update; brew install `brew outdated`'
-    
     # set up virtualenvwrapper
     WORKON_HOME=$HOME/.virtualenvs
     virtualenvwrapper_path=/usr/local/share/python/virtualenvwrapper.sh
