@@ -124,6 +124,10 @@ set encoding=utf8
 set fileencoding=utf8
 set fileformat=unix
 
+" tagbar
+let g:tagbar_usearrows = 1
+nnoremap <leader>l :TagbarToggle<CR>
+
 " :make
 nmap <F4> :w<CR>:make<CR>:cw<CR>
 
@@ -132,10 +136,6 @@ map <F2> :NERDTreeToggle<CR>
 
 " pydiction
 let g:pydiction_location = '~/.vim/ftplugin/pydiction/complete-dict'
-
-" tabs
-map gn :tabnew<CR>
-map gw :tabclose<CR>
 
 " text bubbling - using Tim Pope's unimpaired plugin
 nmap <C-k> [e
