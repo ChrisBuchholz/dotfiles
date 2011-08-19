@@ -110,7 +110,6 @@ set lazyredraw
 
 " enable filetype plugin and indentation
 filetype plugin indent on
-
 au FileType py set autoindent
 au FileType py set smartindent
 au FileType py set textwidth=79 " PEP-8 Friendly
@@ -125,8 +124,8 @@ set fileencoding=utf8
 set fileformat=unix
 
 " tagbar
-let g:tagbar_usearrows = 1
-nnoremap <leader>l :TagbarToggle<CR>
+"let g:tagbar_usearrows = 1
+"nnoremap <leader>l :TagbarToggle<CR>
 
 " :make
 nmap <F4> :w<CR>:make<CR>:cw<CR>
