@@ -123,17 +123,8 @@ set encoding=utf8
 set fileencoding=utf8
 set fileformat=unix
 
-if !exists("autocommands_loaded")
-  let autocommands_loaded = 1
-  autocmd BufRead,BufNewFile,FileReadPost *.py source ~/.vim/python
-endif
-
 " This beauty remembers where you were the last time you edited the file, and returns to the same position.
 au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
-
-" tagbar
-"let g:tagbar_usearrows = 1
-"nnoremap <leader>l :TagbarToggle<CR>
 
 " :make
 nmap <F4> :w<CR>:make<CR>:cw<CR>
