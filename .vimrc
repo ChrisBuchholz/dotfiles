@@ -110,10 +110,6 @@ set lazyredraw
 
 " enable filetype plugin and indentation
 filetype plugin indent on
-au FileType py set autoindent
-au FileType py set smartindent
-au FileType py set textwidth=79 " PEP-8 Friendly
-au BufNewFile,BufRead *.less set filetype=less
 
 " autocommands!
 autocmd FileType make set noexpandtab
@@ -124,7 +120,7 @@ set fileencoding=utf8
 set fileformat=unix
 
 " This beauty remembers where you were the last time you edited the file, and returns to the same position.
-au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
+"au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
 
 " :make
 nmap <F4> :w<CR>:make<CR>:cw<CR>
