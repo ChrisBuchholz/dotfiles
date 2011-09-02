@@ -187,6 +187,9 @@ if [ `uname` == 'Darwin' ]; then
     alias couchdb_start='/usr/bin/sudo launchctl load -w /Library/LaunchDaemons/org.apache.couchdb.plist'
     alias couchdb_stop='/usr/bin/sudo launchctl unload /Library/LaunchDaemons/org.apache.couchdb.plist'
 
+    # homebrew
+    alias brew_up='brew update; brew install `brew outdated`'
+
     # setup node.js
     export NODE_PATH=/usr/local/lib/node:/usr/local/lib/node_modules:$NODE_PATH
     export NODE_ENV=development
@@ -238,4 +241,4 @@ mktbz() { tar cvjf "${1%%/}.tar.bz2" "${1%%/}/"; }
 
 ### aliases
 alias sshtnnl='ssh -D 8080 -f -C -q -N -p 443' # ssh tunnel on port 8080
-                                                # usage: `sshtnnl username@remoteserver`
+                                               # usage: `sshtnnl username@remoteserver`
