@@ -147,7 +147,7 @@ if [ `uname` == 'Darwin' ]; then
 
     export MANPATH=$HOMEBREWDIR/share/man:$MANPATH
 
-    # include $HOME/bin if it exists
+    # include $HOME/.local/bin if it exists
     [[ -e $HOME/.local/bin ]] && export PATH=$HOME/.local/bin:$PATH
 
     # include $HOME/.gem/ruby/1.8/bin if exists
@@ -161,10 +161,6 @@ if [ `uname` == 'Darwin' ]; then
 
     # also include python scripts
     export PATH=/usr/local/share/python:$PATH
-
-    # find and include cabal-installations
-    #cabal_bin=${HOME}/.cabal/bin
-    #export PATH=$cabal_bin:$PATH
 
     export VISUAL=mvim
     export LANG="da_DK.UTF-8"
