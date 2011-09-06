@@ -144,6 +144,12 @@ map <silent>,j <C-w>j
 map <silent>,k <C-w>k
 map <silent>,l <C-w>l
 
+" diff unsaved changes to file
+if !exists(":DiffOrig")
+command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
+            \ | wincmd p | diffthis
+endif
+
 " strip trailing whitespaces
 function! Preserve(command)
     " preparation: save last search, and cursor position.
