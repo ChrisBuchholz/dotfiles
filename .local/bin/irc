@@ -1,3 +1,5 @@
 #!/bin/bash
+
 ~/.local/bin/notify_irc.sh
-ssh cb@178.79.133.30 -p 443
+
+ssh -t cb@178.79.133.30 -p 443 screen -dR
