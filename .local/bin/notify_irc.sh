@@ -6,6 +6,6 @@
     if [ `uname` == 'Darwin' ]; then
         growlnotify -t "${heading}" -m "${message}";
     else
-        notify-send "${heading}" "${message}"
+        notify-send --hint=int:transient:1 "${heading}" "${message}"
     fi
 done)&
