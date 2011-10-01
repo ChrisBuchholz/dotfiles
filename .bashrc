@@ -1,6 +1,5 @@
 #### linux specific settings
 if [ `uname` == 'Linux' ]; then
-
     # If not running interactively, don't do anything
     [ -z "$PS1" ] && return
     # check the window size after each command and, if necessary,
@@ -80,6 +79,9 @@ if [ `uname` == 'Linux' ]; then
 
 #### aliases
 
+    # enable pacman-color
+    alias sudo='sudo '
+    alias pacman='pacman-color'
     # enable color support of ls,grep and stuff, and also add handy aliases
     alias ls='ls --color=auto'
     alias ll='ls -alF'
