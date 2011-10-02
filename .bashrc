@@ -73,9 +73,6 @@ if [ `uname` == 'Linux' ]; then
     VIRTUALENVWRAPPER_PYTHON=/usr/bin/python2.7
     VIRTUALENVWRAPPER_VIRTUALENV=/usr/bin/virtualenv
     source /usr/bin/virtualenvwrapper.sh
-    # setup node.js
-    export NODE_PATH=/usr/local/lib/node:/usr/local/lib/node_modules:$NODE_PATH
-    export NODE_ENV=production
 
 #### aliases
 
@@ -92,9 +89,6 @@ if [ `uname` == 'Linux' ]; then
     alias grep='grep --color=auto'
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
-    # Add an "alert" alias for long running commands.  Use like so:
-    #   sleep 10; alert
-    alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 #### Mac OS X (Darwin) specific settings
 elif [ `uname` == 'Darwin' ]; then
@@ -126,12 +120,6 @@ elif [ `uname` == 'Darwin' ]; then
     WORKON_HOME=$HOME/.virtualenvs
     virtualenvwrapper_path=/usr/local/share/python/virtualenvwrapper.sh
     [[ -e $virtualenvwrapper_path ]] && source $virtualenvwrapper_path
-    # setup node.js
-    export NODE_PATH=/usr/local/lib/node:/usr/local/lib/node_modules:$NODE_PATH
-    export NODE_ENV=development
-    # setup npm
-    npm_path=/usr/local/lib/node_modules/npm/lib/utils/completion.sh
-    [[ -e npm_path ]] && source $npm_path
 
 #### functions
 
