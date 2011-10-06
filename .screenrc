@@ -1,6 +1,5 @@
-hardstatus alwayslastline
-backtick 1 60 0 sh -c 'echo " bat:`~/.local/bin/batt.sh`"'
-hardstatus string '%{= kG}[ %{G}%H %{g}][%= %{= kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%1`%{B} %d/%m %{W}%c %{g}]'
+#hardstatus alwayslastline
+#hardstatus string '%{= kG}[ %{G}%H %{g}][%= %{= kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}]'
 vbell on
 startup_message off
 defutf8 on
