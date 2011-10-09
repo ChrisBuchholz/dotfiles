@@ -146,6 +146,8 @@ map <silent>,j <C-w>j
 map <silent>,k <C-w>k
 map <silent>,l <C-w>l
 
+nnoremap <silent> <F9> :TagbarToggle<CR>
+
 " diff unsaved changes to file
 if !exists(":DiffOrig")
 command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
