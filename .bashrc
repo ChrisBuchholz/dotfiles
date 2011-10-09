@@ -11,10 +11,6 @@ if [ `uname` == 'Linux' ]; then
     if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
         debian_chroot=$(cat /etc/debian_chroot)
     fi
-    # set a fancy prompt (non-color, unless we know we "want" color)
-    case "$TERM" in
-        xterm-color) color_prompt=yes;;
-    esac
     # uncomment for a colored prompt, if the terminal has the capability; turned
     # off by default to not distract the user: the focus in a terminal window
     # should be on the output of commands, not on the prompt
@@ -35,35 +31,12 @@ if [ `uname` == 'Linux' ]; then
         PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
     fi
     unset color_prompt force_color_prompt
-    # If this is an xterm set the title to user@host:dir
-    case "$TERM" in
-    xterm*|rxvt*)
-        PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
-        ;;
-    *)
-        ;;
-    esac
     # enable programmable completion features (you don't need to enable
     # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
     # sources /etc/bash.bashrc).
     if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
         . /etc/bash_completion
     fi
-    # set general environmental variables
-    # Set $TERM for libvte terminals that set $TERM wrong (like gnome-terminal) 
-    { 
-        [ "_$TERM" = "_xterm" ] && type ldd && type grep && type tput && [ -L "/proc/$PPID/exe" ] && { 
-            if ldd /proc/$PPID/exe | grep libvte; then 
-                if [ "`tput -Tgnome-256color colors`" = "256" ]; then 
-                    TERM=gnome-256color 
-                elif [ "`tput -Txterm-256color colors`" = "256" ]; then 
-                    TERM=xterm-256color 
-                elif tput -T gnome; then 
-                    TERM=gnome 
-                fi 
-            fi 
-        } 
-    } >/dev/null 2>/dev/null
 
 #### exports
 
@@ -158,7 +131,7 @@ fi
     # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
     HISTSIZE=1000
     HISTFILESIZE=2000
-    export TERM=xterm-256color
+    #export TERM=xterm-256color
     export EDITOR=vim
     # enable git completion
     source ${HOME}/.git-completion.bash
