@@ -131,7 +131,7 @@ fi
     # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
     HISTSIZE=1000
     HISTFILESIZE=2000
-    #export TERM=xterm-256color
+    export TERM=xterm-256color
     export EDITOR=vim
     # enable git completion
     source ${HOME}/.git-completion.bash
