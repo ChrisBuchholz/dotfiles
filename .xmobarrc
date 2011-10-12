@@ -33,10 +33,10 @@ Config { font = "-*-terminus-*-*-*-*-12-*-*-*-*-*-*-u"
                           , "-n", "yellow"
                           , "-h", "green"
                           ] 10
-                    , Run Battery 
+                    , Run Battery
                           [ "-a", "l"
                           , "-w", "4"
-                          , "-t", "<fc=#8888FF>BAT:</fc> <left>%"
+                          , "-t", "<fc=#8888FF>BAT:</fc> <left><fc=green>%</fc>"
                           , "-L", "25"
                           , "-H", "50"
                           , "-l", "red"
@@ -44,8 +44,9 @@ Config { font = "-*-terminus-*-*-*-*-12-*-*-*-*-*-*-u"
                           , "-h", "green"
                           ] 10
                     , Run Date "%a %b %_d, %H:%M" "date" 10
+                    , Run StdinReader
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = " %StdinReader% }{ %multicpu% <fc=#555555>|</fc> %memory% <fc=#555555>|</fc> %wlan0wi% <fc=#555555>|</fc> %battery% <fc=#555555>|</fc> %date% "
+       , template = "%StdinReader% }{ %multicpu% <fc=#555555>|</fc> %memory% <fc=#555555>|</fc> %wlan0wi% <fc=#555555>|</fc> %battery% <fc=#555555>|</fc> %date%"
        }
