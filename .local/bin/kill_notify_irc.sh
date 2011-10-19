@@ -1,3 +1,3 @@
 #!/bin/bash
 
-pkill -f '.*ssh cb@178.79.133.30 -p 443 -o ServerAliveInterval=31536000'
+pkill -f '.*ssh scootserv -p 443 -o ServerAliveInterval=31536000'

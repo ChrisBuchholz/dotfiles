@@ -2,4 +2,4 @@
 
 ~/.local/bin/notify_irc.sh
 
-ssh -t cb@178.79.133.30 -p 443 screen -dR
+ssh -t scootserv -p 443 screen -dR
