@@ -38,7 +38,7 @@ if [ `uname` == 'Linux' ]; then
         . /etc/bash_completion
     fi
 
-#### exports
+#### linux specific exports
 
     export PATH=~/.local/bin:$PATH
     # set up virtualenvwrapper
@@ -47,7 +47,7 @@ if [ `uname` == 'Linux' ]; then
     VIRTUALENVWRAPPER_VIRTUALENV=/usr/bin/virtualenv
     source /usr/bin/virtualenvwrapper.sh
 
-#### aliases
+#### linux specific aliases
 
     # enable pacman-color
     alias sudo='sudo '
@@ -68,7 +68,7 @@ elif [ `uname` == 'Darwin' ]; then
 
     [ -z "$PS1" ] && return
 
-#### exports
+#### Mac OS X (Darwin) specific exports
 
     export PS1='[\u@\h \W]\$ '
     # put /usr/local/{sbin,bin} first
@@ -94,14 +94,14 @@ elif [ `uname` == 'Darwin' ]; then
     virtualenvwrapper_path=/usr/local/share/python/virtualenvwrapper.sh
     [[ -e $virtualenvwrapper_path ]] && source $virtualenvwrapper_path
 
-#### functions
+#### Mac OS X (Darwin) Specific functions
 
     # open man pages in Preview.app
     pman () {
         man -t $1 | open -f -a /Applications/Preview.app
     }
 
-#### aliases
+#### Mac OS X (Darwin) aliases
 
     alias m="mvim"
     # couchdb daemon setup
@@ -119,7 +119,7 @@ elif [ `uname` == 'Darwin' ]; then
 
 fi
 
-#### not-operating system specifics settings
+#### not-operating system specifics from here on out
 
 #### exports
 
@@ -213,3 +213,10 @@ fi
     # create a ssh tunnel on port 8080
     alias sshtnnl='ssh -D 8080 -f -C -q -N -p 443' # ssh tunnel on port 8080
                                                    # usage: `sshtnnl username@remoteserver`
+
+### bindings
+
+# Up Arrow: search and complete from previous history
+bind '"\eOA": history-search-backward'
+# Down Arrow: search and complete from next history
+bind '"\eOB": history-search-forward'
