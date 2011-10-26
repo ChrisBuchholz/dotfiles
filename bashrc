@@ -108,8 +108,6 @@ elif [ `uname` == 'Darwin' ]; then
     alias couchdb_restart='/usr/bin/sudo launchctl stop org.apache.couchdb'
     alias couchdb_start='/usr/bin/sudo launchctl load -w /Library/LaunchDaemons/org.apache.couchdb.plist'
     alias couchdb_stop='/usr/bin/sudo launchctl unload /Library/LaunchDaemons/org.apache.couchdb.plist'
-    # homebrew
-    alias brew_up='brew update; brew install `brew outdated`'
     # trim new lines and copy to clipboard
     alias c="tr -d '\n' | pbcopy"
     # disable Spotlight
