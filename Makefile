@@ -3,7 +3,7 @@
 DIR = 		
 DOT_DIR = 	fonts local vim
 DOT_FILE = 	Xdefaults bashrc git-completion.bash gitignore \
-		gitmodules inputrc screenrc tmux.conf vimrc
+		inputrc screenrc tmux.conf vimrc
 
 all: install
 
