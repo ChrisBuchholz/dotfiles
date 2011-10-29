@@ -1,36 +1,33 @@
-[submodule ".vim/bundle/tagbar"]
-	path = .vim/bundle/tagbar
+[submodule "vim/bundle/tagbar"]
+	path = vim/bundle/tagbar
 	url = git://github.com/majutsushi/tagbar
-[submodule ".vim/bundle/nerdtree"]
-	path = .vim/bundle/nerdtree
+[submodule "vim/bundle/nerdtree"]
+	path = vim/bundle/nerdtree
 	url = git://github.com/scrooloose/nerdtree.git
-[submodule ".vim/bundle/extradite"]
-	path = .vim/bundle/extradite
+[submodule "vim/bundle/extradite"]
+	path = vim/bundle/extradite
 	url = git://github.com/int3/vim-extradite.git
-[submodule ".vim/bundle/fugitive"]
-	path = .vim/bundle/fugitive
+[submodule "vim/bundle/fugitive"]
+	path = vim/bundle/fugitive
 	url = git://github.com/tpope/vim-fugitive.git
-[submodule ".vim/bundle/supertab"]
-	path = .vim/bundle/supertab
+[submodule "vim/bundle/supertab"]
+	path = vim/bundle/supertab
 	url = git://github.com/ervandew/supertab.git
-[submodule ".vim/bundle/markdown"]
-	path = .vim/bundle/markdown
+[submodule "vim/bundle/markdown"]
+	path = vim/bundle/markdown
 	url = git://github.com/tpope/vim-markdown.git
-[submodule ".vim/bundle/arpeggio"]
-	path = .vim/bundle/arpeggio
+[submodule "vim/bundle/arpeggio"]
+	path = vim/bundle/arpeggio
 	url = git://github.com/kana/vim-arpeggio.git
-[submodule ".vim/bundle/unimpaired"]
-	path = .vim/bundle/unimpaired
+[submodule "vim/bundle/unimpaired"]
+	path = vim/bundle/unimpaired
 	url = https://github.com/tpope/vim-unimpaired.git
-[submodule ".vim/bundle/pydoc"]
-	path = .vim/bundle/pydoc
+[submodule "vim/bundle/pydoc"]
+	path = vim/bundle/pydoc
 	url = https://github.com/fs111/pydoc.vim.git
-[submodule ".vim/bundle/solarized"]
-	path = .vim/bundle/solarized
-	url = git://github.com/altercation/vim-colors-solarized.git
-[submodule ".vim/bundle/closetag"]
-	path = .vim/bundle/closetag
+[submodule "vim/bundle/closetag"]
+	path = vim/bundle/closetag
 	url = https://github.com/vim-scripts/closetag.vim.git
-[submodule ".vim/bundle/jade"]
-	path = .vim/bundle/jade
+[submodule "vim/bundle/jade"]
+	path = vim/bundle/jade
 	url = https://github.com/digitaltoad/vim-jade.git
