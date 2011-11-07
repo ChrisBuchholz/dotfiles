@@ -31,3 +31,9 @@
 [submodule "vim/bundle/jade"]
 	path = vim/bundle/jade
 	url = https://github.com/digitaltoad/vim-jade.git
+[submodule "vim/bundle/preview"]
+	path = vim/bundle/preview
+	url = https://github.com/greyblake/vim-preview.git
+[submodule "vim/bundle/matchit"]
+	path = vim/bundle/matchit
+	url = https://github.com/edsono/vim-matchit.git

@@ -314,3 +314,4 @@ imap <buffer> \Phi Φ
 imap <buffer> \Chi Χ
 imap <buffer> \Psi Ψ
 imap <buffer> \Omega Ω
+
