@@ -19,6 +19,9 @@ set backspace=indent,eol,start
 " keep 1000 lines of command-history
 set history=1000
 
+" only allow 80 column wide
+set colorcolumn=80
+
 " show the cursor position at all times
 set ruler
 
