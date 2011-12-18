@@ -22,9 +22,6 @@
 [submodule "vim/bundle/unimpaired"]
 	path = vim/bundle/unimpaired
 	url = https://github.com/tpope/vim-unimpaired.git
-[submodule "vim/bundle/pydoc"]
-	path = vim/bundle/pydoc
-	url = https://github.com/fs111/pydoc.vim.git
 [submodule "vim/bundle/closetag"]
 	path = vim/bundle/closetag
 	url = https://github.com/vim-scripts/closetag.vim.git

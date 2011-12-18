@@ -133,9 +133,6 @@ nmap <F4> :w<CR>:make<CR>:cw<CR>
 " nerdtree
 map <F2> :NERDTreeToggle<CR>
 
-" pydiction
-let g:pydiction_location = '~/.vim/ftplugin/pydiction/complete-dict'
-
 " text bubbling - using Tim Pope's unimpaired plugin
 nmap <C-k> [e
 nmap <C-j> ]e
