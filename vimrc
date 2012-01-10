@@ -1,44 +1,78 @@
-" use vim settings rather than vi settings
-" this must be first, because it changes other settings as a side-effect
-set nocompatible
+" preamble
 
-" filetype off fix for pathogen
 filetype off
-
-" call pathogen
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
+filetype plugin indent on
+set nocompatible
 
 " credentials
 let g:name = 'Christoffer Buchholz'
 let g:email = 'christoffer.buchholz@gmail.com'
 
-" allow backspacing over everything in insert-mode
+" preferences
+set bg=dark
+syntax sync fromstart
+let g:molokai_original=1
+colorscheme molokai
+set list listchars=tab:▷⋅,trail:⋅,nbsp:⋅
+set statusline=%F%m%r%h%w\ [TYPE=%Y\ %{&ff}]\ [%l/%L\ (%p%%)
+set number
+set numberwidth=5
+set cursorline
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set expandtab
+set hidden
+set scrolloff=3
+set vb t_vb=
+set showmatch
+set matchpairs+=<:>
+set matchtime=3
+set wrap
+set linebreak
+set autoindent
+set smartindent
+set nowrap
+set ignorecase
+set smartcase
+set lazyredraw
+set encoding=utf8
+set fileencoding=utf8
+set fileformat=unix
 set backspace=indent,eol,start
-
-" keep 1000 lines of command-history
 set history=1000
-
-" only allow 80 column wide
 set colorcolumn=80
-
-" show the cursor position at all times
 set ruler
-
-" ignore case
 set noic
-
-" folding settings
 set foldmethod=indent   " fold based on indent
 set foldnestmax=10      " deepest fold is 10 levels
 set nofoldenable        " dont fold by default
 set foldlevel=1         " this is just what i use
-
-" display incomplete commands
 set showcmd
-
-" do incremental search
 set incsearch
+set shell=/bin/bash
+
+" Make Vim able to edit crontab files again.
+set backupskip=/tmp/*,/private/tmp/*" 
+
+" Save when losing focus
+au FocusLost * :wa
+
+" Resize splits when the window is resized
+au VimResized * exe "normal! \<c-w>="
+
+" Make sure Vim returns to the same line when you reopen a file.
+" Thanks, Amit
+augroup line_return
+    au!
+    au BufReadPost *
+        \ if line("'\"") > 0 && line("'\"") <= line("$") |
+        \     execute 'normal! g`"zvzz' |
+        \ endif
+augroup END
+
 
 " in most terminal emulators, the mouse works fine, so enable it!
 if has('mouse')
@@ -82,50 +116,12 @@ if &t_Co > 2 || has('gui_running')
     set hlsearch
 endif
 
-" preferences
-set bg=dark
-syntax sync fromstart
-let g:molokai_original=1
-colorscheme molokai
-set list listchars=tab:▷⋅,trail:⋅,nbsp:⋅
-set statusline=%F%m%r%h%w\ [TYPE=%Y\ %{&ff}]\ [%l/%L\ (%p%%)
-set number
-set numberwidth=5
-set cursorline
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
-set expandtab
-set hidden
-set scrolloff=3
-set vb t_vb=
-set showmatch
-set matchpairs+=<:>
-set matchtime=3
-set wrap
-set linebreak
-set autoindent
-set smartindent
-set nowrap
-set ignorecase
-set smartcase
-
-"set viminfo='1000,f1,:1000,/1000
-set lazyredraw
-
-" enable filetype plugin and indentation
-filetype plugin indent on
-
 " autocommands!
 autocmd FileType make set noexpandtab
 
-" encoding
-set encoding=utf8
-set fileencoding=utf8
-set fileformat=unix
-
-" This beauty remembers where you were the last time you edited the file, and returns to the same position.
-"au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
+" Leader
+let mapleader = ","
+let maplocalleader = "\\"
 
 " :make
 nmap <F4> :w<CR>:make<CR>:cw<CR>
