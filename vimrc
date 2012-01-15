@@ -53,6 +53,9 @@ set foldlevel=1         " this is just what i use
 set showcmd
 set incsearch
 set shell=/bin/bash
+set laststatus=2
+
+let g:Powerline_symbols = 'fancy'
 
 " Make Vim able to edit crontab files again.
 set backupskip=/tmp/*,/private/tmp/*" 
@@ -84,16 +87,12 @@ if has("gui_running")
     set guioptions=aiA " Disable toolbar, menu bar, scroll bars
     " hide mouse when typing
     set mousehide
-    " font
-    set guifont=Meslo\ LG\ M\ DZ\ 10
 endif
 
 if has("gui_macvim")
     " set macvim specific stuff
     " max horizontal height of window
     set fuopt+=maxhorz
-    " font
-    set guifont=Meslo\ LG\ M\ DZ\ 9
 endif
 
 if has("title")
