@@ -68,6 +68,12 @@ elif [ `uname` == 'Darwin' ]; then
 
     [ -z "$PS1" ] && return
 
+#### run tmux on start if not in tmux already
+
+    if [ -z "$TMUX" ]; then
+        tmux
+    fi
+
 #### Mac OS X (Darwin) specific exports
 
     export PS1='[\u@\h \W]\$ '
