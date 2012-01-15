@@ -43,3 +43,12 @@
 [submodule "vim/bundle/vimerl"]
 	path = vim/bundle/vimerl
 	url = https://github.com/oscarh/vimerl.git
+[submodule "vim/bundle/powerline"]
+	path = vim/bundle/powerline
+	url = https://github.com/Lokaltog/vim-powerline.git
+[submodule "fonts/menlo-powerline-patch"]
+	path = fonts/menlo-powerline-patch
+	url = git://gist.github.com/1595572.git
+[submodule "fonts/ubuntu-mono-powerline-patch"]
+	path = fonts/ubuntu-mono-powerline-patch
+	url = https://github.com/scotu/ubuntu-mono-powerline.git
