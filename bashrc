@@ -99,6 +99,8 @@ elif [ `uname` == 'Darwin' ]; then
     WORKON_HOME=$HOME/.virtualenvs
     virtualenvwrapper_path=/usr/local/share/python/virtualenvwrapper.sh
     [[ -e $virtualenvwrapper_path ]] && source $virtualenvwrapper_path
+    # nodejs and npm
+    export NODE_PATH="/usr/local/lib/node_modules"
 
 #### Mac OS X (Darwin) Specific functions
 
