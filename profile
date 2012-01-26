@@ -220,6 +220,7 @@ fi
     alias sshtnnl='ssh -D 8080 -f -C -q -N -p 443' # ssh tunnel on port 8080
                                                    # usage: `sshtnnl username@remoteserver`
     alias schoolprojects='cd ~/Dropbox/Public/www/skole/'
+    alias mvim='mvim -v'
 
 ### bindings
 
