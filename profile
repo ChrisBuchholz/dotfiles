@@ -77,29 +77,22 @@ elif [ `uname` == 'Darwin' ]; then
 #### Mac OS X (Darwin) specific exports
 
     export PS1='[\u@\h \W]\$ '
-    # put /usr/local/{sbin,bin} first
     export PATH=/usr/local/sbin:/usr/local/bin:/usr/local/share/python:$PATH
     export MANPATH=$HOMEBREWDIR/share/man:$MANPATH
-    # include $HOME/.local/bin if it exists
     [[ -e $HOME/.local/bin ]] && export PATH=$HOME/.local/bin:$PATH
-    # include $HOME/.gem/ruby/1.8/bin if exists
     [[ -e $HOME/.gem/ruby/*/bin ]] && export PATH=$HOME/.gem/ruby/*/bin:$PATH
-    # find and include homebrew-built python
     python_bin=`echo $(brew --cellar python)/*/bin`
     python_man=`echo $(brew --cellar python)/*/man`
     [[ -e $python_bin ]] && export PATH=$python_bin:$PATH
     [[ -e $python_man ]] && export MANPATH=$python_man:$MANPATH
-    # also include python scripts
     export VISUAL=mvim
     export LANG="da_DK.UTF-8"
     export LC_ALL="da_DK.UTF-8" 
     export CLICOLOR=1
     export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
-    # set up virtualenvwrapper
     WORKON_HOME=$HOME/.virtualenvs
     virtualenvwrapper_path=/usr/local/share/python/virtualenvwrapper.sh
     [[ -e $virtualenvwrapper_path ]] && source $virtualenvwrapper_path
-    # nodejs and npm
     export NODE_PATH="/usr/local/lib/node_modules"
 
 #### Mac OS X (Darwin) Specific functions
@@ -111,16 +104,12 @@ elif [ `uname` == 'Darwin' ]; then
 
 #### Mac OS X (Darwin) aliases
 
-    alias m="mvim"
-    # couchdb daemon setup
+    alias mvim="mvim -v"
     alias couchdb_restart='/usr/bin/sudo launchctl stop org.apache.couchdb'
     alias couchdb_start='/usr/bin/sudo launchctl load -w /Library/LaunchDaemons/org.apache.couchdb.plist'
     alias couchdb_stop='/usr/bin/sudo launchctl unload /Library/LaunchDaemons/org.apache.couchdb.plist'
-    # trim new lines and copy to clipboard
     alias c="tr -d '\n' | pbcopy"
-    # disable Spotlight
     alias spotoff="sudo mdutil -a -i off"
-    # enable Spotlight
     alias spoton="sudo mdutil -a -i on"
 
 fi
@@ -140,7 +129,7 @@ fi
     export TERM=xterm-256color
     export EDITOR=vim
     # enable git completion
-    source ${HOME}/.git-completion.bash
+    source ${HOME}/.git-completion.sh
 
 #### functions
 
@@ -185,42 +174,29 @@ fi
 
 #### aliases
 
-    # easier navigation: .., ..., ~ and -
     alias ..="cd .."
     alias ...="cd ../.."
-    # list all files colorized in long format, including dot files
+    alias ls="ls -paolgG"
     alias la="ls -Gla"
-    # list only directories
     alias lsd='ls -l | grep "^d"'
-    # undo a `git push`
     alias undopush="git push -f origin HEAD^:master"
-    # IP addresses
     alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
     alias localip="ipconfig getifaddr en1"
     alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
-    # flush Directory Service cache
     alias flush="dscacheutil -flushcache"
-    # view HTTP traffic
     alias sniff="sudo ngrep -d 'en1' -t '^(GET|POST) ' 'tcp and port 80'"
     alias httpdump="sudo tcpdump -i en1 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET \/.*\""
-    # start an HTTP server from a directory
     alias server="open http://localhost:8080/ && python -m SimpleHTTPServer 8080"
-    # Shortcuts
     alias d="cd ~/Dropbox"
     alias p="cd ~/Projekter"
     alias g="git"
     alias v="vim"
-    # file size
     alias fs="stat -f \"%z bytes\""
-    # ROT13-encode text - works for decoding, too! ;)
     alias rot13='tr a-zA-Z n-za-mN-ZA-M'
-    # one of @janmoesen’s ProTip™s
     for method in GET HEAD POST PUT DELETE TRACE OPTIONS; do alias "$method"="lwp-request -m '$method'"; done
-    # create a ssh tunnel on port 8080
     alias sshtnnl='ssh -D 8080 -f -C -q -N -p 443' # ssh tunnel on port 8080
                                                    # usage: `sshtnnl username@remoteserver`
     alias schoolprojects='cd ~/Dropbox/Public/www/skole/'
-    alias mvim='mvim -v'
 
 ### bindings
 

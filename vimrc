@@ -164,6 +164,18 @@ endfunction
 nmap _$ :call Preserve("%s/\\s\\+$//e")<CR>
 nmap _= :call Preserve("normal gg=G")<CR>
 
+" copying and pasting to system clipboard
+nnoremap <leader>y "+y
+vnoremap <leader>y "+y
+
+nnoremap <leader>Y "+Y
+vnoremap <leader>Y "+Y
+
+nnoremap <leader>p "+p
+vnoremap <leader>p "+p
+
+nnoremap <leader>P "+P
+vnoremap <leader>P "+P
 
 " various UTF-8 mappings
 
