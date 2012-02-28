@@ -60,6 +60,10 @@ let g:Powerline_symbols = 'fancy'
 " Make Vim able to edit crontab files again.
 set backupskip=/tmp/*,/private/tmp/*" 
 
+" Store temporary files in a central spot
+set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+
 " Save when losing focus
 au FocusLost * :wa
 
