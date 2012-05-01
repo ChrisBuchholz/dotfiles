@@ -70,9 +70,9 @@ elif [ `uname` == 'Darwin' ]; then
 
 #### run tmux on start if not in tmux already
 
-    if [ -z "$TMUX" ]; then
-        tmux
-    fi
+#    if [ -z "$TMUX" ]; then
+#        tmux
+#    fi
 
 #### Mac OS X (Darwin) specific exports
 
@@ -204,3 +204,12 @@ fi
 bind '"\eOA": history-search-backward'
 # Down Arrow: search and complete from next history
 bind '"\eOB": history-search-forward'
+
+# {{{
+# Node Completion - Auto-generated, do not touch.
+shopt -s progcomp
+for f in $(command ls ~/.node-completion); do
+  f="$HOME/.node-completion/$f"
+  test -f "$f" && . "$f"
+done
+# }}}
