@@ -14,7 +14,7 @@ let g:email = 'christoffer.buchholz@gmail.com'
 set bg=dark
 syntax sync fromstart
 let g:molokai_original=1
-colorscheme smyck
+colorscheme solarized
 set list listchars=tab:▷⋅,trail:⋅,nbsp:⋅
 set statusline=%F%m%r%h%w\ [TYPE=%Y\ %{&ff}]\ [%l/%L\ (%p%%)
 set number
