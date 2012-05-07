@@ -317,7 +317,11 @@
 	<key>NSWindow Frame SUStatusFrame</key>
 	<string>361 440 384 129 0 0 1280 778 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>321 111 570 451 0 0 1280 778 </string>
+	<string>381 107 563 383 0 0 1280 778 </string>
+	<key>NSWindow Frame iTerm Window 1</key>
+	<string>148 59 570 451 0 0 1280 778 </string>
+	<key>NSWindow Frame iTerm Window 2</key>
+	<string>467 44 570 451 0 0 1280 778 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -870,11 +874,11 @@
 			<key>Name</key>
 			<string>Default</string>
 			<key>Non Ascii Font</key>
-			<string>Monaco 12</string>
+			<string>Menlo-RegularForPowerline 12</string>
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>Monaco 12</string>
+			<string>Menlo-RegularForPowerline 12</string>
 			<key>Option Key Sends</key>
 			<integer>2</integer>
 			<key>Prompt Before Closing 2</key>
