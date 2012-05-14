@@ -45,7 +45,6 @@ set backspace=indent,eol,start
 set history=1000
 set colorcolumn=80
 set ruler
-set noic
 set foldmethod=indent   " fold based on indent
 set foldnestmax=10      " deepest fold is 10 levels
 set nofoldenable        " dont fold by default
