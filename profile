@@ -196,7 +196,7 @@ fi
     for method in GET HEAD POST PUT DELETE TRACE OPTIONS; do alias "$method"="lwp-request -m '$method'"; done
     alias sshtnnl='ssh -D 8080 -f -C -q -N -p 443' # ssh tunnel on port 8080
                                                    # usage: `sshtnnl username@remoteserver`
-    alias schoolprojects='cd ~/Dropbox/Public/www/skole/'
+    alias skoleprojekter='cd ~/Dropbox/Public/www/skole/'
 
 ### bindings
 
