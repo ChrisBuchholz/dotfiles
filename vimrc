@@ -137,13 +137,6 @@ nmap <C-j> ]e
 vmap <C-k> [egv
 vmap <C-j> ]egv
 
-" Viewport Controls
-" ie moving between split panes
-map <silent>,h <C-w>h
-map <silent>,j <C-w>j
-map <silent>,k <C-w>k
-map <silent>,l <C-w>l
-
 nnoremap <silent> <F9> :TagbarToggle<CR>
 
 " diff unsaved changes to file
@@ -179,6 +172,9 @@ vnoremap <leader>p "+p
 
 nnoremap <leader>P "+P
 vnoremap <leader>P "+P
+
+" remove trailing whitespace
+nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 
 " various UTF-8 mappings
 
