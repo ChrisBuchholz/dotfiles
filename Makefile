@@ -3,7 +3,7 @@
 DIR = 		
 DOT_DIR = 	fonts local vim iterm2colors
 DOT_FILE = 	Xdefaults profile git-completion.sh gitignore \
-			inputrc screenrc tmux.conf vimrc osx com.googlecode.iterm2.plist
+			inputrc screenrc tmux.conf vimrc osx com.googlecode.iterm2.plist \
 			zshrc zshrc-linux zshrc-osx
 
 all: install
