@@ -43,15 +43,6 @@
 [submodule "vim/bundle/vimerl"]
 	path = vim/bundle/vimerl
 	url = https://github.com/oscarh/vimerl.git
-[submodule "vim/bundle/powerline"]
-	path = vim/bundle/powerline
-	url = https://github.com/Lokaltog/vim-powerline.git
-[submodule "fonts/menlo-powerline-patch"]
-	path = fonts/menlo-powerline-patch
-	url = git://gist.github.com/1595572.git
-[submodule "fonts/ubuntu-mono-powerline-patch"]
-	path = fonts/ubuntu-mono-powerline-patch
-	url = https://github.com/scotu/ubuntu-mono-powerline.git
 [submodule "vim/bundle/syntastic"]
 	path = vim/bundle/syntastic
 	url = https://github.com/scrooloose/syntastic.git
@@ -64,3 +55,9 @@
 [submodule "vim/bundle/solarized"]
 	path = vim/bundle/solarized
 	url = https://github.com/altercation/vim-colors-solarized.git
+[submodule "vim/bundle/molokai"]
+	path = vim/bundle/molokai
+	url = https://github.com/tomasr/molokai.git
+[submodule "iterm2colors/getafe"]
+	path = iterm2colors/getafe
+	url = https://github.com/larssmit/iterm2-getafe.git
