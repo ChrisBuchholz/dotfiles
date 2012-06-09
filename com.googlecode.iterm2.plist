@@ -4097,7 +4097,7 @@
 	<key>NSWindow Frame SUStatusFrame</key>
 	<string>361 440 384 129 0 0 1280 778 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>373 236 570 376 0 0 1280 778 </string>
+	<string>59 117 843 530 0 0 1280 778 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>83 55 570 376 0 0 1280 800 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
@@ -4658,7 +4658,7 @@
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>Menlo-RegularForPowerline 12</string>
+			<string>MesloLGMDZ 12</string>
 			<key>Option Key Sends</key>
 			<integer>2</integer>
 			<key>Prompt Before Closing 2</key>
