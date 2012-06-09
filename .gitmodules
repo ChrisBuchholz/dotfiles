@@ -58,6 +58,9 @@
 [submodule "vim/bundle/molokai"]
 	path = vim/bundle/molokai
 	url = https://github.com/tomasr/molokai.git
-[submodule "iterm2colors/getafe"]
-	path = iterm2colors/getafe
-	url = https://github.com/larssmit/iterm2-getafe.git
+[submodule "iterm2colors/molokai"]
+	path = iterm2colors/molokai
+	url = git://gist.github.com/1423915.git
+[submodule "iterm2colors/baskerville"]
+	path = iterm2colors/baskerville
+	url = https://github.com/baskerville/iTerm-2-Color-Themes.git

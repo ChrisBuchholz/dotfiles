@@ -1,0 +1,33 @@
+export PATH=/usr/local/sbin:/usr/local/bin:/usr/local/share/python:$PATH
+export MANPATH=$HOMEBREWDIR/share/man:$MANPATH
+
+[[ -e $HOME/.local/bin ]] && export PATH=$HOME/.local/bin:$PATH
+[[ -e $HOME/.gem/ruby/*/bin ]] && export PATH=$HOME/.gem/ruby/*/bin:$PATH
+
+[[ -e `echo $(brew --cellar python)/*/bin` ]] && export PATH=$python_bin:$PATH
+[[ -e `echo $(brew --cellar python)/*/man` ]] && export MANPATH=$python_man:$MANPATH
+
+export VISUAL=mvim
+export LANG="da_DK.UTF-8"
+export LC_ALL="da_DK.UTF-8" 
+export CLICOLOR=1
+export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
+
+WORKON_HOME=$HOME/.virtualenvs
+virtualenvwrapper_path=/usr/local/share/python/virtualenvwrapper.sh
+[[ -e $virtualenvwrapper_path ]] && source $virtualenvwrapper_path
+
+export NODE_PATH="/usr/local/lib/node_modules"
+
+plugins=(${plugins[@]} brew osx)
+
+
+#### ----  functions ---- ####
+
+
+# open man pages in Preview.app
+pman () {
+    man -t $1 | open -f -a /Applications/Preview.app
+}
+
+echo ${plugins[@]}
