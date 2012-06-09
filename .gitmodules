@@ -64,3 +64,6 @@
 [submodule "iterm2colors/baskerville"]
 	path = iterm2colors/baskerville
 	url = https://github.com/baskerville/iTerm-2-Color-Themes.git
+[submodule "vim/bundle/nerdcommenter"]
+	path = vim/bundle/nerdcommenter
+	url = https://github.com/scrooloose/nerdcommenter.git
