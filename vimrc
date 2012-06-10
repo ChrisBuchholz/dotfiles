@@ -54,6 +54,9 @@ set incsearch
 set shell=/bin/bash
 set laststatus=2
 
+" powerline
+let g:Powerline_symbols = 'compatible'
+
 " statusline setup
 set statusline =%#identifier#
 set statusline+=[%t]    "tail of the filename
