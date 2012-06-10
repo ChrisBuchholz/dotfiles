@@ -1,7 +1,7 @@
 # Makefile for dotfiles (cf. https://github.com/pix/dotfiles)
 
 DIR = 		
-DOT_DIR = 	fonts local vim iterm2colors oh-my-zsh
+DOT_DIR = 	fonts local vim oh-my-zsh
 DOT_FILE = 	Xdefaults profile git-completion.sh gitignore \
 			inputrc screenrc tmux.conf vimrc osx com.googlecode.iterm2.plist \
 			zshrc zshrc-linux zshrc-osx
