@@ -14,7 +14,7 @@ let g:email = 'christoffer.buchholz@gmail.com'
 syntax on sync fromstart
 set bg=dark
 let g:molokai_original = 0
-colorscheme molokai
+colorscheme solarized
 set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮
 set statusline=%F%m%r%h%w\ [TYPE=%Y\ %{&ff}]\ [%l/%L\ (%p%%)
 set number
