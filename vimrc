@@ -54,17 +54,17 @@ set incsearch
 set shell=/bin/bash
 set laststatus=2
 
-"statusline setup
+" statusline setup
 set statusline =%#identifier#
 set statusline+=[%t]    "tail of the filename
 set statusline+=%*
 
-""display a warning if fileformat isnt unix
+" display a warning if fileformat isnt unix
 set statusline+=%#warningmsg#
 set statusline+=%{&ff!='unix'?'['.&ff.']':''}
 set statusline+=%*
 
-"display a warning if file encoding isnt utf-8
+" display a warning if file encoding isnt utf-8
 set statusline+=%#warningmsg#
 set statusline+=%{(&fenc!='utf-8'&&&fenc!='')?'['.&fenc.']':''}
 set statusline+=%*
@@ -72,19 +72,19 @@ set statusline+=%*
 set statusline+=%h      "help file flag
 set statusline+=%y      "filetype
 
-""read only flag
+" read only flag
 set statusline+=%#identifier#
 set statusline+=%r
 set statusline+=%*
 
-"modified flag
+" modified flag
 set statusline+=%#identifier#
 set statusline+=%m
 set statusline+=%*
 
 set statusline+=%{fugitive#statusline()}
 
-""display a warning if &et is wrong, or we have mixed-indenting
+" display a warning if &et is wrong, or we have mixed-indenting
 set statusline+=%#error#
 set statusline+=%{StatuslineTabWarning()}
 set statusline+=%*
@@ -97,7 +97,7 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
-"display a warning if &paste is set
+" display a warning if &paste is set
 set statusline+=%#error#
 set statusline+=%{&paste?'[paste]':''}
 set statusline+=%*
@@ -109,11 +109,11 @@ set statusline+=%l/%L   "cursor line/total lines
 set statusline+=\ %P    "percent through file
 set laststatus=2
 
-"recalculate the trailing whitespace warning when idle, and after saving
+" recalculate the trailing whitespace warning when idle, and after saving
 autocmd cursorhold,bufwritepost * unlet! b:statusline_trailing_space_warning
 
-"return '[\s]' if trailing white space is detected
-"return '' otherwise
+" return '[\s]' if trailing white space is detected
+" return '' otherwise
 function! StatuslineTrailingSpaceWarning()
     if !exists("b:statusline_trailing_space_warning")
 
@@ -132,7 +132,7 @@ function! StatuslineTrailingSpaceWarning()
 endfunction
 
 
-"return the syntax highlight group under the cursor ''
+" return the syntax highlight group under the cursor ''
 function! StatuslineCurrentHighlight()
     let name = synIDattr(synID(line('.'),col('.'),1),'name')
     if name == ''
@@ -142,12 +142,12 @@ function! StatuslineCurrentHighlight()
     endif
 endfunction
 
-"recalculate the tab warning flag when idle and after writing
+" recalculate the tab warning flag when idle and after writing
 autocmd cursorhold,bufwritepost * unlet! b:statusline_tab_warning
 
-"return '[&et]' if &et is set wrong
-"return '[mixed-indenting]' if spaces and tabs are used to indent
-"return an empty string if everything is fine
+" return '[&et]' if &et is set wrong
+" return '[mixed-indenting]' if spaces and tabs are used to indent
+" return an empty string if everything is fine
 function! StatuslineTabWarning()
     if !exists("b:statusline_tab_warning")
         let b:statusline_tab_warning = ''
@@ -170,16 +170,16 @@ function! StatuslineTabWarning()
     return b:statusline_tab_warning
 endfunction
 
-"recalculate the long line warning when idle and after saving
+" recalculate the long line warning when idle and after saving
 autocmd cursorhold,bufwritepost * unlet! b:statusline_long_line_warning
 
-"return a warning for "long lines" where "long" is either &textwidth or 80 (if
-"no &textwidth is set)
-"
-"return '' if no long lines
-"return '[#x,my,$z] if long lines are found, were x is the number of long
-"lines, y is the median length of the long lines and z is the length of the
-"longest line
+" return a warning for "long lines" where "long" is either &textwidth or 80 (if
+" no &textwidth is set)
+
+" return '' if no long lines
+" return '[#x,my,$z] if long lines are found, were x is the number of long
+" lines, y is the median length of the long lines and z is the length of the
+" longest line
 function! StatuslineLongLineWarning()
     if !exists("b:statusline_long_line_warning")
 
@@ -202,7 +202,7 @@ function! StatuslineLongLineWarning()
     return b:statusline_long_line_warning
 endfunction
 
-"return a list containing the lengths of the long lines in this buffer
+" return a list containing the lengths of the long lines in this buffer
 function! s:LongLines()
     let threshold = (&tw ? &tw : 80)
     let spaces = repeat(" ", &ts)
@@ -210,7 +210,7 @@ function! s:LongLines()
     return filter(line_lens, 'v:val > threshold')
 endfunction
 
-"find the median of the given array of numbers
+" find the median of the given array of numbers
 function! s:Median(nums)
     let nums = sort(a:nums)
     let l = len(nums)
@@ -223,7 +223,7 @@ function! s:Median(nums)
     endif
 endfunction
 
-"nerdtree settings
+" nerdtree settings
 let g:NERDTreeMouseMode = 2
 let g:NERDTreeWinSize = 24
 
