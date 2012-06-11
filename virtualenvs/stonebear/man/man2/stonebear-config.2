@@ -1,0 +1,131 @@
+.\" generated with Ronn/v0.7.3
+.\" http://github.com/rtomayko/ronn/tree/0.7.3
+.
+.TH "STONEBEAR\-CONFIG" "2" "June 2012" "stonebear 0.7.1" "stonebear manual"
+.
+.SH "NAME"
+\fBstonebear\-config\fR \- stonebeard\.py config file format for stonebear
+.
+.SH "SYNOPSIS"
+This is an example of a stonebeard\.py config file for stonebear, that utilises all available options\.
+.
+.P
+This particular example requires the following software to be installed to function:
+.
+.IP "\(bu" 4
+jpegoptim
+.
+.IP "\(bu" 4
+optipng
+.
+.IP "\(bu" 4
+htmlcompressor
+.
+.IP "\(bu" 4
+uglifyjs
+.
+.IP "\(bu" 4
+yuicompressor
+.
+.IP "" 0
+.
+.P
+It uses this software in the \fBcompilers\fR section\.
+.
+.IP "" 4
+.
+.nf
+
+config = {
+    \'compilers\': [
+        [
+            [\'*\.jpg\', \'*\.jpeg\'],
+            \'jpegoptim {file}\'
+        ],
+        [
+            [\'*\.png\'],
+            \'optipng {file}\'
+        ],
+        [
+            [\'*\.html\', \'*\.htm\'],
+            \'htmlcompressor \-o {file} {file}\'
+        ],
+        [
+            [\'*\.js\'],
+            \'uglifyjs \-o {file} {file}\'
+        ],
+        [
+            [\'*\.css\'],
+            \'yuicompressor \-type css \-o {file} {file}\'
+        ]
+    ],
+
+    \'input\':  \'src\',
+    \'output\': \'build\',
+
+    \'remove_from_output_dirs\': [
+        \'*\.psd\',
+        \'\.DS_Store\',
+        \'\.*\.swp\',
+        \'*\.pyc\',
+        \'CACHE\'
+    ],
+
+    \'prebuild\': """
+        echo \'command that executes before build process\'
+    """,
+
+    \'postbuild\': """
+        echo \'command that executes after build process\'
+    """
+
+    \'prepush\': """
+        echo \'command that executes before push process\'
+    """,
+
+    \'postpush\': """
+        echo \'command that executes after push process\'
+    """
+
+    \'preclean\': """
+        echo \'command that executes before clean process\'
+    """,
+
+    \'postclean\': """
+        echo \'command that executes after clean process\'
+    """
+
+    \'environments\': {
+        \'development\': """
+            rsync \-az \-\-delete build/ /var/www/
+        """,
+        \'production\': """
+            rsync \-az \-\-delete build/ \-e ssh user@host\':/var/www/
+        """
+    }
+}
+.
+.fi
+.
+.IP "" 0
+.
+.SH "DESCRIPTION"
+The \fBstonebeard\.py\fR config file is what powers \fBstonebear\fR\. Without it, \fBstonebear\fR will not know what to do\.
+.
+.P
+The config file is a simply Python dictionary that uses a special format, see the example above, which much be followed for \fBstonebear\fR to function\. But \fBstonebeard\.py\fR is just a python script, so you can put any Python code \fIhttp://www\.python\.org/doc/\fR inside it\.
+.
+.P
+If there is a config option that you do not want to modify, simply do not put it in your config dictionary and it will not be utilised\.
+.
+.P
+\fBcompilers\fR are a powerful, and endless way to set up actions to perform on specific files\. \fBcompilers\fR is a list which items must also be lists\. The first item inside this list must be a list containing the filter to match the files that the command, the second item, should be applied to\. This list of filters accepts unix filename patterns to match the filename\. The second item is a bash command, or a series of bash commands, that will get applied to each matched files\. To get a grip on the list\-structure of \fBcompilers\fR, check out the example config file above\.
+.
+.P
+The \fBprebuild\fR, \fBpostbuild\fR, \fBprepush\fR, \fBpostpush\fR, \fBpreclean\fR, \fBpostclean\fR are multiline strings that contains any bash command(s)\. These commands will be executed as the name suggests\.
+.
+.P
+\fBenvironments\fR is a dictionary where you define the environments which you want to push to (e\.g\. development and production environment)\. The key of the item is the name used to refer to the environment(the environment name), and the value is a multiline string containg any bash command(s) that you wish to use to, in one way or another, push your code(preferably the files from [output]) to a server or some other location\. As with the \fBpre\-*\fR and \fBpost\-*\fR commands, this can be any bash commands, but intentionally, it would be something like an rsync command that would push the [output] files and/or folders\.
+.
+.SH "SEE ALSO"
+stonebear(1) \fIhttp://chrisbuchholz\.github\.com/stonebear/man/man1/stonebear\.1\.html\fR Python dictionaries documentation \fIhttp://docs\.python\.org/tutorial/datastructures\.html#dictionaries\fR \fIhttp://github\.com/ChrisBuchholz/stonebear\fR
