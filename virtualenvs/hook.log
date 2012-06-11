@@ -1,0 +1,73 @@
+2012-06-11 08:23:30,839 DEBUG virtualenvwrapper.hook_loader Saving sourcable pre_mkvirtualenv hooks to /tmp/virtualenvwrapper-pre_mkvirtualenv-hook-voQqrGnsZ8
+2012-06-11 08:23:30,982 DEBUG virtualenvwrapper.hook_loader Running pre_activate hooks
+2012-06-11 08:23:30,987 DEBUG virtualenvwrapper.user_scripts pre_activate
+2012-06-11 08:23:30,987 DEBUG virtualenvwrapper.user_scripts running ['/srv/cb/.virtualenvs/preactivate', 'stonebear']
+2012-06-11 08:23:30,994 DEBUG virtualenvwrapper.user_scripts running ['/srv/cb/.virtualenvs/stonebear/bin/preactivate', 'stonebear']
+2012-06-11 08:23:31,011 DEBUG virtualenvwrapper.hook_loader Saving sourcable pre_activate hooks to /tmp/virtualenvwrapper-pre_activate-hook-Qj5wG2w4y9
+2012-06-11 08:23:31,248 DEBUG virtualenvwrapper.hook_loader Running post_activate hooks
+2012-06-11 08:23:31,252 DEBUG virtualenvwrapper.hook_loader Saving sourcable post_activate hooks to /tmp/virtualenvwrapper-post_activate-hook-SonWmB9SDv
+2012-06-11 08:23:31,257 DEBUG virtualenvwrapper.user_scripts post_activate
+2012-06-11 08:23:31,382 DEBUG virtualenvwrapper.hook_loader Running post_mkvirtualenv hooks
+2012-06-11 08:23:31,387 DEBUG virtualenvwrapper.hook_loader Saving sourcable post_mkvirtualenv hooks to /tmp/virtualenvwrapper-post_mkvirtualenv-hook-sIW8PyEqFH
+2012-06-11 08:23:41,115 DEBUG virtualenvwrapper.hook_loader Running initialize hooks
+2012-06-11 08:23:41,126 DEBUG virtualenvwrapper.hook_loader Saving sourcable initialize hooks to /tmp/virtualenvwrapper-initialize-hook-Qv7GFY82sR
+2012-06-11 08:23:50,734 DEBUG virtualenvwrapper.hook_loader Running pre_deactivate hooks
+2012-06-11 08:23:50,745 DEBUG virtualenvwrapper.hook_loader Saving sourcable pre_deactivate hooks to /tmp/virtualenvwrapper-pre_deactivate-hook-LmUZUFEzz2
+2012-06-11 08:23:50,751 DEBUG virtualenvwrapper.user_scripts pre_deactivate
+2012-06-11 08:23:50,879 DEBUG virtualenvwrapper.hook_loader Running post_deactivate hooks
+2012-06-11 08:23:50,883 DEBUG virtualenvwrapper.hook_loader Saving sourcable post_deactivate hooks to /tmp/virtualenvwrapper-post_deactivate-hook-TAmuxJpXSm
+2012-06-11 08:23:50,886 DEBUG virtualenvwrapper.user_scripts post_deactivate
+2012-06-11 08:24:41,655 DEBUG virtualenvwrapper.hook_loader Running initialize hooks
+2012-06-11 08:24:41,672 DEBUG virtualenvwrapper.hook_loader Saving sourcable initialize hooks to /tmp/virtualenvwrapper-initialize-hook-uFOMJUYice
+2012-06-11 08:24:55,826 DEBUG virtualenvwrapper.hook_loader Running initialize hooks
+2012-06-11 08:24:55,833 DEBUG virtualenvwrapper.hook_loader Saving sourcable initialize hooks to /tmp/virtualenvwrapper-initialize-hook-zWquIbajG6
+2012-06-11 08:25:55,929 DEBUG virtualenvwrapper.hook_loader Running pre_activate hooks
+2012-06-11 08:25:55,933 DEBUG virtualenvwrapper.user_scripts pre_activate
+2012-06-11 08:25:55,933 DEBUG virtualenvwrapper.user_scripts running ['/srv/cb/.virtualenvs/preactivate', 'stonebear']
+2012-06-11 08:25:55,941 DEBUG virtualenvwrapper.user_scripts running ['/srv/cb/.virtualenvs/stonebear/bin/preactivate', 'stonebear']
+2012-06-11 08:25:55,955 DEBUG virtualenvwrapper.hook_loader Saving sourcable pre_activate hooks to /tmp/virtualenvwrapper-pre_activate-hook-31DCmik3JC
+2012-06-11 08:25:56,104 DEBUG virtualenvwrapper.hook_loader Running post_activate hooks
+2012-06-11 08:25:56,109 DEBUG virtualenvwrapper.hook_loader Saving sourcable post_activate hooks to /tmp/virtualenvwrapper-post_activate-hook-sDoFa9M0Up
+2012-06-11 08:25:56,113 DEBUG virtualenvwrapper.user_scripts post_activate
+2012-06-11 08:27:02,498 DEBUG virtualenvwrapper.hook_loader Running initialize hooks
+2012-06-11 08:27:02,507 DEBUG virtualenvwrapper.hook_loader Saving sourcable initialize hooks to /tmp/virtualenvwrapper-initialize-hook-vxuwNMWb5R
+2012-06-11 08:27:57,000 DEBUG virtualenvwrapper.hook_loader Running pre_deactivate hooks
+2012-06-11 08:27:57,012 DEBUG virtualenvwrapper.hook_loader Saving sourcable pre_deactivate hooks to /tmp/virtualenvwrapper-pre_deactivate-hook-DvE77bXzdC
+2012-06-11 08:27:57,017 DEBUG virtualenvwrapper.user_scripts pre_deactivate
+2012-06-11 08:27:57,200 DEBUG virtualenvwrapper.hook_loader Running post_deactivate hooks
+2012-06-11 08:27:57,205 DEBUG virtualenvwrapper.hook_loader Saving sourcable post_deactivate hooks to /tmp/virtualenvwrapper-post_deactivate-hook-hTkjDiNGTh
+2012-06-11 08:27:57,208 DEBUG virtualenvwrapper.user_scripts post_deactivate
+2012-06-11 08:28:13,090 DEBUG virtualenvwrapper.hook_loader Running pre_activate hooks
+2012-06-11 08:28:13,093 DEBUG virtualenvwrapper.user_scripts pre_activate
+2012-06-11 08:28:13,094 DEBUG virtualenvwrapper.user_scripts running ['/srv/cb/.virtualenvs/preactivate', 'stonebear']
+2012-06-11 08:28:13,099 DEBUG virtualenvwrapper.user_scripts running ['/srv/cb/.virtualenvs/stonebear/bin/preactivate', 'stonebear']
+2012-06-11 08:28:13,108 DEBUG virtualenvwrapper.hook_loader Saving sourcable pre_activate hooks to /tmp/virtualenvwrapper-pre_activate-hook-gMgTNtwzF3
+2012-06-11 08:28:13,239 DEBUG virtualenvwrapper.hook_loader Running post_activate hooks
+2012-06-11 08:28:13,243 DEBUG virtualenvwrapper.hook_loader Saving sourcable post_activate hooks to /tmp/virtualenvwrapper-post_activate-hook-vPc7vqSjgp
+2012-06-11 08:28:13,246 DEBUG virtualenvwrapper.user_scripts post_activate
+2012-06-11 09:34:48,809 DEBUG virtualenvwrapper.hook_loader Running initialize hooks
+2012-06-11 09:34:48,819 DEBUG virtualenvwrapper.hook_loader Saving sourcable initialize hooks to /tmp/virtualenvwrapper-initialize-hook-ooNh0ypZSx
+2012-06-11 10:03:09,945 DEBUG virtualenvwrapper.hook_loader Running initialize hooks
+2012-06-11 10:03:09,952 DEBUG virtualenvwrapper.hook_loader Saving sourcable initialize hooks to /tmp/virtualenvwrapper-initialize-hook-ujrH3aDwUv
+2012-06-11 10:04:32,512 DEBUG virtualenvwrapper.hook_loader Running initialize hooks
+2012-06-11 10:04:32,521 DEBUG virtualenvwrapper.hook_loader Saving sourcable initialize hooks to /tmp/virtualenvwrapper-initialize-hook-nuf9hLgqJs
+2012-06-11 10:06:12,212 DEBUG virtualenvwrapper.hook_loader Running initialize hooks
+2012-06-11 10:06:12,219 DEBUG virtualenvwrapper.hook_loader Saving sourcable initialize hooks to /tmp/virtualenvwrapper-initialize-hook-DXoF0desg9
+2012-06-11 10:07:58,878 DEBUG virtualenvwrapper.hook_loader Running initialize hooks
+2012-06-11 10:07:58,888 DEBUG virtualenvwrapper.hook_loader Saving sourcable initialize hooks to /tmp/virtualenvwrapper-initialize-hook-ivmPLzaTDN
+2012-06-11 10:08:34,157 DEBUG virtualenvwrapper.hook_loader Running initialize hooks
+2012-06-11 10:08:34,168 DEBUG virtualenvwrapper.hook_loader Saving sourcable initialize hooks to /tmp/virtualenvwrapper-initialize-hook-kzYNDZxFZh
+2012-06-11 10:08:44,855 DEBUG virtualenvwrapper.hook_loader Running pre_activate hooks
+2012-06-11 10:08:44,861 DEBUG virtualenvwrapper.user_scripts pre_activate
+2012-06-11 10:08:44,861 DEBUG virtualenvwrapper.user_scripts running ['/srv/cb/.virtualenvs/preactivate', 'stonebear']
+2012-06-11 10:08:44,869 DEBUG virtualenvwrapper.user_scripts running ['/srv/cb/.virtualenvs/stonebear/bin/preactivate', 'stonebear']
+2012-06-11 10:08:44,884 DEBUG virtualenvwrapper.hook_loader Saving sourcable pre_activate hooks to /tmp/virtualenvwrapper-pre_activate-hook-lNlLHFshxm
+2012-06-11 10:08:45,066 DEBUG virtualenvwrapper.hook_loader Running post_activate hooks
+2012-06-11 10:08:45,071 DEBUG virtualenvwrapper.hook_loader Saving sourcable post_activate hooks to /tmp/virtualenvwrapper-post_activate-hook-Tpj1cQbSdg
+2012-06-11 10:08:45,074 DEBUG virtualenvwrapper.user_scripts post_activate
+2012-06-11 11:35:14,820 DEBUG virtualenvwrapper.hook_loader Running initialize hooks
+2012-06-11 11:35:14,830 DEBUG virtualenvwrapper.hook_loader Saving sourcable initialize hooks to /tmp/virtualenvwrapper-initialize-hook-CGqOitWiJA
+2012-06-11 11:35:21,146 DEBUG virtualenvwrapper.hook_loader Running initialize hooks
+2012-06-11 11:35:21,158 DEBUG virtualenvwrapper.hook_loader Saving sourcable initialize hooks to /tmp/virtualenvwrapper-initialize-hook-i4t6L3AquL
+2012-06-11 11:37:43,877 DEBUG virtualenvwrapper.hook_loader Running initialize hooks
+2012-06-11 11:37:43,884 DEBUG virtualenvwrapper.hook_loader Saving sourcable initialize hooks to /tmp/virtualenvwrapper-initialize-hook-442LhXeWFz
