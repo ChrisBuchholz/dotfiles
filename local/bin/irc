@@ -1,5 +1,5 @@
 #!/bin/bash
 
-~/.local/bin/notify_irc.sh
+#~/.local/bin/notify_irc.sh
 
-ssh -t scootservirc -p 443 screen -rd
+ssh -t scootserv -p 443 screen -r irc

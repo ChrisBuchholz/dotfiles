@@ -37,7 +37,7 @@ deactivate () {
 # unset irrelavent variables
 deactivate nondestructive
 
-VIRTUAL_ENV="/srv/cb/.virtualenvs/stonebear"
+VIRTUAL_ENV="/Users/cb/.dotfiles/virtualenvs/stonebear"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"
@@ -55,7 +55,7 @@ fi
 if [ -z "$VIRTUAL_ENV_DISABLE_PROMPT" ] ; then
     _OLD_VIRTUAL_PS1="$PS1"
     if [ "x" != x ] ; then
-	PS1="$PS1"
+        PS1="$PS1"
     else
     if [ "`basename \"$VIRTUAL_ENV\"`" = "__" ] ; then
         # special case for Aspen magic directories
