@@ -1,5 +1,4 @@
 " preamble
-
 filetype off
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
@@ -11,7 +10,7 @@ let g:name = 'Christoffer Buchholz'
 let g:email = 'christoffer.buchholz@gmail.com'
 
 " preferences
-syntax on sync fromstart
+syntax sync fromstart
 set bg=dark
 let g:molokai_original = 0
 colorscheme molokai
