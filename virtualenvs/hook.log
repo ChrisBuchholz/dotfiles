@@ -41,3 +41,5 @@
 2012-06-11 12:05:10,758 DEBUG virtualenvwrapper.hook_loader Saving sourcable initialize hooks to /var/folders/b7/2yn8d8qd5z5ds5g091tpxcd40000gn/T/virtualenvwrapper-initialize-hook-XXXXXXXXXX.BKf0ugB1
 2012-06-11 12:23:27,192 DEBUG virtualenvwrapper.hook_loader Running initialize hooks
 2012-06-11 12:23:27,204 DEBUG virtualenvwrapper.hook_loader Saving sourcable initialize hooks to /var/folders/b7/2yn8d8qd5z5ds5g091tpxcd40000gn/T/virtualenvwrapper-initialize-hook-XXXXXXXXXX.cDhOjQEX
+2012-06-11 12:58:42,359 DEBUG virtualenvwrapper.hook_loader Running initialize hooks
+2012-06-11 12:58:42,415 DEBUG virtualenvwrapper.hook_loader Saving sourcable initialize hooks to /var/folders/b7/2yn8d8qd5z5ds5g091tpxcd40000gn/T/virtualenvwrapper-initialize-hook-XXXXXXXXXX.qIeSwA5w
