@@ -68,11 +68,6 @@ mktar() { tar cvf  "${1%%/}.tar"     "${1%%/}/"; }
 mktgz() { tar cvzf "${1%%/}.tar.gz"  "${1%%/}/"; }
 mktbz() { tar cvjf "${1%%/}.tar.bz2" "${1%%/}/"; }
 
-# create a new directory and enter it
-md() {
-  mkdir -p "$@" && cd "$@"
-}
-
 # Test if HTTP compression (RFC 2616 + SDCH) is enabled for a given URL.
 # Send a fake UA string for sites that sniff it instead of using the Accept-Encoding header. (Looking at you, ajax.googleapis.com!)
 httpcompression() {
