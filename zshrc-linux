@@ -3,5 +3,5 @@ export PATH=~/.local/bin:$PATH
 # set up virtualenvwrapper
 WORKON_HOME=$HOME/.virtualenvs
 VIRTUALENVWRAPPER_PYTHON=/usr/bin/python2.7
-VIRTUALENVWRAPPER_VIRTUALENV=/usr/bin/virtualenv
+VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
 source /usr/bin/virtualenvwrapper.sh
