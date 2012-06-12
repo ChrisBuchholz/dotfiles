@@ -56,12 +56,25 @@ set laststatus=2
 " powerline
 let g:Powerline_symbols = 'compatible'
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 " statusline setup
 set statusline =%#identifier#
 set statusline+=[%t]    "tail of the filename
 set statusline+=%*
 
-" display a warning if fileformat isnt unix
+"display a warning if fileformat isnt unix
 set statusline+=%#warningmsg#
 set statusline+=%{&ff!='unix'?'['.&ff.']':''}
 set statusline+=%*
