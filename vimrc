@@ -11,9 +11,14 @@ let g:email = 'christoffer.buchholz@gmail.com'
 
 " preferences
 syntax sync fromstart
-set bg=dark
 let g:molokai_original = 0
+let g:Powerline_symbols = 'compatible'
+let g:NERDTreeMouseMode = 2
+let g:NERDTreeWinSize = 24
+let mapleader = ","
+let maplocalleader = "\\"
 colorscheme molokai
+set bg=dark
 set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮
 set statusline=%F%m%r%h%w\ [TYPE=%Y\ %{&ff}]\ [%l/%L\ (%p%%)
 set number
@@ -50,23 +55,55 @@ set nofoldenable        " dont fold by default
 set foldlevel=1         " this is just what i use
 set showcmd
 set incsearch
-set shell=/bin/bash
 set laststatus=2
+set backupskip=/tmp/*,/private/tmp/*" 
+set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 
-" powerline
-let g:Powerline_symbols = 'compatible'
+"spell check when writing commit logs
+autocmd filetype svn,*commit* setlocal spell
 
+" in most terminal emulators, the mouse works fine, so enable it!
+if has('mouse')
+    set mouse=a
+    set ttymouse=xterm2
+endif
 
+if has("gui_running")
+    " disable toolbar, menubar, scrollbars
+    set guioptions=aiA " Disable toolbar, menu bar, scroll bars
+    " hide mouse when typing
+    set mousehide
+endif
 
+if has("gui_macvim")
+    " set macvim specific stuff
+    " max horizontal height of window
+    set fuopt+=maxhorz
+endif
 
+if has("title")
+    set title
+endif
 
+if has("title") && (has("gui_running") || &title)
+    set titlestring=
+    set titlestring+=%f\ " file name
+    set titlestring+=%h%m%r%w
+    set titlestring+=\ -\ %{v:progname}
+    set titlestring+=\ -\ %{substitute(getcwd(),\ $HOME,\ '~',\ '')}
+endif
 
+" switch syntax highlighting on when terminal has colors
+" also switch on highlighting the last used search pattern
+" and set proper typeface
+if &t_Co > 2 || has('gui_running')
+    syntax on
+    set hlsearch
+endif
 
-
-
-
-
-
+" autocommands!
+autocmd FileType make set noexpandtab
 
 
 " statusline setup
@@ -145,7 +182,6 @@ function! StatuslineTrailingSpaceWarning()
     endif
     return b:statusline_trailing_space_warning
 endfunction
-
 
 " return the syntax highlight group under the cursor ''
 function! StatuslineCurrentHighlight()
@@ -238,17 +274,6 @@ function! s:Median(nums)
     endif
 endfunction
 
-" nerdtree settings
-let g:NERDTreeMouseMode = 2
-let g:NERDTreeWinSize = 24
-
-" Make Vim able to edit crontab files again.
-set backupskip=/tmp/*,/private/tmp/*" 
-
-" Store temporary files in a central spot
-set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
-set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
-
 " Save when losing focus
 au FocusLost * :wa
 
@@ -267,67 +292,27 @@ function! SetCursorPosition()
     end
 endfunction
 
-"spell check when writing commit logs
-autocmd filetype svn,*commit* setlocal spell
-
-" in most terminal emulators, the mouse works fine, so enable it!
-if has('mouse')
-    set mouse=a
-    set ttymouse=xterm2
-endif
-
-if has("gui_running")
-    " disable toolbar, menubar, scrollbars
-    set guioptions=aiA " Disable toolbar, menu bar, scroll bars
-    " hide mouse when typing
-    set mousehide
-endif
-
-if has("gui_macvim")
-    " set macvim specific stuff
-    " max horizontal height of window
-    set fuopt+=maxhorz
-endif
-
-if has("title")
-    set title
-endif
-
-if has("title") && (has("gui_running") || &title)
-    set titlestring=
-    set titlestring+=%f\ " file name
-    set titlestring+=%h%m%r%w
-    set titlestring+=\ -\ %{v:progname}
-    set titlestring+=\ -\ %{substitute(getcwd(),\ $HOME,\ '~',\ '')}
-endif
-
-" switch syntax highlighting on when terminal has colors
-" also switch on highlighting the last used search pattern
-" and set proper typeface
-if &t_Co > 2 || has('gui_running')
-    syntax on
-    set hlsearch
-endif
-
-" autocommands!
-autocmd FileType make set noexpandtab
-
-" Leader
-let mapleader = ","
-let maplocalleader = "\\"
+" explorer settings
+nnoremap <F2> :NERDTreeToggle<CR>
+nnoremap <F3> :TagbarToggle<CR>
 
 " :make
 nmap <F4> :w<CR>:make<CR>:cw<CR>
 
-" explorer settings
-nnoremap <F2> :NERDTreeToggle<CR>
-nnoremap <F3> :TagbarToggle<CR>
+" remove trailing whitespace
+nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 
 " text bubbling - using Tim Pope's unimpaired plugin
 nmap <C-k> [e
 nmap <C-j> ]e
 vmap <C-k> [egv
 vmap <C-j> ]egv
+
+" resize current buffer by +/- 5 
+map <A-left> :vertical resize -5<cr>
+map <A-down> :resize +5<cr>
+map <A-up> :resize -5<cr>
+map <A-right> :vertical resize +5<cr>
 
 " diff unsaved changes to file
 if !exists(":DiffOrig")
@@ -351,20 +336,17 @@ nmap _$ :call Preserve("%s/\\s\\+$//e")<CR>
 nmap _= :call Preserve("normal gg=G")<CR>
 
 " copying and pasting to system clipboard
-nnoremap <leader>y "+y
-vnoremap <leader>y "+y
+"nnoremap <leader>y "+y
+"vnoremap <leader>y "+y
 
-nnoremap <leader>Y "+Y
-vnoremap <leader>Y "+Y
+"nnoremap <leader>Y "+Y
+"vnoremap <leader>Y "+Y
 
-nnoremap <leader>p "+p
-vnoremap <leader>p "+p
+"nnoremap <leader>p "+p
+"vnoremap <leader>p "+p
 
-nnoremap <leader>P "+P
-vnoremap <leader>P "+P
-
-" remove trailing whitespace
-nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
+"nnoremap <leader>P "+P
+"vnoremap <leader>P "+P
 
 " various UTF-8 mappings
 
