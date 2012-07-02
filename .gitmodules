@@ -34,9 +34,6 @@
 [submodule "vim/bundle/javascript"]
 	path = vim/bundle/javascript
 	url = https://github.com/pangloss/vim-javascript.git
-[submodule "vim/bundle/jshint"]
-	path = vim/bundle/jshint
-	url = https://github.com/manalang/jshint.vim.git
 [submodule "vim/bundle/vimerl"]
 	path = vim/bundle/vimerl
 	url = https://github.com/oscarh/vimerl.git
