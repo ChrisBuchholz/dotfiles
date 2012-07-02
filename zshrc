@@ -31,8 +31,6 @@ ZSH_THEME="blinks"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(git github node npm pip python)
 
-source $ZSH/oh-my-zsh.sh
-
 export PATH=$HOME/.local/bin:$PATH
 export TERM=xterm-256color
 export EDITOR=vim
@@ -92,6 +90,7 @@ alias sniff="sudo ngrep -d 'en1' -t '^(GET|POST) ' 'tcp and port 80'"
 alias httpdump="sudo tcpdump -i en1 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET \/.*\""
 alias server="open http://localhost:8080/ && python -m SimpleHTTPServer 8080"
 alias tmux='tmux -2'
+alias glog='git log --color --graph --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit --'
 
 
 #### ---- operating system specifics ---- ####
@@ -105,3 +104,9 @@ elif [ "$UNAME" = "Darwin" ]; then
     # Max OS X (Darwin)
     source ~/.zshrc-osx
 fi
+
+
+#### ---- load oh-my-zsh ---- ####
+
+
+source $ZSH/oh-my-zsh.sh

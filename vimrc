@@ -60,6 +60,11 @@ set backupskip=/tmp/*,/private/tmp/*"
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 
+" Use the OS clipboard by default (on versions compiled with `+clipboard`)
+set clipboard=unnamed
+" Enhance command-line completion
+set wildmenu
+
 "spell check when writing commit logs
 autocmd filetype svn,*commit* setlocal spell
 
@@ -312,7 +317,7 @@ vmap <C-j> ]egv
 map <A-left> :vertical resize -5<cr>
 map <A-down> :resize +5<cr>
 map <A-up> :resize -5<cr>
-map <A-right> :vertical resize +5<cr>
+map <A-l> :vertical resize +5
 
 " diff unsaved changes to file
 if !exists(":DiffOrig")
