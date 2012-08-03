@@ -61,3 +61,9 @@
 [submodule "vim/bundle/jshint"]
 	path = vim/bundle/jshint
 	url = https://github.com/walm/jshint.vim.git
+[submodule "vim/bundle/less"]
+	path = vim/bundle/less
+	url = https://github.com/groenewege/vim-less.git
+[submodule "vim/bundle/solarized"]
+	path = vim/bundle/solarized
+	url = https://github.com/altercation/vim-colors-solarized.git

@@ -1,5 +1,0 @@
-#!/Users/cb/.dotfiles/virtualenvs/stonebear/bin/python
-# -*- coding: utf-8 -*-
-
-if __name__ == '__main__':
-    import stonebear.main
