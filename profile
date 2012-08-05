@@ -1,3 +1,5 @@
+echo "test test hest!"
+
 #### linux specific settings
 if [ `uname` == 'Linux' ]; then
     # If not running interactively, don't do anything
