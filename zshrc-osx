@@ -1,11 +1,13 @@
-export PATH=/usr/local/sbin:/usr/local/bin:/usr/local/share/python:$PATH
+export PATH=$HOME/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/local/share/python:$PATH
 export MANPATH=$HOMEBREWDIR/share/man:$MANPATH
+
+[[ -e $HOME/.local/llvm ]] && export PATH=$HOME/.local/llvm/build/Debug+Asserts/bin:$PATH
 
 [[ -e $HOME/.local/bin ]] && export PATH=$HOME/.local/bin:$PATH
 [[ -e $HOME/.gem/ruby/*/bin ]] && export PATH=$HOME/.gem/ruby/*/bin:$PATH
 
-#[[ -e `echo $(brew --cellar python)/*/bin` ]] && export PATH=$python_bin:$PATH
-#[[ -e `echo $(brew --cellar python)/*/man` ]] && export MANPATH=$python_man:$MANPATH
+[[ -e `echo $(brew --cellar python)/*/bin` ]] && export PATH=`echo $(brew --cellar python)/*/bin`:$PATH
+[[ -e `echo $(brew --cellar python)/*/man` ]] && export MANPATH=$python_man:$MANPATH
 
 export VISUAL=mvim
 export LANG="da_DK.UTF-8"

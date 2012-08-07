@@ -1,4 +1,4 @@
-export PATH=~/.local/bin:$PATH
+export PATH=$HOME/.local/bin:$PATH
 
 # set up virtualenvwrapper
 WORKON_HOME=$HOME/.virtualenvs

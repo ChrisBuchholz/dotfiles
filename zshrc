@@ -31,9 +31,10 @@ ZSH_THEME="blinks"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(git github node npm pip python)
 
-export PATH=$HOME/.local/bin:$PATH
 export TERM=xterm-256color
 export EDITOR=vim
+
+unsetopt nomatch
 
 
 #### ----  functions ---- ####
