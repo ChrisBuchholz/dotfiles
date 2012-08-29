@@ -166,6 +166,9 @@ set statusline+=%l/%L   "cursor line/total lines
 set statusline+=\ %P    "percent through file
 set laststatus=2
 
+" change pwd to current-file directory
+autocmd BufEnter * silent! lcd %:p:h
+
 " recalculate the trailing whitespace warning when idle, and after saving
 autocmd cursorhold,bufwritepost * unlet! b:statusline_trailing_space_warning
 
@@ -299,7 +302,7 @@ endfunction
 
 " explorer settings
 nnoremap <F2> :NERDTreeToggle<CR>
-nnoremap <F3> :TagbarToggle<CR>
+nnoremap <F5> :TagbarToggle<CR>
 
 " :make
 nmap <F4> :w<CR>:make<CR>:cw<CR>
