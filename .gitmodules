@@ -67,3 +67,6 @@
 [submodule "oh-my-zsh"]
 	path = oh-my-zsh
 	url = https://github.com/ChrisBuchholz/oh-my-zsh.git
+[submodule "vim/bundle/c++11"]
+	path = vim/bundle/c++11
+	url = https://github.com/vim-scripts/Cpp11-Syntax-Support.git
