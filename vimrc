@@ -335,7 +335,7 @@ nmap _= :call Preserve("normal gg=G")<CR>
 
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
-let g:ctrlp_working_path_mode = 2
+let g:ctrlp_working_path_mode = 'r'
 
 " copying and pasting to system clipboard
 "nnoremap <leader>y "+y
