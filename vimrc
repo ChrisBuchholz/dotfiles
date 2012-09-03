@@ -56,7 +56,7 @@ set foldlevel=1         " this is just what i use
 set showcmd
 set incsearch
 set laststatus=2
-set backupskip=/tmp/*,/private/tmp/*" 
+set backupskip=/tmp/*,/private/tmp/*"
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 
@@ -109,7 +109,6 @@ endif
 
 " autocommands!
 autocmd FileType make set noexpandtab
-
 
 " statusline setup
 set statusline =%#identifier#
@@ -165,9 +164,6 @@ set statusline+=%c,     "cursor column
 set statusline+=%l/%L   "cursor line/total lines
 set statusline+=\ %P    "percent through file
 set laststatus=2
-
-" change pwd to current-file directory
-autocmd BufEnter * silent! lcd %:p:h
 
 " recalculate the trailing whitespace warning when idle, and after saving
 autocmd cursorhold,bufwritepost * unlet! b:statusline_trailing_space_warning
@@ -302,25 +298,19 @@ endfunction
 
 " explorer settings
 nnoremap <F2> :NERDTreeToggle<CR>
-nnoremap <F5> :TagbarToggle<CR>
+nnoremap <F3> :TagbarToggle<CR>
 
 " :make
-nmap <F4> :w<CR>:make<CR>:cw<CR>
+nmap <F5> :w<CR>:make<CR>:cw<CR>
 
 " remove trailing whitespace
-nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
+nnoremap <silent> <F6> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 
 " text bubbling - using Tim Pope's unimpaired plugin
 nmap <C-k> [e
 nmap <C-j> ]e
 vmap <C-k> [egv
 vmap <C-j> ]egv
-
-" resize current buffer by +/- 5 
-map <A-left> :vertical resize -5<cr>
-map <A-down> :resize +5<cr>
-map <A-up> :resize -5<cr>
-map <A-l> :vertical resize +5
 
 " diff unsaved changes to file
 if !exists(":DiffOrig")
