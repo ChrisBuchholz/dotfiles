@@ -12,7 +12,7 @@ let g:email = 'christoffer.buchholz@gmail.com'
 " preferences
 syntax sync fromstart
 let g:molokai_original = 0
-let g:Powerline_symbols = 'compatible'
+let g:Powerline_symbols = 'fancy'
 let g:NERDTreeMouseMode = 2
 let g:NERDTreeWinSize = 24
 let mapleader = ","
@@ -228,13 +228,13 @@ endfunction
 " recalculate the long line warning when idle and after saving
 autocmd cursorhold,bufwritepost * unlet! b:statusline_long_line_warning
 
-" return a warning for "long lines" where "long" is either &textwidth or 80 (if
-" no &textwidth is set)
+"return a warning for "long lines" where "long" is either &textwidth or 80 (if
+"no &textwidth is set)
 
-" return '' if no long lines
-" return '[#x,my,$z] if long lines are found, were x is the number of long
-" lines, y is the median length of the long lines and z is the length of the
-" longest line
+"return '' if no long lines
+"return '[#x,my,$z] if long lines are found, were x is the number of long
+"lines, y is the median length of the long lines and z is the length of the
+"longest line
 function! StatuslineLongLineWarning()
     if !exists("b:statusline_long_line_warning")
 
