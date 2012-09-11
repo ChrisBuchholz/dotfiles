@@ -5,5 +5,10 @@ if [ `uname` == 'Linux' ]; then
     echo $((100 * $energy_now / $energy_full))"%"
 elif [ `uname` == 'Darwin' ]; then
     str=`pmset -g batt`
-    echo ${str:59:3}
+    str=${str:59:3}
+    if [ $str == "cha" ]; then
+        echo " AC"
+    else
+        echo $str
+    fi
 fi
