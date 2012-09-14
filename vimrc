@@ -11,7 +11,7 @@ let g:email = 'christoffer.buchholz@gmail.com'
 
 " preferences
 syntax sync fromstart
-let g:molokai_original = 0
+let g:molokai_original = 1
 let g:Powerline_symbols = 'compatible'
 let g:NERDTreeMouseMode = 2
 let g:NERDTreeWinSize = 24
