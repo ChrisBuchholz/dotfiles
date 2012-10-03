@@ -1,4 +1,4 @@
-export PATH=$HOME/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/local/share/python:$PATH
+export PATH=$HOME/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/local/share/python:/usr/local/share/npm/bin:$PATH
 export MANPATH=$HOMEBREWDIR/share/man:$MANPATH
 
 [[ -e $HOME/.local/bin ]] && export PATH=$HOME/.local/bin:$PATH
