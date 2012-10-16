@@ -2,9 +2,9 @@
 
 DIR = 		
 DOT_DIR = 	fonts local vim oh-my-zsh
-DOT_FILE = 	Xdefaults profile git-completion.sh gitignore \
-			inputrc screenrc tmux.conf vimrc osx zshrc zshrc-linux \
-			zshrc-osx ghci slate xvimrc
+DOT_FILE = 	Xdefaults profile git-completion.sh gitignore inputrc osx ghci \
+			tmux.conf tmux-osx.conf tmux-linux.conf vimrc xvimrc \
+			zshrc zshrc-linux zshrc-osx
 
 all: install
 
