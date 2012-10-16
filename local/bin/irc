@@ -2,4 +2,4 @@
 
 ~/.local/bin/notify_irc.sh
 
-ssh -t scootserv -p 443 screen -r irc
+mosh scootserv --ssh="ssh -p 443" -- tmux attach -t irc
