@@ -2,4 +2,8 @@
 
 ~/.local/bin/notify_irc.sh
 
-mosh scootserv --ssh="ssh -p 443" -- tmux attach -t irc
+if [ -n "$1" ] && [ "$1" = "ssh" ]; then
+    ssh -t scootserv -p 443 tmux attach -t irc
+else
+    mosh scootserv --ssh="ssh -p 443" -- tmux attach -t irc
+fi
