@@ -337,6 +337,12 @@ let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'r'
 
+" tabular maps
+nmap <Leader>a= :Tabularize /=<CR>
+vmap <Leader>a= :Tabularize /=<CR>
+nmap <Leader>a: :Tabularize /:\zs<CR>
+vmap <Leader>a: :Tabularize /:\zs<CR>
+
 " copying and pasting to system clipboard
 "nnoremap <leader>y "+y
 "vnoremap <leader>y "+y
@@ -494,4 +500,3 @@ imap <buffer> \Phi Φ
 imap <buffer> \Chi Χ
 imap <buffer> \Psi Ψ
 imap <buffer> \Omega Ω
-
