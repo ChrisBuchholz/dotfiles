@@ -12,7 +12,7 @@ cutinate()
     inc=$(( 100 / $NUM_HEARTS))
 
     for i in `seq $NUM_HEARTS`; do
-        if [ $perc -lt 100 ]; then
+        if [ $perc -lt 100 ] || [ $1 -lt 11 ]; then
             echo $HEART_EMPTY
         else
             echo $HEART_FULL
