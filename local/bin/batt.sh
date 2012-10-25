@@ -1,14 +1,34 @@
 #!/bin/bash
-if [ `uname` == 'Linux' ]; then
-    energy_now=`cat /sys/class/power_supply/BAT0/energy_now`
-    energy_full=`cat /sys/class/power_supply/BAT0/energy_full`
-    echo $((100 * $energy_now / $energy_full))"%"
-elif [ `uname` == 'Darwin' ]; then
-    str=`pmset -g batt`
-    str=${str:59:3}
-    if [ $str == "cha" ]; then
-        echo " AC"
-    else
-        echo $str
-    fi
+
+## inspired by https://raw.github.com/richoH/dotfiles/master/bin/battery
+
+HEART_FULL=♥
+HEART_EMPTY=♡
+NUM_HEARTS=5
+
+cutinate()
+{
+    perc=$(($1 + 99))
+    inc=$(( 100 / $NUM_HEARTS))
+
+    for i in `seq $NUM_HEARTS`; do
+        if [ $perc -lt 100 ]; then
+            echo $HEART_EMPTY
+        else
+            echo $HEART_FULL
+        fi
+        perc=$(($perc - $inc))
+    done
+}
+
+BATTERY_STATUS=`pmset -g batt`
+BATTERY_STATUS=${BATTERY_STATUS:59:3}
+
+if [ $BATTERY_STATUS == 'cha' ]; then
+    BATTERY_STATUS=`pmset -g batt`
+    BATTERY_STATUS=${BATTERY_STATUS:54:3}
 fi
+
+BATTERY_STATUS=$(echo $BATTERY_STATUS | sed -e 's/%//g')
+
+echo `cutinate $BATTERY_STATUS` 
