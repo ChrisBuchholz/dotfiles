@@ -21,14 +21,6 @@ cutinate()
     done
 }
 
-BATTERY_STATUS=`pmset -g batt`
-BATTERY_STATUS=${BATTERY_STATUS:59:3}
-
-if [ $BATTERY_STATUS == 'cha' ]; then
-    BATTERY_STATUS=`pmset -g batt`
-    BATTERY_STATUS=${BATTERY_STATUS:54:3}
-fi
-
-BATTERY_STATUS=$(echo $BATTERY_STATUS | sed -e 's/%//g')
+BATTERY_STATUS=`pmset -g batt | egrep -o '[0-9]+%' | sed -e 's/%//g'`
 
 echo `cutinate $BATTERY_STATUS` 
