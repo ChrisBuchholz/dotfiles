@@ -7,7 +7,7 @@ export MANPATH=$HOMEBREWDIR/share/man:$MANPATH
 [[ -e `echo $(brew --cellar python)/*/bin` ]] && export PATH=`echo $(brew --cellar python)/*/bin`:$PATH
 [[ -e `echo $(brew --cellar python)/*/man` ]] && export MANPATH=$python_man:$MANPATH
 
-export VISUAL=mvim
+export VISUAL=vim
 export LANG="da_DK.UTF-8"
 export LC_ALL="da_DK.UTF-8" 
 export CLICOLOR=1
@@ -29,10 +29,3 @@ plugins=(${plugins[@]} brew osx)
 pman () {
     man -t $1 | open -f -a /Applications/Preview.app
 }
-
-
-#### ----  functions ---- ####
-
-
-alias vim='mvim -v'
-
