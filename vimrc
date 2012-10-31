@@ -5,6 +5,8 @@ call pathogen#helptags()
 filetype plugin indent on
 set nocompatible
 
+let g:tagbar_ctags_bin = '/usr/local/bin/ctags'
+
 " credentials
 let g:name = 'Christoffer Buchholz'
 let g:email = 'christoffer.buchholz@gmail.com'
