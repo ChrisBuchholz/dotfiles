@@ -356,7 +356,15 @@ vmap <Leader>a: :Tabularize /:\zs<CR>
 "nnoremap <leader>P "+P
 "vnoremap <leader>P "+P
 
-" various UTF-8 mappings
+"disable arrow keys
+map <up> <nop>
+map <down> <nop>
+map <left> <nop>
+map <right> <nop>
+imap <up> <nop>
+imap <down> <nop>
+imap <left> <nop>
+imap <right> <nop>various UTF-8 mappings
 
 " superscripts
 imap <buffer> ^0 ⁰
