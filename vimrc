@@ -311,8 +311,12 @@ nnoremap <silent> <F6> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 " text bubbling - using Tim Pope's unimpaired plugin
 nmap <C-k> [e
 nmap <C-j> ]e
+nmap <C-l> >>
+nmap <C-h> <<
 vmap <C-k> [egv
 vmap <C-j> ]egv
+vmap <C-h> <<Return>gv
+vmap <C-l> ><Return>gv
 
 " diff unsaved changes to file
 if !exists(":DiffOrig")
