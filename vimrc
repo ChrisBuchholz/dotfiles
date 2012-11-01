@@ -315,8 +315,8 @@ nmap <C-l> >>
 nmap <C-h> <<
 vmap <C-k> [egv
 vmap <C-j> ]egv
-vmap <C-h> <<Return>gv
-vmap <C-l> ><Return>gv
+vmap <C-h> <<CR>gv
+vmap <C-l> ><CR>gv
 
 " diff unsaved changes to file
 if !exists(":DiffOrig")
