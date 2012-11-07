@@ -5,8 +5,6 @@ call pathogen#helptags()
 filetype plugin indent on
 set nocompatible
 
-let g:tagbar_ctags_bin = '/usr/local/bin/ctags'
-
 " credentials
 let g:name = 'Christoffer Buchholz'
 let g:email = 'christoffer.buchholz@gmail.com'
@@ -299,11 +297,11 @@ function! SetCursorPosition()
 endfunction
 
 " explorer settings
-nnoremap <F2> :NERDTreeToggle<CR>
-nnoremap <F3> :TagbarToggle<CR>
+nnoremap <silent> <leader>f :NERDTreeToggle<CR>
+nnoremap <silent> <leader>b :TagbarToggle<CR>
 
 " :make
-nmap <F5> :w<CR>:make<CR>:cw<CR>
+nnoremap <silent> <leader>m :w<CR>:make<CR>:cw<CR>
 
 " remove trailing whitespace
 nnoremap <silent> <F6> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
@@ -339,38 +337,47 @@ endfunction
 nmap _$ :call Preserve("%s/\\s\\+$//e")<CR>
 nmap _= :call Preserve("normal gg=G")<CR>
 
+" ctrlp
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'r'
+nnoremap <silent> <leader>t :CtrlPTag<cr>
 
-" tabular maps
-nmap <Leader>a= :Tabularize /=<CR>
-vmap <Leader>a= :Tabularize /=<CR>
-nmap <Leader>a: :Tabularize /:\zs<CR>
-vmap <Leader>a: :Tabularize /:\zs<CR>
+" tabularize
+nmap <leader>a= :Tabularize /=<CR>
+vmap <leader>a= :Tabularize /=<CR>
+nmap <leader>a: :Tabularize /:\zs<CR>
+vmap <leader>a: :Tabularize /:\zs<CR>
 
 " copying and pasting to system clipboard
-"nnoremap <leader>y "+y
-"vnoremap <leader>y "+y
+nnoremap <leader>y "+y
+vnoremap <leader>y "+y
 
-"nnoremap <leader>Y "+Y
-"vnoremap <leader>Y "+Y
+nnoremap <leader>Y "+Y
+vnoremap <leader>Y "+Y
 
-"nnoremap <leader>p "+p
-"vnoremap <leader>p "+p
+nnoremap <leader>p "+p
+vnoremap <leader>p "+p
 
-"nnoremap <leader>P "+P
-"vnoremap <leader>P "+P
+nnoremap <leader>P "+P
+vnoremap <leader>P "+P
 
-"disable arrow keys
-map <up> <nop>
-map <down> <nop>
-map <left> <nop>
-map <right> <nop>
-imap <up> <nop>
-imap <down> <nop>
-imap <left> <nop>
-imap <right> <nop>various UTF-8 mappings
+" generate tags in nearest .git folder
+function! GenerateTagsInNearestGit (...)
+    :let l:gitroot = system("git rev-parse --show-toplevel | sed 's/ /\\ /g' | tr -d '\n'") 
+    :let l:ctags_cmd = 'ctags -R -f '.gitroot.'/.git/tags '.gitroot
+
+    if a:0 > 0
+        :let l:output = system(ctags_cmd)
+    else
+        if filereadable(gitroot . '/.git/tags')
+            :let l:output = system(ctags_cmd)
+        endif
+    endif
+endfunction
+
+nnoremap <leader>t :call GenerateTagsInNearestGit(1)<CR>
+autocmd BufWritePost * call GenerateTagsInNearestGit()
 
 " superscripts
 imap <buffer> ^0 ⁰
