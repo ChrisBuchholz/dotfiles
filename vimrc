@@ -307,13 +307,13 @@ nnoremap <silent> <leader>m :w<CR>:make<CR>:cw<CR>
 nnoremap <silent> <F6> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 
 " text bubbling - using Tim Pope's unimpaired plugin
-nmap <C-k> [e
-nmap <C-j> ]e
-nmap <C-l> >>
 nmap <C-h> <<
-vmap <C-k> [egv
-vmap <C-j> ]egv
+nmap <C-j> ]e
+nmap <C-k> [e
+nmap <C-l> >>
 vmap <C-h> <<CR>gv
+vmap <C-j> ]egv
+vmap <C-k> [egv
 vmap <C-l> ><CR>gv
 
 " diff unsaved changes to file
