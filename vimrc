@@ -366,6 +366,7 @@ vnoremap <leader>P "+P
 function! GenerateTagsInNearestGit (...)
     :let l:gitroot = system("git rev-parse --show-toplevel | sed 's/ /\\ /g' | tr -d '\n'") 
     :let l:ctags_cmd = 'ctags -R -f '.gitroot.'/.git/tags '.gitroot
+    ":let l:ctags_cmd = 'hasktags -c -f '.gitroot.'/.git/tags '.gitroot
 
     if a:0 > 0
         :let l:output = system(ctags_cmd)
