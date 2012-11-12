@@ -2,8 +2,8 @@ export PATH=$HOME/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/local/share/pyt
 export MANPATH=$HOMEBREWDIR/share/man:$MANPATH
 
 [[ -e $HOME/.local/bin ]] && export PATH=$HOME/.local/bin:$PATH
-[[ -e $HOME/.cabal/bin ]] && export PATH=$HOME/.cabal/bin:$PATH
 [[ -e $HOME/.gem/ruby/*/bin ]] && export PATH=$HOME/.gem/ruby/*/bin:$PATH
+[[ -e $HOME/.cabal/bin ]] && export PATH=$HOME/.cabal/bin:$PATH
 
 [[ -e `echo $(brew --cellar python)/*/bin` ]] && export PATH=`echo $(brew --cellar python)/*/bin`:$PATH
 [[ -e `echo $(brew --cellar python)/*/man` ]] && export MANPATH=$python_man:$MANPATH
@@ -30,3 +30,8 @@ plugins=(${plugins[@]} brew osx)
 pman () {
     man -t $1 | open -f -a /Applications/Preview.app
 }
+
+
+#### ---- aliases ---- ####
+
+alias ql='qlmanage -p 2>/dev/null'
