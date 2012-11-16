@@ -34,5 +34,8 @@ pman () {
 
 #### ---- aliases ---- ####
 
+
 alias ql='qlmanage -p 2>/dev/null'
 alias ltop='top -F -R -o cpu'
+# only alias vim to mvim if mvim exists
+hash mvim 2>/dev/null && alias vim='mvim -v'
