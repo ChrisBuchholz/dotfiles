@@ -62,6 +62,7 @@ set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 
 " Use the OS clipboard by default (on versions compiled with `+clipboard`)
 set clipboard=unnamed
+
 " Enhance command-line completion
 set wildmenu
 
@@ -348,19 +349,6 @@ nmap <leader>a= :Tabularize /=<CR>
 vmap <leader>a= :Tabularize /=<CR>
 nmap <leader>a: :Tabularize /:\zs<CR>
 vmap <leader>a: :Tabularize /:\zs<CR>
-
-" copying and pasting to system clipboard
-nnoremap <leader>y "+y
-vnoremap <leader>y "+y
-
-nnoremap <leader>Y "+Y
-vnoremap <leader>Y "+Y
-
-nnoremap <leader>p "+p
-vnoremap <leader>p "+p
-
-nnoremap <leader>P "+P
-vnoremap <leader>P "+P
 
 " generate tags in nearest .git folder
 function! GenerateTagsInNearestGit (...)
