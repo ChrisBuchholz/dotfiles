@@ -345,6 +345,9 @@ let g:ctrlp_working_path_mode = 'r'
 let g:ctrlp_clear_cache_on_exit = 0
 nnoremap <silent> <leader>t :CtrlPTag<cr>
 
+" gundo
+nnoremap <silent> <leader>u :GundoToggle<cr>
+
 " tabularize
 nmap <leader>a= :Tabularize /=<CR>
 vmap <leader>a= :Tabularize /=<CR>
