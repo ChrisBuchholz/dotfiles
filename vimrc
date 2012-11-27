@@ -12,12 +12,15 @@ let g:email = 'christoffer.buchholz@gmail.com'
 " preferences
 syntax sync fromstart
 let g:molokai_original = 1
+let g:badwolf_darkgutter = 1
+let g:badwolf_tabline = 1
 let g:Powerline_symbols = 'compatible'
 let g:NERDTreeMouseMode = 2
 let g:NERDTreeWinSize = 24
 let mapleader = ","
 let maplocalleader = "\\"
-colorscheme molokai
+"colorscheme molokai
+colorscheme badwolf
 set bg=dark
 set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮
 set statusline=%F%m%r%h%w\ [TYPE=%Y\ %{&ff}]\ [%l/%L\ (%p%%)
