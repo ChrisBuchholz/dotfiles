@@ -3,11 +3,12 @@ export MANPATH=$HOMEBREWDIR/share/man:$MANPATH
 
 [[ -e $HOME/.local/bin ]] && export PATH=$HOME/.local/bin:$PATH
 [[ -e $HOME/.gem/ruby/*/bin ]] && export PATH=$HOME/.gem/ruby/*/bin:$PATH
+[[ -e $HOME/.cabal/bin ]] && export PATH=$HOME/.cabal/bin:$PATH
 
 [[ -e `echo $(brew --cellar python)/*/bin` ]] && export PATH=`echo $(brew --cellar python)/*/bin`:$PATH
 [[ -e `echo $(brew --cellar python)/*/man` ]] && export MANPATH=$python_man:$MANPATH
 
-export VISUAL=mvim
+export VISUAL=vim
 export LANG="da_DK.UTF-8"
 export LC_ALL="da_DK.UTF-8" 
 export CLICOLOR=1
@@ -31,8 +32,10 @@ pman () {
 }
 
 
-#### ----  functions ---- ####
+#### ---- aliases ---- ####
 
 
-alias vim='mvim -v'
-
+alias ql='qlmanage -p 2>/dev/null'
+alias ltop='top -F -R -o cpu'
+# only alias vim to mvim if mvim exists
+hash mvim 2>/dev/null && alias vim='mvim -v'
