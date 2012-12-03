@@ -375,6 +375,9 @@ endfunction
 nnoremap <leader>t :call GenerateTagsInNearestGit(1)<CR>
 autocmd BufWritePost * call GenerateTagsInNearestGit()
 
+" clear search highlight
+nnoremap <silent> <esc> :noh<cr><esc> 
+
 " superscripts
 imap <buffer> ^0 ⁰
 imap <buffer> ^1 ¹
