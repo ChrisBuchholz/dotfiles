@@ -22,7 +22,7 @@ virtualenvwrapper_path=/usr/local/share/python/virtualenvwrapper.sh
 
 export NODE_PATH="/usr/local/lib/node_modules"
 
-plugins=(${plugins[@]} brew osx)
+plugins=(${plugins[@]} brew osx git)
 
 
 #### ----  functions ---- ####
@@ -37,7 +37,7 @@ pman () {
 #### ---- aliases ---- ####
 
 
-alias ql='qlmanage -p 2>/dev/null'
+alias ql='qlmanage -p 2>/dev/null' # quicklook
 alias ltop='top -F -R -o cpu'
 # alias vim to mvim if mvim exists
 hash mvim 2>/dev/null && alias vim='mvim -v'
