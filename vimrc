@@ -378,6 +378,10 @@ autocmd BufWritePost * call GenerateTagsInNearestGit()
 " clear search highlight
 nnoremap <leader>/ :noh<cr><esc> 
 
+ " Configure browser for haskell_doc.vim
+let g:haddock_browser = "open"
+let g:haddock_browser_callformat = "%s %s"
+
 " superscripts
 imap <buffer> ^0 ⁰
 imap <buffer> ^1 ¹
