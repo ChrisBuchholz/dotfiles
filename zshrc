@@ -1,6 +1,8 @@
 ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="blinks"
 
+export DISABLE_AUTO_TITLE=true
+
 export TERM=screen-256color
 export EDITOR=vim
 
