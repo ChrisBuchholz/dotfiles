@@ -1,5 +1,9 @@
 " preamble
 filetype off
+let g:pathogen_disabled = []
+"call add(g:pathogen_disabled, 'clang_complete')
+"call add(g:pathogen_disabled, 'syntastic')
+"call add(g:pathogen_disabled, 'supertab')
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 filetype plugin indent on
@@ -71,6 +75,9 @@ set wildmenu
 
 "spell check when writing commit logs
 autocmd filetype svn,*commit* setlocal spell
+
+" use expandtab for c programming
+autocmd Filetype c setlocal expandtab
 
 " in most terminal emulators, the mouse works fine, so enable it!
 if has('mouse')
@@ -300,6 +307,11 @@ function! SetCursorPosition()
     end
 endfunction
 
+" clang complete
+let g:clang_library_path  = '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib'
+let g:clang_user_options  = '|| exit 0'
+let g:clang_close_preview = 1
+
 " explorer settings
 nnoremap <silent> <leader>f :NERDTreeToggle<CR>
 nnoremap <silent> <leader>b :TagbarToggle<CR>
@@ -357,23 +369,23 @@ vmap <leader>a= :Tabularize /=<CR>
 nmap <leader>a: :Tabularize /:\zs<CR>
 vmap <leader>a: :Tabularize /:\zs<CR>
 
-" generate tags in nearest .git folder
-function! GenerateTagsInNearestGit (...)
-    :let l:gitroot = system("git rev-parse --show-toplevel | sed 's/ /\\ /g' | tr -d '\n'") 
-    :let l:ctags_cmd = 'ctags -R -f '.gitroot.'/.git/tags '.gitroot
-    ":let l:ctags_cmd = 'hasktags -c -f '.gitroot.'/.git/tags '.gitroot
+"" generate tags in nearest .git folder
+"function! GenerateTagsInNearestGit (...)
+    ":let l:gitroot = system("git rev-parse --show-toplevel | sed 's/ /\\ /g' | tr -d '\n'") 
+    ":let l:ctags_cmd = 'ctags -R -f '.gitroot.'/.git/tags '.gitroot
+    "":let l:ctags_cmd = 'hasktags -c -f '.gitroot.'/.git/tags '.gitroot
 
-    if a:0 > 0
-        :let l:output = system(ctags_cmd)
-    else
-        if filereadable(gitroot . '/.git/tags')
-            :let l:output = system(ctags_cmd)
-        endif
-    endif
-endfunction
+    "if a:0 > 0
+        ":let l:output = system(ctags_cmd)
+    "else
+        "if filereadable(gitroot . '/.git/tags')
+            ":let l:output = system(ctags_cmd)
+        "endif
+    "endif
+"endfunction
 
-nnoremap <leader>t :call GenerateTagsInNearestGit(1)<CR>
-autocmd BufWritePost * call GenerateTagsInNearestGit()
+"nnoremap <leader>t :call GenerateTagsInNearestGit(1)<CR>
+"autocmd BufWritePost * call GenerateTagsInNearestGit()
 
 " clear search highlight
 nnoremap <leader>/ :noh<cr><esc> 
