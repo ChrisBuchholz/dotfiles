@@ -1,3 +1,4 @@
+set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮
 set number
 set numberwidth=5
 set cursorline
@@ -24,6 +25,7 @@ set nofoldenable        " dont fold by default
 set foldlevel=1         " this is just what i use
 set showcmd
 set incsearch
+set laststatus=2
 
 " various UTF-8 mappings
 
@@ -169,4 +171,3 @@ imap <buffer> \Phi Φ
 imap <buffer> \Chi Χ
 imap <buffer> \Psi Ψ
 imap <buffer> \Omega Ω
-
