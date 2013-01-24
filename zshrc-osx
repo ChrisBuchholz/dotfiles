@@ -10,6 +10,9 @@ export MANPATH=$HOMEBREWDIR/share/man:$MANPATH
 [[ -e `echo $(brew --cellar python3)/*/bin` ]] && export PATH=`echo $(brew --cellar python3)/*/bin`:$PATH
 [[ -e `echo $(brew --cellar python3)/*/man` ]] && export MANPATH=$python_man:$MANPATH
 
+export GOPATH=$HOME/.go:$GOPATH
+[[ -e $HOME/.go/bin ]] && export PATH=$HOME/.go/bin:$PATH
+
 export VISUAL=vim
 export LANG="da_DK.UTF-8"
 export LC_ALL="da_DK.UTF-8" 

@@ -387,6 +387,37 @@ vmap <leader>a: :Tabularize /:\zs<CR>
 "nnoremap <leader>t :call GenerateTagsInNearestGit(1)<CR>
 "autocmd BufWritePost * call GenerateTagsInNearestGit()
 
+" go stuff
+let g:tagbar_type_go = {
+    \ 'ctagstype' : 'go',
+    \ 'kinds'     : [
+        \ 'p:package',
+        \ 'i:imports:1',
+        \ 'c:constants',
+        \ 'v:variables',
+        \ 't:types',
+        \ 'n:interfaces',
+        \ 'w:fields',
+        \ 'e:embedded',
+        \ 'm:methods',
+        \ 'r:constructor',
+        \ 'f:functions'
+    \ ],
+    \ 'sro' : '.',
+    \ 'kind2scope' : {
+        \ 't' : 'ctype',
+        \ 'n' : 'ntype'
+    \ },
+    \ 'scope2kind' : {
+        \ 'ctype' : 't',
+        \ 'ntype' : 'n'
+    \ },
+    \ 'ctagsbin'  : 'gotags',
+    \ 'ctagsargs' : '-sort -silent'
+\ }
+
+autocmd FileType go autocmd BufWritePre <buffer> :silent Fmt
+
 " clear search highlight
 nnoremap <leader>/ :noh<cr><esc> 
 
