@@ -8,6 +8,9 @@ export EDITOR=vim
 
 unsetopt nomatch
 
+# terminal fix to bring back git completion
+zstyle ':completion:*:*:git:*' script /usr/local/etc/bash_completion.d/git-completion.bash
+
 
 #### ----  functions ---- ####
 
