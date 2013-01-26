@@ -53,8 +53,8 @@ digga() {
   dig +nocmd "$1" any +multiline +noall +answer
 }
 
-# mkdir and cd into it
-mkcd() {
+# make and cd into directory
+mcd() {
     if [ ! -n "$1" ]; then
         echo "enter the name of the directory that is to be created and then entered"
     elif [ -d "$1" ]; then
