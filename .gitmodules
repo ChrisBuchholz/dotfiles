@@ -94,3 +94,6 @@
 [submodule "vim/bundle/golang"]
 	path = vim/bundle/golang
 	url = https://github.com/jnwhiteh/vim-golang.git
+[submodule "vim/bundle/seek"]
+	path = vim/bundle/seek
+	url = https://github.com/goldfeld/vim-seek.git
