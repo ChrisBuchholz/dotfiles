@@ -6,6 +6,8 @@ export DISABLE_AUTO_TITLE=true
 export TERM=screen-256color
 export EDITOR=vim
 
+export GPGKEY=7EA01D78
+
 unsetopt nomatch
 
 # terminal fix to bring back git completion
