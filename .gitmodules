@@ -91,6 +91,3 @@
 [submodule "vim/bundle/seek"]
 	path = vim/bundle/seek
 	url = https://github.com/goldfeld/vim-seek.git
-[submodule "vim/bundle/YouCompleteMe"]
-	path = vim/bundle/YouCompleteMe
-	url = https://github.com/Valloric/YouCompleteMe.git
