@@ -59,27 +59,6 @@ digga() {
 #### aliases
 
 alias ..="cd .."
-alias ...="cd ../.."
-alias ls="ls -paolgG"
-alias la="ls -Gla"
-alias lsd='ls -l | grep "^d"'
-alias undopush="git push -f origin HEAD^:master"
-alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
-alias localip="ipconfig getifaddr en1"
-alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
-alias flush="dscacheutil -flushcache"
-alias sniff="sudo ngrep -d 'en1' -t '^(GET|POST) ' 'tcp and port 80'"
-alias httpdump="sudo tcpdump -i en1 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET \/.*\""
-alias server="open http://localhost:8080/ && python -m SimpleHTTPServer 8080"
-alias d="cd ~/Dropbox"
-alias p="cd ~/Projekter"
-alias g="git"
-alias v="vim"
-alias fs="stat -f \"%z bytes\""
-alias rot13='tr a-zA-Z n-za-mN-ZA-M'
-for method in GET HEAD POST PUT DELETE TRACE OPTIONS; do alias "$method"="lwp-request -m '$method'"; done
-alias sshtnnl='ssh -D 8080 -f -C -q -N -p 443' # ssh tunnel on port 8080
-                                               # usage: `sshtnnl username@remoteserver`
 
 ### bindings
 
