@@ -1,4 +1,4 @@
-export PATH=~/.local/bin:$PATH
+export PATH=$HOME/.local/bin:$PATH
 
 export CLICOLOR=1
 export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
@@ -15,7 +15,9 @@ export TERM=xterm-256color
 export EDITOR=vim
 export VISUAL=vim
 
-#### functions
+
+#### ----  functions ---- ####
+
 
 # easy extraction
 extract () {
@@ -38,27 +40,48 @@ extract () {
       echo "'$1' is not a valid file!"
   fi
 }
+
 # creates an archive from given directory
 mktar() { tar cvf  "${1%%/}.tar"     "${1%%/}/"; }
 mktgz() { tar cvzf "${1%%/}.tar.gz"  "${1%%/}/"; }
 mktbz() { tar cvjf "${1%%/}.tar.bz2" "${1%%/}/"; }
-# create a new directory and enter it
-md() {
-  mkdir -p "$@" && cd "$@"
-}
+
 # Test if HTTP compression (RFC 2616 + SDCH) is enabled for a given URL.
 # Send a fake UA string for sites that sniff it instead of using the Accept-Encoding header. (Looking at you, ajax.googleapis.com!)
 httpcompression() {
   encoding="$(curl -LIs -H 'User-Agent: Mozilla/5 Gecko' -H 'Accept-Encoding: gzip,deflate,compress,sdch' "$1" | grep '^Content-Encoding:')" && echo "$1 is encoded using ${encoding#* }" || echo "$1 is not using any encoding"
 }
+
 # all the dig info
 digga() {
   dig +nocmd "$1" any +multiline +noall +answer
 }
 
+# make and cd into directory
+mcd() {
+    if [ ! -n "$1" ]; then
+        echo "enter the name of the directory that is to be created and then entered"
+    elif [ -d "$1" ]; then
+        echo "$1 already exists"
+    else
+        mkdir $1 && cd $1
+    fi
+}
+
 #### aliases
 
 alias ..="cd .."
+alias sshtnnl='ssh -D 8080 -f -C -q -N -p 443' # ssh tunnel on port 8080
+alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias localip="ipconfig getifaddr en1"
+alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
+alias flush="dscacheutil -flushcache"
+alias sniff="sudo ngrep -d 'en1' -t '^(GET|POST) ' 'tcp and port 80'"
+alias httpdump="sudo tcpdump -i en1 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET \/.*\""
+alias server="open http://localhost:8080/ && python -m SimpleHTTPServer 8080"
+alias tmux='tmux -2'
+alias glog='git log --color --graph --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit --'
+alias gsubpl='git submodule foreach git pull'
 
 ### bindings
 
