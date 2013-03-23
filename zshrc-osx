@@ -1,3 +1,4 @@
+
 export PATH=$HOME/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/local/share/python3:/usr/local/share/python:/usr/local/share/npm/bin:$PATH
 export MANPATH=$HOMEBREWDIR/share/man:$MANPATH
 
@@ -11,7 +12,8 @@ export PATH=/usr/local/Cellar/python3/*/bin:$PATH
 export GOPATH=$HOME/.go:$GOPATH
 export PATH=$HOME/.go/bin:$PATH
 
-export VISUAL=vim
+export EDITOR='sublime -w'
+export VISUAL='sublime -w'
 export LANG="da_DK.UTF-8"
 export LC_ALL="da_DK.UTF-8" 
 export CLICOLOR=1
@@ -40,5 +42,6 @@ pman () {
 
 alias ql='qlmanage -p 2>/dev/null' # quicklook
 alias ltop='top -F -R -o cpu'
+alias st='sublime; sleep 0; sublime -add .'
 hash mvim 2>/dev/null && alias vim='mvim -v' # alias vim to mvim if mvim exists
 
