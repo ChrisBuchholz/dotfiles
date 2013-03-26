@@ -82,7 +82,7 @@ alias httpdump="sudo tcpdump -i en1 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET
 alias server="open http://localhost:8080/ && python -m SimpleHTTPServer 8080"
 alias tmux='tmux -2'
 alias glog='git log --color --graph --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit --'
-alias gsubpl='git submodule foreach git pull'
+alias gsubpull='git submodule foreach git pull origin master'
 
 
 #### ---- operating system specifics ---- ####
