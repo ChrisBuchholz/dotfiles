@@ -26,6 +26,7 @@ let maplocalleader = "\\"
 "colorscheme molokai
 colorscheme badwolf
 set bg=dark
+set list
 set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮
 set statusline=%F%m%r%h%w\ [TYPE=%Y\ %{&ff}]\ [%l/%L\ (%p%%)
 set number
