@@ -77,9 +77,6 @@ set wildmenu
 "spell check when writing commit logs
 autocmd filetype svn,*commit* setlocal spell
 
-" use expandtab for c programming
-autocmd Filetype c setlocal expandtab
-
 " in most terminal emulators, the mouse works fine, so enable it!
 if has('mouse')
     set mouse=a
@@ -421,9 +418,6 @@ autocmd FileType go autocmd BufWritePre <buffer> :silent Fmt
 
 " clear search highlight
 nnoremap <leader>/ :noh<cr><esc> 
-
-" dont expand tab in Makefiles
-au BufRead,BufNewFile Makefile set noexpandtab
 
  " Configure browser for haskell_doc.vim
 let g:haddock_browser = "open"
