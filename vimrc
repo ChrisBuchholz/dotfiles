@@ -422,6 +422,9 @@ autocmd FileType go autocmd BufWritePre <buffer> :silent Fmt
 " clear search highlight
 nnoremap <leader>/ :noh<cr><esc> 
 
+" dont expand tab in Makefiles
+au BufRead,BufNewFile Makefile set noexpandtab
+
  " Configure browser for haskell_doc.vim
 let g:haddock_browser = "open"
 let g:haddock_browser_callformat = "%s %s"
