@@ -15,7 +15,6 @@ let g:email = 'christoffer.buchholz@gmail.com'
 
 " preferences
 syntax sync fromstart
-let g:molokai_original = 1
 let g:badwolf_darkgutter = 1
 let g:badwolf_tabline = 1
 let g:Powerline_symbols = 'compatible'
@@ -23,7 +22,6 @@ let g:NERDTreeMouseMode = 2
 let g:NERDTreeWinSize = 24
 let mapleader = ","
 let maplocalleader = "\\"
-"colorscheme molokai
 colorscheme badwolf
 set bg=dark
 set list
@@ -67,20 +65,8 @@ set laststatus=2
 set backupskip=/tmp/*,/private/tmp/*"
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
-
-" allow toggling between local and default mode
-function TabToggle()
-  if &expandtab
-    set shiftwidth=4
-    set softtabstop=0
-    set noexpandtab
-  else
-    set shiftwidth=4
-    set softtabstop=4
-    set expandtab
-  endif
-endfunction
-nmap <F9> mz:execute TabToggle()<CR>'z
+set nobackup
+set noswapfile
 
 " Use the OS clipboard by default (on versions compiled with `+clipboard`)
 set clipboard=unnamed
@@ -132,6 +118,268 @@ endif
 
 " autocommands!
 autocmd FileType make set noexpandtab
+
+" Save when losing focus
+au FocusLost * :wa
+
+" Resize splits when the window is resized
+au VimResized * exe "normal! \<c-w>="
+
+" jump to last cursor position when opening a file
+" dont do it when writing a commit log entry
+autocmd BufReadPost * call SetCursorPosition()
+function! SetCursorPosition()
+    if &filetype !~ 'svn\|commit\c'
+        if line("'\"") > 0 && line("'\"") <= line("$")
+            exe "normal! g`\""
+            normal! zz
+        endif
+    end
+endfunction
+
+" clang complete
+let g:clang_library_path  = '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib'
+let g:clang_user_options  = '|| exit 0'
+let g:clang_close_preview = 1
+
+" explorer settings
+nnoremap <silent> <leader>f :NERDTreeToggle<CR>
+nnoremap <silent> <leader>b :TagbarToggle<CR>
+
+" :make
+nnoremap <silent> <leader>m :w<CR>:make<CR>:cw<CR>
+
+" remove trailing whitespace
+nnoremap <silent> <F6> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
+
+" text bubbling - using Tim Pope's unimpaired plugin
+nmap <C-h> <<
+nmap <C-j> ]e
+nmap <C-k> [e
+nmap <C-l> >>
+vmap <C-h> <<CR>gv
+vmap <C-j> ]egv
+vmap <C-k> [egv
+vmap <C-l> ><CR>gv
+
+" diff unsaved changes to file
+if !exists(":DiffOrig")
+command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
+            \ | wincmd p | diffthis
+endif
+
+" strip trailing whitespaces
+function! Preserve(command)
+    " preparation: save last search, and cursor position.
+    let _s=@/
+    let l = line(".")
+    let c = col(".")
+    " Do the business:
+    execute a:command
+    " clean up: restore previous search history, and cursor position
+    let @/=_s
+    call cursor(l, c)
+endfunction
+nmap _$ :call Preserve("%s/\\s\\+$//e")<CR>
+nmap _= :call Preserve("normal gg=G")<CR>
+
+" ctrlp
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_working_path_mode = 'r'
+let g:ctrlp_clear_cache_on_exit = 0
+nnoremap <silent> <leader>t :CtrlPTag<cr>
+
+" gundo
+nnoremap <silent> <leader>u :GundoToggle<cr>
+
+
+" ************** GOLANG STUFF ************** "
+
+
+let g:tagbar_type_go = {
+    \ 'ctagstype' : 'go',
+    \ 'kinds'     : [
+        \ 'p:package',
+        \ 'i:imports:1',
+        \ 'c:constants',
+        \ 'v:variables',
+        \ 't:types',
+        \ 'n:interfaces',
+        \ 'w:fields',
+        \ 'e:embedded',
+        \ 'm:methods',
+        \ 'r:constructor',
+        \ 'f:functions'
+    \ ],
+    \ 'sro' : '.',
+    \ 'kind2scope' : {
+        \ 't' : 'ctype',
+        \ 'n' : 'ntype'
+    \ },
+    \ 'scope2kind' : {
+        \ 'ctype' : 't',
+        \ 'ntype' : 'n'
+    \ },
+    \ 'ctagsbin'  : 'gotags',
+    \ 'ctagsargs' : '-sort -silent'
+\ }
+
+autocmd FileType go autocmd BufWritePre <buffer> :silent Fmt
+
+" clear search highlight
+nnoremap <leader>/ :noh<cr><esc> 
+
+
+" ************** SYMBOLS ************** "
+
+
+" superscripts
+imap <buffer> ^0 ⁰
+imap <buffer> ^1 ¹
+imap <buffer> ^2 ²
+imap <buffer> ^3 ³
+imap <buffer> ^4 ⁴
+imap <buffer> ^5 ⁵
+imap <buffer> ^6 ⁶
+imap <buffer> ^7 ⁷
+imap <buffer> ^8 ⁸
+imap <buffer> ^9 ⁹
+imap <buffer> ^+ ⁺
+imap <buffer> ^- ⁻
+imap <buffer> ^= ⁼
+imap <buffer> ^( ⁽
+imap <buffer> ^) ⁾
+imap <buffer> ^n ⁿ
+
+" subscripts
+imap <buffer> \_0 ₀
+imap <buffer> \_1 ₁
+imap <buffer> \_2 ₂
+imap <buffer> \_3 ₃
+imap <buffer> \_4 ₄
+imap <buffer> \_5 ₅
+imap <buffer> \_6 ₆
+imap <buffer> \_7 ₇
+imap <buffer> \_8 ₈
+imap <buffer> \_9 ₉
+imap <buffer> \_+ ₊
+imap <buffer> \_- ₋
+imap <buffer> \_= ₌
+imap <buffer> \_( ₍
+
+" arrows
+imap <buffer> \-> →
+imap <buffer> \<-- ←
+imap <buffer> \<--> ↔
+imap <buffer> \==> ⇒
+imap <buffer> \<== ⇐
+imap <buffer> \<==> ⇔
+
+" symbols from mathematics and logic, LaTeX style
+imap <buffer> \forall ∀
+imap <buffer> \exists ∃
+imap <buffer> \in ∈
+imap <buffer> \ni ∋
+imap <buffer> \empty ∅
+imap <buffer> \prod ∏
+imap <buffer> \sum ∑
+imap <buffer> \le ≤
+imap <buffer> \ge ≥
+imap <buffer> \pm ±
+imap <buffer> \subset ⊂
+imap <buffer> \subseteq ⊆
+imap <buffer> \supset ⊃
+imap <buffer> \supseteq ⊇
+imap <buffer> \setminus ∖
+imap <buffer> \cap ∩
+imap <buffer> \cup ∪
+imap <buffer> \int ∫
+imap <buffer> \therefore ∴
+imap <buffer> \qed ∎
+imap <buffer> \1 𝟙
+imap <buffer> \N ℕ
+imap <buffer> \Z ℤ
+imap <buffer> \C ℂ
+imap <buffer> \Q ℚ
+imap <buffer> \R ℝ
+imap <buffer> \E 𝔼
+imap <buffer> \F 𝔽
+imap <buffer> \to →
+imap <buffer> \mapsto ↦
+imap <buffer> \infty ∞
+imap <buffer> \cong ≅
+imap <buffer> \:= ≔
+imap <buffer> \=: ≕
+imap <buffer> \ne ≠
+imap <buffer> \approx ≈
+imap <buffer> \perp ⊥
+imap <buffer> \not ̷
+imap <buffer> \ldots …
+imap <buffer> \cdots ⋯
+imap <buffer> \cdot ⋅
+imap <buffer> \circ ◦
+imap <buffer> \times ×
+imap <buffer> \oplus ⊕
+imap <buffer> \langle ⟨
+imap <buffer> \rangle ⟩
+
+" greek alphabet...
+imap <buffer> \alpha α
+imap <buffer> \beta β
+imap <buffer> \gamma γ
+imap <buffer> \delta δ
+imap <buffer> \epsilon ε
+imap <buffer> \zeta ζ
+imap <buffer> \nu η
+imap <buffer> \theta θ
+imap <buffer> \iota ι
+imap <buffer> \kappa κ
+imap <buffer> \lambda λ
+imap <buffer> \mu μ
+imap <buffer> \nu ν
+imap <buffer> \xi ξ
+imap <buffer> \omicron ο
+imap <buffer> \pi π
+imap <buffer> \rho ρ
+imap <buffer> \stigma ς
+imap <buffer> \sigma σ
+imap <buffer> \tau τ
+imap <buffer> \upsilon υ
+imap <buffer> \phi ϕ
+imap <buffer> \varphi φ
+imap <buffer> \chi χ
+imap <buffer> \psi ψ
+imap <buffer> \omega ω
+
+imap <buffer> \Alpha Α
+imap <buffer> \Beta Β
+imap <buffer> \Gamma Γ
+imap <buffer> \Delta Δ
+imap <buffer> \Epsilon Ε
+imap <buffer> \Zeta Ζ
+imap <buffer> \Nu Η
+imap <buffer> \Theta Θ
+imap <buffer> \Iota Ι
+imap <buffer> \Kappa Κ
+imap <buffer> \Lambda Λ
+imap <buffer> \Mu Μ
+imap <buffer> \Nu Ν
+imap <buffer> \Xi Ξ
+imap <buffer> \Omicron Ο
+imap <buffer> \Pi Π
+imap <buffer> \Rho Ρ
+imap <buffer> \Sigma Σ
+imap <buffer> \Tau Τ
+imap <buffer> \Upsilon Υ
+imap <buffer> \Phi Φ
+imap <buffer> \Chi Χ
+imap <buffer> \Psi Ψ
+imap <buffer> \Omega Ω
+
+
+" ************** STATUSLINE + POWERLINE SETUP ************** "
+
 
 " statusline setup
 set statusline =%#identifier#
@@ -300,282 +548,3 @@ function! s:Median(nums)
         return (nums[l/2] + nums[(l/2)-1]) / 2
     endif
 endfunction
-
-" Save when losing focus
-au FocusLost * :wa
-
-" Resize splits when the window is resized
-au VimResized * exe "normal! \<c-w>="
-
-"jump to last cursor position when opening a file
-"dont do it when writing a commit log entry
-autocmd BufReadPost * call SetCursorPosition()
-function! SetCursorPosition()
-    if &filetype !~ 'svn\|commit\c'
-        if line("'\"") > 0 && line("'\"") <= line("$")
-            exe "normal! g`\""
-            normal! zz
-        endif
-    end
-endfunction
-
-" clang complete
-let g:clang_library_path  = '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib'
-let g:clang_user_options  = '|| exit 0'
-let g:clang_close_preview = 1
-
-" explorer settings
-nnoremap <silent> <leader>f :NERDTreeToggle<CR>
-nnoremap <silent> <leader>b :TagbarToggle<CR>
-
-" :make
-nnoremap <silent> <leader>m :w<CR>:make<CR>:cw<CR>
-
-" remove trailing whitespace
-nnoremap <silent> <F6> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
-
-" text bubbling - using Tim Pope's unimpaired plugin
-nmap <C-h> <<
-nmap <C-j> ]e
-nmap <C-k> [e
-nmap <C-l> >>
-vmap <C-h> <<CR>gv
-vmap <C-j> ]egv
-vmap <C-k> [egv
-vmap <C-l> ><CR>gv
-
-" diff unsaved changes to file
-if !exists(":DiffOrig")
-command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
-            \ | wincmd p | diffthis
-endif
-
-" strip trailing whitespaces
-function! Preserve(command)
-    " preparation: save last search, and cursor position.
-    let _s=@/
-    let l = line(".")
-    let c = col(".")
-    " Do the business:
-    execute a:command
-    " clean up: restore previous search history, and cursor position
-    let @/=_s
-    call cursor(l, c)
-endfunction
-nmap _$ :call Preserve("%s/\\s\\+$//e")<CR>
-nmap _= :call Preserve("normal gg=G")<CR>
-
-" ctrlp
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
-let g:ctrlp_working_path_mode = 'r'
-let g:ctrlp_clear_cache_on_exit = 0
-nnoremap <silent> <leader>t :CtrlPTag<cr>
-
-" gundo
-nnoremap <silent> <leader>u :GundoToggle<cr>
-
-" tabularize
-nmap <leader>a= :Tabularize /=<CR>
-vmap <leader>a= :Tabularize /=<CR>
-nmap <leader>a: :Tabularize /:\zs<CR>
-vmap <leader>a: :Tabularize /:\zs<CR>
-
-"" generate tags in nearest .git folder
-"function! GenerateTagsInNearestGit (...)
-    ":let l:gitroot = system("git rev-parse --show-toplevel | sed 's/ /\\ /g' | tr -d '\n'") 
-    ":let l:ctags_cmd = 'ctags -R -f '.gitroot.'/.git/tags '.gitroot
-    "":let l:ctags_cmd = 'hasktags -c -f '.gitroot.'/.git/tags '.gitroot
-
-    "if a:0 > 0
-        ":let l:output = system(ctags_cmd)
-    "else
-        "if filereadable(gitroot . '/.git/tags')
-            ":let l:output = system(ctags_cmd)
-        "endif
-    "endif
-"endfunction
-
-"nnoremap <leader>t :call GenerateTagsInNearestGit(1)<CR>
-"autocmd BufWritePost * call GenerateTagsInNearestGit()
-
-" go stuff
-let g:tagbar_type_go = {
-    \ 'ctagstype' : 'go',
-    \ 'kinds'     : [
-        \ 'p:package',
-        \ 'i:imports:1',
-        \ 'c:constants',
-        \ 'v:variables',
-        \ 't:types',
-        \ 'n:interfaces',
-        \ 'w:fields',
-        \ 'e:embedded',
-        \ 'm:methods',
-        \ 'r:constructor',
-        \ 'f:functions'
-    \ ],
-    \ 'sro' : '.',
-    \ 'kind2scope' : {
-        \ 't' : 'ctype',
-        \ 'n' : 'ntype'
-    \ },
-    \ 'scope2kind' : {
-        \ 'ctype' : 't',
-        \ 'ntype' : 'n'
-    \ },
-    \ 'ctagsbin'  : 'gotags',
-    \ 'ctagsargs' : '-sort -silent'
-\ }
-
-autocmd FileType go autocmd BufWritePre <buffer> :silent Fmt
-
-" clear search highlight
-nnoremap <leader>/ :noh<cr><esc> 
-
- " Configure browser for haskell_doc.vim
-let g:haddock_browser = "open"
-let g:haddock_browser_callformat = "%s %s"
-
-" superscripts
-imap <buffer> ^0 ⁰
-imap <buffer> ^1 ¹
-imap <buffer> ^2 ²
-imap <buffer> ^3 ³
-imap <buffer> ^4 ⁴
-imap <buffer> ^5 ⁵
-imap <buffer> ^6 ⁶
-imap <buffer> ^7 ⁷
-imap <buffer> ^8 ⁸
-imap <buffer> ^9 ⁹
-imap <buffer> ^+ ⁺
-imap <buffer> ^- ⁻
-imap <buffer> ^= ⁼
-imap <buffer> ^( ⁽
-imap <buffer> ^) ⁾
-imap <buffer> ^n ⁿ
-
-" subscripts
-imap <buffer> \_0 ₀
-imap <buffer> \_1 ₁
-imap <buffer> \_2 ₂
-imap <buffer> \_3 ₃
-imap <buffer> \_4 ₄
-imap <buffer> \_5 ₅
-imap <buffer> \_6 ₆
-imap <buffer> \_7 ₇
-imap <buffer> \_8 ₈
-imap <buffer> \_9 ₉
-imap <buffer> \_+ ₊
-imap <buffer> \_- ₋
-imap <buffer> \_= ₌
-imap <buffer> \_( ₍
-
-" arrows
-imap <buffer> \-> →
-imap <buffer> \<-- ←
-imap <buffer> \<--> ↔
-imap <buffer> \==> ⇒
-imap <buffer> \<== ⇐
-imap <buffer> \<==> ⇔
-
-" symbols from mathematics and logic, LaTeX style
-imap <buffer> \forall ∀
-imap <buffer> \exists ∃
-imap <buffer> \in ∈
-imap <buffer> \ni ∋
-imap <buffer> \empty ∅
-imap <buffer> \prod ∏
-imap <buffer> \sum ∑
-imap <buffer> \le ≤
-imap <buffer> \ge ≥
-imap <buffer> \pm ±
-imap <buffer> \subset ⊂
-imap <buffer> \subseteq ⊆
-imap <buffer> \supset ⊃
-imap <buffer> \supseteq ⊇
-imap <buffer> \setminus ∖
-imap <buffer> \cap ∩
-imap <buffer> \cup ∪
-imap <buffer> \int ∫
-imap <buffer> \therefore ∴
-imap <buffer> \qed ∎
-imap <buffer> \1 𝟙
-imap <buffer> \N ℕ
-imap <buffer> \Z ℤ
-imap <buffer> \C ℂ
-imap <buffer> \Q ℚ
-imap <buffer> \R ℝ
-imap <buffer> \E 𝔼
-imap <buffer> \F 𝔽
-imap <buffer> \to →
-imap <buffer> \mapsto ↦
-imap <buffer> \infty ∞
-imap <buffer> \cong ≅
-imap <buffer> \:= ≔
-imap <buffer> \=: ≕
-imap <buffer> \ne ≠
-imap <buffer> \approx ≈
-imap <buffer> \perp ⊥
-imap <buffer> \not ̷
-imap <buffer> \ldots …
-imap <buffer> \cdots ⋯
-imap <buffer> \cdot ⋅
-imap <buffer> \circ ◦
-imap <buffer> \times ×
-imap <buffer> \oplus ⊕
-imap <buffer> \langle ⟨
-imap <buffer> \rangle ⟩
-
-" greek alphabet...
-imap <buffer> \alpha α
-imap <buffer> \beta β
-imap <buffer> \gamma γ
-imap <buffer> \delta δ
-imap <buffer> \epsilon ε
-imap <buffer> \zeta ζ
-imap <buffer> \nu η
-imap <buffer> \theta θ
-imap <buffer> \iota ι
-imap <buffer> \kappa κ
-imap <buffer> \lambda λ
-imap <buffer> \mu μ
-imap <buffer> \nu ν
-imap <buffer> \xi ξ
-imap <buffer> \omicron ο
-imap <buffer> \pi π
-imap <buffer> \rho ρ
-imap <buffer> \stigma ς
-imap <buffer> \sigma σ
-imap <buffer> \tau τ
-imap <buffer> \upsilon υ
-imap <buffer> \phi ϕ
-imap <buffer> \varphi φ
-imap <buffer> \chi χ
-imap <buffer> \psi ψ
-imap <buffer> \omega ω
-
-imap <buffer> \Alpha Α
-imap <buffer> \Beta Β
-imap <buffer> \Gamma Γ
-imap <buffer> \Delta Δ
-imap <buffer> \Epsilon Ε
-imap <buffer> \Zeta Ζ
-imap <buffer> \Nu Η
-imap <buffer> \Theta Θ
-imap <buffer> \Iota Ι
-imap <buffer> \Kappa Κ
-imap <buffer> \Lambda Λ
-imap <buffer> \Mu Μ
-imap <buffer> \Nu Ν
-imap <buffer> \Xi Ξ
-imap <buffer> \Omicron Ο
-imap <buffer> \Pi Π
-imap <buffer> \Rho Ρ
-imap <buffer> \Sigma Σ
-imap <buffer> \Tau Τ
-imap <buffer> \Upsilon Υ
-imap <buffer> \Phi Φ
-imap <buffer> \Chi Χ
-imap <buffer> \Psi Ψ
-imap <buffer> \Omega Ω
