@@ -1,4 +1,9 @@
 {
-  "undef": true,
-  "globals": { "MY_GLOBAL": false }
+    "undef": true,
+    "unused": true,
+    "globals": {
+        "$": false,
+        "jQuery": false,
+        "$LAB": false
+    }
 }
