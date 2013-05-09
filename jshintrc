@@ -4,6 +4,7 @@
     "globals": {
         "$": false,
         "jQuery": false,
-        "$LAB": false
+        "$LAB": false,
+        "window": false
     }
 }
