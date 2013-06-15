@@ -22,11 +22,10 @@ let g:NERDTreeMouseMode = 2
 let g:NERDTreeWinSize = 24
 let mapleader = ","
 let maplocalleader = "\\"
-colorscheme badwolf
+colorscheme solarized
 set bg=dark
 set list
 set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮
-"set statusline=%F%m%r%h%w\ [TYPE=%Y\ %{&ff}]\ [%l/%L\ (%p%%)
 set number
 set numberwidth=5
 set cursorline
