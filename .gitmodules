@@ -91,3 +91,6 @@
 [submodule "vim/bundle/css3-syntax"]
 	path = vim/bundle/css3-syntax
 	url = https://github.com/hail2u/vim-css3-syntax.git
+[submodule "vim/bundle/autotag"]
+	path = vim/bundle/autotag
+	url = https://github.com/vim-scripts/AutoTag.git

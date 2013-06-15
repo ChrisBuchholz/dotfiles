@@ -68,6 +68,8 @@ set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set nobackup
 set noswapfile
 
+set tags=./tags;/
+
 " Use the OS clipboard by default (on versions compiled with `+clipboard`)
 set clipboard=unnamed
 
@@ -161,6 +163,11 @@ vmap <C-h> <<CR>gv
 vmap <C-j> ]egv
 vmap <C-k> [egv
 vmap <C-l> ><CR>gv
+
+" go to definition
+nnoremap <C-g> <C-]>
+"nnoremap <C-v><C-g> :vs <cr>:exec("tag ".expand("<cword>"))<cr>
+nnoremap <C-v><C-g> :sp <cr>:exec("tag ".expand("<cword>"))<cr>
 
 " diff unsaved changes to file
 if !exists(":DiffOrig")

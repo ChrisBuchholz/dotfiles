@@ -5,6 +5,12 @@
         "$": false,
         "jQuery": false,
         "$LAB": false,
-        "window": false
+        "window": false,
+        "require": false,
+        "__dirname": false,
+        "console": false,
+        "Ember": false,
+        "DS": false,
+        "alert": false
     }
 }
