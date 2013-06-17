@@ -1,9 +1,6 @@
 " preamble
 filetype off
 let g:pathogen_disabled = []
-"call add(g:pathogen_disabled, 'clang_complete')
-"call add(g:pathogen_disabled, 'syntastic')
-"call add(g:pathogen_disabled, 'supertab')
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 filetype plugin indent on
@@ -15,14 +12,13 @@ let g:email = 'christoffer.buchholz@gmail.com'
 
 " preferences
 syntax sync fromstart
-let g:badwolf_darkgutter = 1
-let g:badwolf_tabline = 1
 let g:Powerline_symbols = 'compatible'
 let g:NERDTreeMouseMode = 2
 let g:NERDTreeWinSize = 24
 let mapleader = ","
 let maplocalleader = "\\"
-colorscheme solarized
+colorscheme badwolf
+let g:badwolf_darkgutter = 1
 set bg=dark
 set list
 set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮
@@ -137,11 +133,6 @@ function! SetCursorPosition()
         endif
     end
 endfunction
-
-" clang complete
-let g:clang_library_path  = '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib'
-let g:clang_user_options  = '|| exit 0'
-let g:clang_close_preview = 1
 
 " explorer settings
 nnoremap <silent> <leader>f :NERDTreeToggle<CR>
@@ -384,59 +375,3 @@ imap <buffer> \Psi Ψ
 imap <buffer> \Omega Ω
 
 set rtp+=/usr/local/lib/python2.7/site-packages/powerline/bindings/vim
-
-" Searches Dash for the word under your cursor in vim, using the keyword 
-" operator, based on file type. E.g. for JavaScript files, I have it 
-" configured to search j:term, which immediately brings up the JS doc
-" for that keyword. Might need some customisation for your own keywords!
-" 
-" from https://gist.github.com/yjsoon/3485271
-function! SearchDash(...)
-    " Some setup
-    let s:browser = "/usr/bin/open"
-    let s:wordUnderCursor = expand("<cword>")
-
-    " Get the filetype (everything after the first ., for special cases
-    " such as index.html.haml or abc.css.scss.erb)
-    let s:fileType = substitute(expand("%"),"^[^.]*\.","",1)
- 
-    " Alternative ways of getting filetype, aborted
-    " let s:fileType = expand("%:e")
-    " let s:searchType = b:current_syntax.":"
- 
-    let s:searchType = ""
-
-    if a:0 > 0
-        " Match it and set the searchType -- make sure these are the right shortcuts
-        " in Dash! Sort by priority in the match list below if necessary, because
-        " Tilt-enabled projects may have endings like .scss.erb. 
-        if match(s:fileType, "js") != -1
-            let s:searchType = "js:"     " can assign this to jQuery, too
-        elseif match(s:fileType, "css") != -1
-            let s:searchType = "css:"
-        elseif match(s:fileType, "html") != -1
-            let s:searchType = "html:"
-        elseif match(s:fileType, "rb") != -1
-            let s:searchType = "rb:"    " can assign this to Rails, too
-        elseif match(s:fileType, "php") != -1
-            let s:searchType = "php:"
-        elseif match(s:fileType, "py") != -1
-            let s:searchType = "python:"
-        elseif match(s:fileType, "cpp") != -1 || match(s:fileType, "cc") != -1
-            let s:searchType = "cpp:"
-        elseif match(s:fileType, "go") != -1
-            let s:searchType = "go:"
-        elseif match(s:fileType, "scss") != -1
-            let s:searchType = "sass:"
-        endif
-    endif
- 
-    " Run it
-    let s:url = "dash://".s:searchType.s:wordUnderCursor
-    let s:cmd ="silent ! " . s:browser . " " . s:url
-    execute s:cmd
-    redraw!
-endfunction
-
-map <leader>d :call SearchDash()<CR>
-map <leader>fd :call SearchDash(1)<CR>
