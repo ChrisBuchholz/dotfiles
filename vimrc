@@ -12,14 +12,22 @@ let g:email = 'christoffer.buchholz@gmail.com'
 
 " preferences
 syntax sync fromstart
+
 let g:Powerline_symbols = 'compatible'
 let g:NERDTreeMouseMode = 2
 let g:NERDTreeWinSize = 24
+
 let mapleader = ","
 let maplocalleader = "\\"
-colorscheme badwolf
-let g:badwolf_darkgutter = 1
-set bg=dark
+
+colorscheme molokai
+let g:molokai_original = 1
+set background=dark
+
+set ts=4 sw=4 et
+let g:indent_guides_start_level=2
+let g:indent_guides_guide_size=1
+
 set list
 set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮
 set number
