@@ -6,6 +6,7 @@
         "jQuery": false,
         "$LAB": false,
         "window": false,
+        "document": false,
         "require": false,
         "__dirname": false,
         "console": false,

@@ -1,12 +1,11 @@
-ZSH=$HOME/.oh-my-zsh
-ZSH_THEME="blinks"
-
+export ZSH=$HOME/.oh-my-zsh
+export ZSH_THEME="blinks"
+export OH_MY_ZSH_DEBUG="true"
 export DISABLE_AUTO_TITLE=true
-
 export TERM=screen-256color
 export EDITOR=vim
-
 export GPGKEY=7EA01D78
+export GREP_OPTIONS='--color=auto'
 
 unsetopt nomatch
 
@@ -16,7 +15,7 @@ zstyle ':completion:*:*:git:*' script /usr/local/etc/bash_completion.d/git-compl
 . `brew --prefix`/etc/profile.d/z.sh
 
 
-#### ----  functions ---- ####
+# Function --------------------------------------------------------------------
 
 
 # easy extraction
@@ -68,8 +67,13 @@ mcd() {
     fi
 }
 
+# simpler find
+search() {
+    find . -name "$1" -exec grep -li "$2" {} \;
+}
 
-#### ---- aliases ---- ####
+
+# Aliases ---------------------------------------------------------------------
 
 
 alias sshtnnl='ssh -D 8080 -f -C -q -N -p 443' # ssh tunnel on port 8080
@@ -81,11 +85,10 @@ alias sniff="sudo ngrep -d 'en0' -t '^(GET|POST) ' 'tcp and port 80'"
 alias httpdump="sudo tcpdump -i en1 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET \/.*\""
 alias server="open http://localhost:8080/ && python -m SimpleHTTPServer 8080"
 alias tmux='tmux -2'
-alias glog='git log --color --graph --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit --'
-alias gsubpull='git submodule foreach git pull origin master'
+alias c='clear'
 
 
-#### ---- operating system specifics ---- ####
+# Host specifics --------------------------------------------------------------
 
 
 UNAME=`uname`
@@ -98,7 +101,7 @@ elif [ "$UNAME" = "Darwin" ]; then
 fi
 
 
-#### ---- load oh-my-zsh ---- ####
+# Oh-My-Zsh -------------------------------------------------------------------
 
 
 source $ZSH/oh-my-zsh.sh

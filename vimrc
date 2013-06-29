@@ -153,14 +153,14 @@ nnoremap <silent> <leader>m :w<CR>:make<CR>:cw<CR>
 nnoremap <silent> <F6> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 
 " text bubbling - using Tim Pope's unimpaired plugin
-nmap <C-h> <<
-nmap <C-j> ]e
-nmap <C-k> [e
-nmap <C-l> >>
-vmap <C-h> <<CR>gv
-vmap <C-j> ]egv
-vmap <C-k> [egv
-vmap <C-l> ><CR>gv
+nmap <S-h> <<
+nmap <S-j> ]e
+nmap <S-k> [e
+nmap <S-l> >>
+vmap <S-h> <<CR>gv
+vmap <S-j> ]egv
+vmap <S-k> [egv
+vmap <S-l> ><CR>gv
 
 " go to definition
 nnoremap <C-g> <C-]>
