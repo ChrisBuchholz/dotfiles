@@ -13,7 +13,6 @@ let g:email = 'christoffer.buchholz@gmail.com'
 " preferences
 syntax sync fromstart
 
-let g:Powerline_symbols = 'compatible'
 let g:NERDTreeMouseMode = 2
 let g:NERDTreeWinSize = 24
 
@@ -22,6 +21,7 @@ let maplocalleader = "\\"
 
 colorscheme molokai
 let g:molokai_original = 1
+let g:rehash256 = 1
 set background=dark
 
 set ts=4 sw=4 et
@@ -56,7 +56,8 @@ set fileencoding=utf8
 set fileformat=unix
 set backspace=indent,eol,start
 set history=1000
-set colorcolumn=80
+set colorcolumn=81
+highlight ColorColumn ctermbg=236 guibg=#3f3f3f
 set ruler
 set foldmethod=indent   " fold based on indent
 set foldnestmax=10      " deepest fold is 10 levels
@@ -167,6 +168,16 @@ nnoremap <C-g> <C-]>
 "nnoremap <C-v><C-g> :vs <cr>:exec("tag ".expand("<cword>"))<cr>
 nnoremap <C-v><C-g> :sp <cr>:exec("tag ".expand("<cword>"))<cr>
 
+" replace w, b and e motions with camelcasemotions' commands
+" this doesnt remove their normal behaviour - only add notion about
+" camelcased and underscored naming convertions
+map <silent> w <Plug>CamelCaseMotion_w
+map <silent> b <Plug>CamelCaseMotion_b
+map <silent> e <Plug>CamelCaseMotion_e
+sunmap w
+sunmap b
+sunmap e
+
 " diff unsaved changes to file
 if !exists(":DiffOrig")
 command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
@@ -234,6 +245,16 @@ autocmd FileType go autocmd BufWritePre <buffer> :silent Fmt
 
 " clear search highlight
 nnoremap <leader>/ :noh<cr><esc> 
+
+" escape insert mode instantly
+if ! has('gui_running')
+    set ttimeoutlen=10
+    augroup FastEscape
+        autocmd!
+        au InsertEnter * set timeoutlen=0
+        au InsertLeave * set timeoutlen=1000
+    augroup END
+endif
 
 
 " ************** SYMBOLS ************** "
