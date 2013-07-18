@@ -72,7 +72,7 @@ set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set nobackup
 set noswapfile
 
-set tags=./tags;/
+set tags=./.tags;/
 
 " Use the OS clipboard by default (on versions compiled with `+clipboard`)
 set clipboard=unnamed
@@ -244,7 +244,7 @@ let g:tagbar_type_go = {
 autocmd FileType go autocmd BufWritePre <buffer> :silent Fmt
 
 " clear search highlight
-nnoremap <leader>/ :noh<cr><esc> 
+nnoremap <leader>/ :noh<cr><esc>
 
 " escape insert mode instantly
 if ! has('gui_running')
@@ -255,6 +255,9 @@ if ! has('gui_running')
         au InsertLeave * set timeoutlen=1000
     augroup END
 endif
+
+" remove trailing whitespace on save
+autocmd BufWritePre * :%s/\s\+$//e
 
 
 " ************** SYMBOLS ************** "
