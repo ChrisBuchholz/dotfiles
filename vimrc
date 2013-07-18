@@ -259,6 +259,12 @@ endif
 " remove trailing whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
 
+" tabularize
+nmap <Leader>a= :Tabularize /=<CR>
+vmap <Leader>a= :Tabularize /=<CR>
+nmap <Leader>a: :Tabularize /:\zs<CR>
+vmap <Leader>a: :Tabularize /:\zs<CR>
+
 
 " ************** SYMBOLS ************** "
 
