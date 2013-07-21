@@ -12,7 +12,7 @@ unsetopt nomatch
 # terminal fix to bring back git completion
 zstyle ':completion:*:*:git:*' script /usr/local/etc/bash_completion.d/git-completion.bash
 
-. `brew --prefix`/etc/profile.d/z.sh
+hash mvim 2>/dev/null && . `brew --prefix`/etc/profile.d/z.sh
 
 
 # Function --------------------------------------------------------------------
