@@ -1,4 +1,3 @@
-" preamble
 filetype off
 let g:pathogen_disabled = []
 call pathogen#runtime_append_all_bundles()
@@ -71,8 +70,6 @@ set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set nobackup
 set noswapfile
-
-set tags=./.tags;/
 
 " Use the OS clipboard by default (on versions compiled with `+clipboard`)
 set clipboard=unnamed
@@ -150,9 +147,6 @@ nnoremap <silent> <leader>b :TagbarToggle<CR>
 " :make
 nnoremap <silent> <leader>m :w<CR>:make<CR>:cw<CR>
 
-" remove trailing whitespace
-nnoremap <silent> <F6> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
-
 " text bubbling - using Tim Pope's unimpaired plugin
 nmap <S-h> <<
 nmap <S-j> ]e
@@ -163,10 +157,38 @@ vmap <S-j> ]egv
 vmap <S-k> [egv
 vmap <S-l> ><CR>gv
 
+" clear search highlight
+nnoremap <leader>/ :noh<cr><esc>
+
+" escape insert mode instantly
+if ! has('gui_running')
+    set ttimeoutlen=10
+    augroup FastEscape
+        autocmd!
+        au InsertEnter * set timeoutlen=0
+        au InsertLeave * set timeoutlen=1000
+    augroup END
+endif
+
+" remove trailing whitespace on buffer write
+autocmd BufWritePre * :%s/\s\+$//e
+
+" diff unsaved changes to file
+if !exists(":DiffOrig")
+command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
+            \ | wincmd p | diffthis
+endif
+
+" Ctags ------------------------------------------------------------------------
+
+set tags=./.tags;/
+
 " go to definition
 nnoremap <C-g> <C-]>
 "nnoremap <C-v><C-g> :vs <cr>:exec("tag ".expand("<cword>"))<cr>
 nnoremap <C-v><C-g> :sp <cr>:exec("tag ".expand("<cword>"))<cr>
+
+" CamelCaseMotion --------------------------------------------------------------
 
 " replace w, b and e motions with camelcasemotions' commands
 " this doesnt remove their normal behaviour - only add notion about
@@ -178,40 +200,20 @@ sunmap w
 sunmap b
 sunmap e
 
-" diff unsaved changes to file
-if !exists(":DiffOrig")
-command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
-            \ | wincmd p | diffthis
-endif
+" CtrlP ------------------------------------------------------------------------
 
-" strip trailing whitespaces
-function! Preserve(command)
-    " preparation: save last search, and cursor position.
-    let _s=@/
-    let l = line(".")
-    let c = col(".")
-    " Do the business:
-    execute a:command
-    " clean up: restore previous search history, and cursor position
-    let @/=_s
-    call cursor(l, c)
-endfunction
-nmap _$ :call Preserve("%s/\\s\\+$//e")<CR>
-nmap _= :call Preserve("normal gg=G")<CR>
-
-" ctrlp
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'r'
 let g:ctrlp_clear_cache_on_exit = 0
+let g:ctrlp_show_hidden = 1
 nnoremap <silent> <leader>t :CtrlPTag<cr>
 
-" gundo
+" Gundo ------------------------------------------------------------------------
+
 nnoremap <silent> <leader>u :GundoToggle<cr>
 
-
-" ************** GOLANG STUFF ************** "
-
+" Golang -----------------------------------------------------------------------
 
 let g:tagbar_type_go = {
     \ 'ctagstype' : 'go',
@@ -243,31 +245,23 @@ let g:tagbar_type_go = {
 
 autocmd FileType go autocmd BufWritePre <buffer> :silent Fmt
 
-" clear search highlight
-nnoremap <leader>/ :noh<cr><esc>
+" Tabularize -------------------------------------------------------------------
 
-" escape insert mode instantly
-if ! has('gui_running')
-    set ttimeoutlen=10
-    augroup FastEscape
-        autocmd!
-        au InsertEnter * set timeoutlen=0
-        au InsertLeave * set timeoutlen=1000
-    augroup END
-endif
-
-" remove trailing whitespace on save
-autocmd BufWritePre * :%s/\s\+$//e
-
-" tabularize
 nmap <Leader>a= :Tabularize /=<CR>
 vmap <Leader>a= :Tabularize /=<CR>
 nmap <Leader>a: :Tabularize /:\zs<CR>
 vmap <Leader>a: :Tabularize /:\zs<CR>
 
+" Haskell ----------------------------------------------------------------------
 
-" ************** SYMBOLS ************** "
+let g:haddock_browser = "open"
+let g:haddock_browser_callformat = "%s -a Google-Chrome %s"
 
+" Crontab ----------------------------------------------------------------------
+
+autocmd filetype crontab setlocal nobackup nowritebackup
+
+" Symbols ---------------------------------------------------------------------
 
 " superscripts
 imap <buffer> ^0 ⁰
@@ -411,5 +405,7 @@ imap <buffer> \Phi Φ
 imap <buffer> \Chi Χ
 imap <buffer> \Psi Ψ
 imap <buffer> \Omega Ω
+
+" Powerline --------------------------------------------------------------------
 
 set rtp+=/usr/local/lib/python2.7/site-packages/powerline/bindings/vim

@@ -4,3 +4,4 @@ virtualenvs/hook.log
 virtualenvs/hook.log*
 local/Cellar
 local/share
+config/configstore

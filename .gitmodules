@@ -103,3 +103,18 @@
 [submodule "vim/bundle/youcompleteme"]
 	path = vim/bundle/youcompleteme
 	url = https://github.com/Valloric/YouCompleteMe.git
+[submodule "vim/bundle/seek"]
+	path = vim/bundle/seek
+	url = https://github.com/goldfeld/vim-seek.git
+[submodule "vim/bundle/ghc-mod"]
+	path = vim/bundle/ghc-mod
+	url = https://github.com/eagletmt/ghcmod-vim.git
+[submodule "vim/bundle/vimproc"]
+	path = vim/bundle/vimproc
+	url = https://github.com/Shougo/vimproc.vim.git
+[submodule "vim/bundle/funcoo"]
+	path = vim/bundle/funcoo
+	url = https://github.com/rizzatti/funcoo.vim.git
+[submodule "vim/bundle/dash"]
+	path = vim/bundle/dash
+	url = https://github.com/rizzatti/dash.vim.git
