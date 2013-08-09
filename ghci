@@ -1,1 +1,6 @@
 :set prompt "λ> "
+
+let ghciEscapeShellArg arg = "'" ++ concatMap (\c -> if c == '\'' then "'\"'\"'" else [c]) arg ++ "'"
+
+:def! search return . (":! hoogle --color " ++) . ghciEscapeShellArg
+:def! doc return . (":! hoogle --info --color " ++) . ghciEscapeShellArg
