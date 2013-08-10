@@ -12,6 +12,8 @@
         "console": false,
         "Ember": false,
         "DS": false,
-        "alert": false
+        "alert": false,
+        "requirejs": false,
+        "define": false
     }
 }
