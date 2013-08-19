@@ -126,7 +126,7 @@ function unmark {
 }
 
 function marks {
-    \ls -l $MARKPATH | tail -n +2 | sed 's/  / /g' | cut -d' ' -f9- | awk -F ' -> ' '{printf "%-10s -> %s\n", $1, $2}'
+    \ls -l $MARKPATH | tail -n +2 | sed 's/  / /g' | cut -d' ' -f9- | awk -F ' -> ' '{printf "%-12s -> %s\n", $1, $2}'
 }
 
 function _marks {
