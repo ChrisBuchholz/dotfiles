@@ -79,6 +79,17 @@ listColors() {
     done
 }
 
+# create tags file with ctags
+
+maketags() {
+    ctags -f .tags -R *
+}
+
+# create tags file with hothasktags
+makehtags() {
+    find . | egrep '\.hs$' | xargs hothasktags > .tags
+}
+
 
 # Aliases ---------------------------------------------------------------------
 
