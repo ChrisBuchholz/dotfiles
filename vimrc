@@ -55,7 +55,7 @@ set fileencoding=utf8
 set fileformat=unix
 set backspace=indent,eol,start
 set history=1000
-set colorcolumn=81
+set colorcolumn=80
 highlight ColorColumn ctermbg=236 guibg=#3f3f3f
 set ruler
 set foldmethod=indent   " fold based on indent

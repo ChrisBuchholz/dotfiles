@@ -80,7 +80,6 @@ listColors() {
 }
 
 # create tags file with ctags
-
 maketags() {
     ctags -f .tags -R *
 }
@@ -106,6 +105,36 @@ alias tmux='tmux -2'
 alias c='clear'
 
 
+# Named directories -----------------------------------------------------------
+
+
+typeset -A NAMED_DIRS
+
+NAMED_DIRS=(
+    www         ~/WWW
+    royalbeer   ~/WWW/royalbeer.tv/web/wp-content/themes/royalbeer
+    hde         ~/WWW/hdejendomme/web/wp-content/themes
+    projekter   ~/Projekter
+    war         ~/Gophings/src/github.com/ChrisBuchholz/war
+)
+
+for key in ${(k)NAMED_DIRS}
+do
+    if [[ -d ${NAMED_DIRS[$key]} ]]; then
+        export $key=${NAMED_DIRS[$key]}
+    else
+        unset "NAMED_DIRS[$key]"
+    fi
+done
+
+function lsdirs () {
+    for key in ${(k)NAMED_DIRS}
+    do
+        printf "%-10s %s\n" $key  ${NAMED_DIRS[$key]}
+    done
+}
+
+
 # Host specifics --------------------------------------------------------------
 
 
@@ -117,35 +146,6 @@ elif [ "$UNAME" = "Darwin" ]; then
     # Max OS X (Darwin)
     source ~/.zshrc-osx
 fi
-
-
-# Marks ------------------------------------------------------------------------
-
-
-export MARKPATH=$HOME/.marks
-
-function jump {
-    cd -P $MARKPATH/$1 2> /dev/null || echo "No such mark: $1"
-}
-
-function mark {
-    mkdir -p $MARKPATH; ln -s "$(pwd)" $MARKPATH/$1
-}
-
-function unmark {
-    rm -i $MARKPATH/$1
-}
-
-function marks {
-    \ls -l $MARKPATH | tail -n +2 | sed 's/  / /g' | cut -d' ' -f9- | awk -F ' -> ' '{printf "%-12s -> %s\n", $1, $2}'
-}
-
-function _marks {
-    reply=($(ls $MARKPATH))
-}
-
-compctl -K _marks jump
-compctl -K _marks unmark
 
 
 # Oh-My-Zsh -------------------------------------------------------------------
