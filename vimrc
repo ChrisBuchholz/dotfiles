@@ -5,6 +5,9 @@ call pathogen#helptags()
 filetype plugin indent on
 set nocompatible
 
+" shell
+set shell=/bin/sh
+
 " credentials
 let g:name = 'Christoffer Buchholz'
 let g:email = 'christoffer.buchholz@gmail.com'

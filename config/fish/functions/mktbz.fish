@@ -1,0 +1,2 @@
+# not working
+#mktbz() { tar cvjf "${1%%/}.tar.bz2" "${1%%/}/"; }

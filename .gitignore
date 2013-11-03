@@ -5,3 +5,5 @@ virtualenvs/hook.log*
 local/Cellar
 local/share
 config/configstore
+config/fish/fish_history
+config/fish/fishd.*

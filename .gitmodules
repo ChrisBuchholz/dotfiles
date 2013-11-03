@@ -112,3 +112,6 @@
 [submodule "vim/bundle/supertab"]
 	path = vim/bundle/supertab
 	url = https://github.com/ervandew/supertab.git
+[submodule "vim/bundle/ag"]
+	path = vim/bundle/ag
+	url = https://github.com/rking/ag.vim.git
