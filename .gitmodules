@@ -109,3 +109,6 @@
 [submodule "vim/bundle/vimproc"]
 	path = vim/bundle/vimproc
 	url = https://github.com/Shougo/vimproc.vim.git
+[submodule "vim/bundle/supertab"]
+	path = vim/bundle/supertab
+	url = https://github.com/ervandew/supertab.git
