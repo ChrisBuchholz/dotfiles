@@ -58,8 +58,6 @@ set fileencoding=utf8
 set fileformat=unix
 set backspace=indent,eol,start
 set history=1000
-set colorcolumn=80
-highlight ColorColumn ctermbg=236 guibg=#3f3f3f
 set ruler
 set foldmethod=indent   " fold based on indent
 set foldnestmax=10      " deepest fold is 10 levels
@@ -74,13 +72,23 @@ set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set nobackup
 set noswapfile
 
-" Use the OS clipboard by default (on versions compiled with `+clipboard`)
+" persistent undo
+set undodir=~/.vim/undodir
+set undofile
+set undolevels=1000
+set undoreload=10000
+
+" colorcolumn
+set colorcolumn=80
+highlight ColorColumn ctermbg=236 guibg=#3f3f3f
+
+" use the OS clipboard by default (on versions compiled with `+clipboard`)
 set clipboard=unnamed
 
-" Enhance command-line completion
+" enhance command-line completion
 set wildmenu
 
-"spell check when writing commit logs
+" spell check when writing commit logs
 autocmd filetype svn,*commit* setlocal spell
 
 " in most terminal emulators, the mouse works fine, so enable it!
@@ -160,9 +168,6 @@ vmap <S-j> ]egv
 vmap <S-k> [egv
 vmap <S-l> ><CR>gv
 
-" clear search highlight
-nnoremap <leader>/ :noh<cr><esc>
-
 " escape insert mode instantly
 if ! has('gui_running')
     set ttimeoutlen=10
@@ -215,6 +220,7 @@ let g:ctrlp_clear_cache_on_exit = 0
 let g:ctrlp_show_hidden = 1
 let g:ctrlp_custom_ignore = '\v\~$|\.(o|swp|pyc|wav|mp3|ogg|blend)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])|__init__\.py'
 nnoremap <silent> <leader>t :CtrlPTag<cr>
+nnoremap <silent> <leader>r :CtrlPMRU<cr>
 
 " Gundo ------------------------------------------------------------------------
 

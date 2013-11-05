@@ -1,6 +1,6 @@
 # not working
 #
 # all the dig info
-#digga() {
-#    dig +nocmd "$1" any +multiline +noall +answer
-#}
+#function digga
+    #dig +nocmd "$argv[0]" any +multiline +noall +answer
+#end

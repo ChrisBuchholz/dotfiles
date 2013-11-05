@@ -1,4 +1,3 @@
-vim/.netrwhist
 .DS_Store
 virtualenvs/hook.log
 virtualenvs/hook.log*
@@ -7,3 +6,5 @@ local/share
 config/configstore
 config/fish/fish_history
 config/fish/fishd.*
+vim/.netrwhist
+vim/undodir

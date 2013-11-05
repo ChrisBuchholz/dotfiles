@@ -39,24 +39,20 @@ set fish_theme jacanotsomuch
 # Example format: set fish_plugins autojump bundler
 set fish_plugins brew
 
-# Path to your custom folder (default path is $FISH/custom)
-#set fish_custom $HOME/dotfiles/oh-my-fish
-
 # Load oh-my-fish configuration.
 . $fish_path/oh-my-fish.fish
 
 # Aliases ---------------------------------------------------------------------
 
-#alias sshtnnl='ssh -D 8080 -f -C -q -N -p 443' # ssh tunnel on port 8080
-#alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
-#alias localip="ipconfig getifaddr en0"
-#alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
-#alias flush="dscacheutil -flushcache"
-#alias sniff="sudo ngrep -d 'en0' -t '^(GET|POST) ' 'tcp and port 80'"
-#alias httpdump="sudo tcpdump -i en1 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET \/.*\""
-#alias server="open http://localhost:8080/ && python -m SimpleHTTPServer 8080"
-#alias tmux='tmux -2'
-#alias c='clear'
-#alias ltop='top -F -R -o cpu'
-#alias ql='qlmanage -p 2>/dev/null' # quicklook
-#hash mvim 2>/dev/null && alias vim='mvim -v' # alias vim to terminal mvim if mvim exists
+alias ips "ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
+alias httpdump "sudo tcpdump -i en0 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET \/.*\""
+alias server 'open http://localhost:8080/ & python -m SimpleHTTPServer 8080'
+alias sniff "sudo ngrep -d 'en0' -t '^(GET|POST) ' 'tcp and port 80'"
+alias sshtnnl 'ssh -D 8080 -f -C -q -N -p 443' # ssh tunnel on port 8080
+alias ip 'dig +short myip.opendns.com @resolver1.opendns.com'
+alias localip 'ipconfig getifaddr en0'
+alias flush 'dscacheutil -flushcache'
+alias tmux 'tmux -2'
+alias ltop 'top -F -R -o cpu'
+alias ql 'qlmanage -p 2>/dev/null' # quicklook
+hash mvim 2>/dev/null & alias vim 'mvim -v' # alias vim to terminal mvim if mvim is available

@@ -1,6 +1,3 @@
-export ZSH=$HOME/.oh-my-zsh
-export ZSH_THEME="blinks"
-export OH_MY_ZSH_DEBUG="true"
 export DISABLE_AUTO_TITLE=true
 export TERM=screen-256color
 export EDITOR=vim
@@ -148,7 +145,27 @@ elif [ "$UNAME" = "Darwin" ]; then
 fi
 
 
-# Oh-My-Zsh -------------------------------------------------------------------
+# antigen ---------------------------------------------------------------------
 
 
-source $ZSH/oh-my-zsh.sh
+source ~/.dotfiles/antigen/antigen.zsh
+
+# Load the oh-my-zsh's library.
+export ZSH=$HOME/.oh-my-zsh
+export OH_MY_ZSH_DEBUG="true"
+antigen use oh-my-zsh
+
+# Bundles from the default repo (robbyrussell's oh-my-zsh).
+antigen bundle git
+antigen bundle git
+antigen bundle command-not-found
+
+# Syntax highlighting bundle.
+antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle zsh-users/zsh-completions
+
+# Load the theme.
+antigen theme dst
+
+# Tell antigen that you're done.
+antigen apply
