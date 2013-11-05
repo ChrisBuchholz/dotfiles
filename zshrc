@@ -1,8 +1,9 @@
 export DISABLE_AUTO_TITLE=true
 export TERM=screen-256color
-export EDITOR=vim
 export GPGKEY=7EA01D78
 export GREP_OPTIONS='--color=auto'
+export EDITOR=vim
+export VISUAL=vim
 
 unsetopt nomatch
 
@@ -99,7 +100,8 @@ alias sniff="sudo ngrep -d 'en0' -t '^(GET|POST) ' 'tcp and port 80'"
 alias httpdump="sudo tcpdump -i en1 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET \/.*\""
 alias server="open http://localhost:8080/ && python -m SimpleHTTPServer 8080"
 alias tmux='tmux -2'
-alias c='clear'
+alias ltop='top -F -R -o cpu'
+hash mvim 2>/dev/null && alias vim='mvim -v' # alias vim to terminal mvim if mvim exists
 
 
 # Named directories -----------------------------------------------------------
@@ -132,6 +134,29 @@ function lsdirs () {
 }
 
 
+# Antigen ---------------------------------------------------------------------
+
+
+source ~/.dotfiles/antigen/antigen.zsh
+
+# Load the oh-my-zsh's library.
+export ZSH=$HOME/.oh-my-zsh
+export OH_MY_ZSH_DEBUG="true"
+antigen use oh-my-zsh
+
+# Bundles from the default repo (robbyrussell's oh-my-zsh).
+antigen bundle git
+antigen bundle svn
+antigen bundle command-not-found
+
+# Syntax highlighting bundle.
+antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle zsh-users/zsh-completions
+
+# Load the theme.
+antigen theme dst
+
+
 # Host specifics --------------------------------------------------------------
 
 
@@ -145,27 +170,7 @@ elif [ "$UNAME" = "Darwin" ]; then
 fi
 
 
-# antigen ---------------------------------------------------------------------
+# Now that host specific configs have been sourced; apply! --------------------
 
 
-source ~/.dotfiles/antigen/antigen.zsh
-
-# Load the oh-my-zsh's library.
-export ZSH=$HOME/.oh-my-zsh
-export OH_MY_ZSH_DEBUG="true"
-antigen use oh-my-zsh
-
-# Bundles from the default repo (robbyrussell's oh-my-zsh).
-antigen bundle git
-antigen bundle git
-antigen bundle command-not-found
-
-# Syntax highlighting bundle.
-antigen bundle zsh-users/zsh-syntax-highlighting
-antigen bundle zsh-users/zsh-completions
-
-# Load the theme.
-antigen theme dst
-
-# Tell antigen that you're done.
 antigen apply
