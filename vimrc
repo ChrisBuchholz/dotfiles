@@ -91,6 +91,9 @@ set wildmenu
 " spell check when writing commit logs
 autocmd filetype svn,*commit* setlocal spell
 
+" <Ctrl-l> redraws the screen and removes any search highlighting.
+nnoremap <silent> <C-l> :nohl<CR><C-l>
+
 " in most terminal emulators, the mouse works fine, so enable it!
 if has('mouse')
     set mouse=a
@@ -228,6 +231,8 @@ nnoremap <silent> <leader>u :GundoToggle<cr>
 
 " Golang -----------------------------------------------------------------------
 
+let g:gofmt_command = "goimports"
+
 let g:tagbar_type_go = {
     \ 'ctagstype' : 'go',
     \ 'kinds'     : [
@@ -312,3 +317,4 @@ function! DoPrettyXML()
   exe "set ft=" . l:origft
 endfunction
 command! PrettyXML call DoPrettyXML()
+
