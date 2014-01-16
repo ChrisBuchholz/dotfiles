@@ -10,9 +10,6 @@
 [submodule "vim/bundle/fugitive"]
 	path = vim/bundle/fugitive
 	url = git://github.com/tpope/vim-fugitive.git
-[submodule "vim/bundle/markdown"]
-	path = vim/bundle/markdown
-	url = git://github.com/tpope/vim-markdown.git
 [submodule "vim/bundle/unimpaired"]
 	path = vim/bundle/unimpaired
 	url = https://github.com/tpope/vim-unimpaired.git
@@ -22,9 +19,6 @@
 [submodule "vim/bundle/jade"]
 	path = vim/bundle/jade
 	url = https://github.com/digitaltoad/vim-jade.git
-[submodule "vim/bundle/preview"]
-	path = vim/bundle/preview
-	url = https://github.com/greyblake/vim-preview.git
 [submodule "vim/bundle/javascript"]
 	path = vim/bundle/javascript
 	url = https://github.com/pangloss/vim-javascript.git
@@ -52,9 +46,6 @@
 [submodule "vim/bundle/less"]
 	path = vim/bundle/less
 	url = https://github.com/groenewege/vim-less.git
-[submodule "vim/bundle/solarized"]
-	path = vim/bundle/solarized
-	url = https://github.com/altercation/vim-colors-solarized.git
 [submodule "vim/bundle/c++11"]
 	path = vim/bundle/c++11
 	url = https://github.com/vim-scripts/Cpp11-Syntax-Support.git
@@ -70,9 +61,6 @@
 [submodule "vim/bundle/mustache"]
 	path = vim/bundle/mustache
 	url = https://github.com/juvenn/mustache.vim.git
-[submodule "vim/bundle/badwolf"]
-	path = vim/bundle/badwolf
-	url = https://github.com/sjl/badwolf.git
 [submodule "vim/bundle/haskellmode"]
 	path = vim/bundle/haskellmode
 	url = https://github.com/lukerandall/haskellmode-vim.git
@@ -100,9 +88,6 @@
 [submodule "vim/bundle/camelcasemotion"]
 	path = vim/bundle/camelcasemotion
 	url = https://github.com/bkad/CamelCaseMotion.git
-[submodule "vim/bundle/seek"]
-	path = vim/bundle/seek
-	url = https://github.com/goldfeld/vim-seek.git
 [submodule "vim/bundle/ghc-mod"]
 	path = vim/bundle/ghc-mod
 	url = https://github.com/eagletmt/ghcmod-vim.git
@@ -118,3 +103,6 @@
 [submodule "antigen"]
 	path = antigen
 	url = https://github.com/zsh-users/antigen.git
+[submodule "vim/bundle/sneak"]
+	path = vim/bundle/sneak
+	url = https://github.com/justinmk/vim-sneak.git

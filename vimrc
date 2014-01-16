@@ -162,14 +162,14 @@ nnoremap <silent> <leader>b :TagbarToggle<CR>
 nnoremap <silent> <leader>m :w<CR>:make<CR>:cw<CR>
 
 " text bubbling - using Tim Pope's unimpaired plugin
-nmap <S-h> <<
-nmap <S-j> ]e
-nmap <S-k> [e
-nmap <S-l> >>
-vmap <S-h> <<CR>gv
-vmap <S-j> ]egv
-vmap <S-k> [egv
-vmap <S-l> ><CR>gv
+nmap <C-h> <<
+nmap <C-j> ]e
+nmap <C-k> [e
+nmap <C-l> >>
+vmap <C-h> <<CR>gv
+vmap <C-j> ]egv
+vmap <C-k> [egv
+vmap <C-l> ><CR>gv
 
 " escape insert mode instantly
 if ! has('gui_running')
