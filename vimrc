@@ -22,7 +22,7 @@ let mapleader = ","
 let maplocalleader = "\\"
 
 colorscheme molokai
-let g:molokai_original = 1
+let g:molokai_original = 0
 let g:rehash256 = 1
 set background=dark
 
@@ -281,7 +281,7 @@ autocmd filetype crontab setlocal nobackup nowritebackup
 
 " Airline ----------------------------------------------------------------------
 
-let g:airline_powerline_fonts = 1
+let g:airline_powerline_fonts = 0
 let g:airline_left_sep=''
 let g:airline_left_alt_sep=''
 let g:airline_right_sep=''
