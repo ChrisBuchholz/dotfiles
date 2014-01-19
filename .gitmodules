@@ -106,6 +106,3 @@
 [submodule "vim/bundle/sneak"]
 	path = vim/bundle/sneak
 	url = https://github.com/justinmk/vim-sneak.git
-[submodule "vim/bundle/badwolf"]
-	path = vim/bundle/badwolf
-	url = https://github.com/sjl/badwolf.git

@@ -21,17 +21,30 @@ let g:NERDTreeWinSize = 24
 let mapleader = ","
 let maplocalleader = "\\"
 
+" Theme -----------------------------------------------------------------------
+
+set background=dark
 colorscheme molokai
 let g:molokai_original = 0
 let g:rehash256 = 1
-set background=dark
+
+" Airline ---------------------------------------------------------------------
+
+let g:airline_powerline_fonts = 0
+let g:airline_left_sep=''
+let g:airline_left_alt_sep=''
+let g:airline_right_sep=''
+let g:airline_right_alt_sep=''
+let g:airline_theme='badwolf'
+
+" Stuff -----------------------------------------------------------------------
 
 set ts=4 sw=4 et
 let g:indent_guides_start_level=2
 let g:indent_guides_guide_size=1
 
 set list
-set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮
+set listchars=tab:▸\ ,eol:\ ,extends:❯,precedes:❮
 set number
 set numberwidth=5
 set cursorline
@@ -80,7 +93,6 @@ set undoreload=10000
 
 " colorcolumn
 set colorcolumn=80
-highlight ColorColumn ctermbg=236 guibg=#3f3f3f
 
 " use the OS clipboard by default (on versions compiled with `+clipboard`)
 set clipboard=unnamed
@@ -279,14 +291,6 @@ let g:haddock_browser_callformat = "%s -a Google-Chrome %s"
 
 autocmd filetype crontab setlocal nobackup nowritebackup
 
-" Airline ----------------------------------------------------------------------
-
-let g:airline_powerline_fonts = 0
-let g:airline_left_sep=''
-let g:airline_left_alt_sep=''
-let g:airline_right_sep=''
-let g:airline_right_alt_sep=''
-
 " XML srettifier ---------------------------------------------------------------
 
 function! DoPrettyXML()
@@ -318,3 +322,12 @@ function! DoPrettyXML()
 endfunction
 command! PrettyXML call DoPrettyXML()
 
+" Color modifications ---------------------------------------------------------
+
+highlight ColorColumn ctermbg=236 guibg=#3f3f3f
+highlight VertSplit ctermbg=236 ctermfg=236
+highlight NonText ctermfg=bg
+highlight CursorLineNR ctermbg=235
+highlight SignColumn ctermbg=235 ctermfg=235
+highlight SyntasticWarningSign ctermbg=235
+highlight SyntasticErrorSign ctermbg=235
