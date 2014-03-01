@@ -56,3 +56,4 @@ alias tmux 'tmux -2'
 alias ltop 'top -F -R -o cpu'
 alias ql 'qlmanage -p 2>/dev/null' # quicklook
 hash mvim 2>/dev/null & alias vim 'mvim -v' # alias vim to terminal mvim if mvim is available
+alias brewup='brew update; and brew upgrade'
