@@ -245,8 +245,6 @@ nnoremap <silent> <leader>u :GundoToggle<cr>
 
 " Golang -----------------------------------------------------------------------
 
-let g:gofmt_command = "goimports"
-
 let g:tagbar_type_go = {
     \ 'ctagstype' : 'go',
     \ 'kinds'     : [
@@ -275,7 +273,12 @@ let g:tagbar_type_go = {
     \ 'ctagsargs' : '-sort -silent'
 \ }
 
-autocmd FileType go autocmd BufWritePre <buffer> :silent Fmt
+" overwrite go-to-tag with godef in go files
+au Filetype go nnoremap <C-g> :GoDef<cr>
+
+" following go settings are not needed when using vim-go
+"let g:gofmt_command = "goimports"
+"autocmd FileType go autocmd BufWritePre <buffer> :silent Fmt
 
 " Tabularize -------------------------------------------------------------------
 
@@ -283,11 +286,6 @@ nmap <Leader>a= :Tabularize /=<CR>
 vmap <Leader>a= :Tabularize /=<CR>
 nmap <Leader>a: :Tabularize /:\zs<CR>
 vmap <Leader>a: :Tabularize /:\zs<CR>
-
-" Haskell ----------------------------------------------------------------------
-
-let g:haddock_browser = "open"
-let g:haddock_browser_callformat = "%s -a Google-Chrome %s"
 
 " Crontab ----------------------------------------------------------------------
 
