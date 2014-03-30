@@ -84,6 +84,7 @@ set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set nobackup
 set noswapfile
+set completeopt-=preview
 
 " persistent undo
 set undodir=~/.vim/undodir
