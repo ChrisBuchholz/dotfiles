@@ -43,30 +43,15 @@
 [submodule "vim/bundle/jshint"]
 	path = vim/bundle/jshint
 	url = https://github.com/walm/jshint.vim.git
-[submodule "vim/bundle/less"]
-	path = vim/bundle/less
-	url = https://github.com/groenewege/vim-less.git
-[submodule "vim/bundle/c++11"]
-	path = vim/bundle/c++11
-	url = https://github.com/vim-scripts/Cpp11-Syntax-Support.git
 [submodule "vim/bundle/surround"]
 	path = vim/bundle/surround
 	url = https://github.com/tpope/vim-surround.git
-[submodule "vim/bundle/tabular"]
-	path = vim/bundle/tabular
-	url = https://github.com/godlygeek/tabular.git
 [submodule "vim/bundle/gundo"]
 	path = vim/bundle/gundo
 	url = https://github.com/sjl/gundo.vim.git
 [submodule "vim/bundle/mustache"]
 	path = vim/bundle/mustache
 	url = https://github.com/juvenn/mustache.vim.git
-[submodule "vim/bundle/haskellmode"]
-	path = vim/bundle/haskellmode
-	url = https://github.com/lukerandall/haskellmode-vim.git
-[submodule "vim/bundle/coffee-script"]
-	path = vim/bundle/coffee-script
-	url = https://github.com/kchmck/vim-coffee-script
 [submodule "vim/bundle/css3-syntax"]
 	path = vim/bundle/css3-syntax
 	url = https://github.com/hail2u/vim-css3-syntax.git
@@ -85,12 +70,6 @@
 [submodule "vim/bundle/camelcasemotion"]
 	path = vim/bundle/camelcasemotion
 	url = https://github.com/bkad/CamelCaseMotion.git
-[submodule "vim/bundle/ghc-mod"]
-	path = vim/bundle/ghc-mod
-	url = https://github.com/eagletmt/ghcmod-vim.git
-[submodule "vim/bundle/vimproc"]
-	path = vim/bundle/vimproc
-	url = https://github.com/Shougo/vimproc.vim.git
 [submodule "vim/bundle/ag"]
 	path = vim/bundle/ag
 	url = https://github.com/rking/ag.vim.git

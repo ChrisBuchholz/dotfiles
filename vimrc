@@ -281,13 +281,6 @@ au Filetype go nnoremap <C-g> :GoDef<cr>
 "let g:gofmt_command = "goimports"
 "autocmd FileType go autocmd BufWritePre <buffer> :silent Fmt
 
-" Tabularize -------------------------------------------------------------------
-
-nmap <Leader>a= :Tabularize /=<CR>
-vmap <Leader>a= :Tabularize /=<CR>
-nmap <Leader>a: :Tabularize /:\zs<CR>
-vmap <Leader>a: :Tabularize /:\zs<CR>
-
 " Crontab ----------------------------------------------------------------------
 
 autocmd filetype crontab setlocal nobackup nowritebackup
