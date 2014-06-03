@@ -1,13 +1,21 @@
+export PATH=/usr/local/bin:$PATH
 export PATH=$HOME/.local/bin:$PATH
-export GOPATH=$HOME/.go:$GOPATH
-export PATH=$HOME/.go/bin:$PATH
+export PATH=$HOME/Gophings/bin:$PATH
+export PATH=$HOME/.gem/ruby/*/bin:$PATH
+export PATH=$HOME/.cabal/bin:$PATH
+export GOPATH=$HOME/Gophings:$GOPATH
+export MANPATH=$HOMEBREWDIR/share/man:$MANPATH
+export MANPATH=$HOMEBREWDIR/share/man:$MANPATH
 
 export VISUAL=vim
 export EDITOR=vim
 export LANG="da_DK.UTF-8"
-export LC_ALL="da_DK.UTF-8" 
+export LC_ALL="da_DK.UTF-8"
 export CLICOLOR=1
 export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
+export GPGKEY=7EA01D78
+export GREP_OPTIONS='--color=auto'
+export TERM=xterm-256color
 
 # don't put duplicate lines in the history. See bash(1) for more options
 # ... or force ignoredups and ignorespace
@@ -17,9 +25,6 @@ shopt -s histappend
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 HISTSIZE=1000
 HISTFILESIZE=2000
-export TERM=xterm-256color
-export EDITOR=vim
-export VISUAL=vim
 
 
 #### ----  functions ---- ####
@@ -74,20 +79,39 @@ mcd() {
     fi
 }
 
+# terminal colors
+listColors() {
+    for i in {0..255} ; do
+        printf "\x1b[38;5;${i}mcolour${i}\n"
+    done
+}
+
+# create tags file with ctags
+maketags() {
+    ctags -f .tags -R *
+}
+
+# open man pages in Preview.app
+pman () {
+    man -t $1 | open -f -a /Applications/Preview.app
+}
+
 #### aliases
 
-alias ..="cd .."
 alias sshtnnl='ssh -D 8080 -f -C -q -N -p 443' # ssh tunnel on port 8080
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
-alias localip="ipconfig getifaddr en1"
+alias localip="ipconfig getifaddr en0"
 alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
 alias flush="dscacheutil -flushcache"
-alias sniff="sudo ngrep -d 'en1' -t '^(GET|POST) ' 'tcp and port 80'"
+alias sniff="sudo ngrep -d 'en0' -t '^(GET|POST) ' 'tcp and port 80'"
 alias httpdump="sudo tcpdump -i en1 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET \/.*\""
 alias server="open http://localhost:8080/ && python -m SimpleHTTPServer 8080"
 alias tmux='tmux -2'
-alias glog='git log --color --graph --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit --'
-alias gsubpl='git submodule foreach git pull'
+alias ltop='top -F -R -o cpu'
+alias ql='qlmanage -p 2>/dev/null' # quicklook
+alias brewup='brew update && brew upgrade'
+hash mvim 2>/dev/null && alias vim='mvim -v' # alias vim to terminal mvim if mvim exists
+alias ..='cd ..'
 
 ### bindings
 
@@ -95,3 +119,8 @@ alias gsubpl='git submodule foreach git pull'
 bind '"\eOA": history-search-backward'
 # Down Arrow: search and complete from next history
 bind '"\eOB": history-search-forward'
+
+
+### styling
+
+. ~/.bash_prompt

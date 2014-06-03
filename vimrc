@@ -65,7 +65,7 @@ set smartindent
 set nowrap
 set ignorecase
 set smartcase
-set lazyredraw
+set nolazyredraw
 set encoding=utf8
 set fileencoding=utf8
 set fileformat=unix

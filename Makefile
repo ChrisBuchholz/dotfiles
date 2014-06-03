@@ -4,7 +4,8 @@ DIR =
 DOT_DIR = 	fonts local vim config
 DOT_FILE = 	profile git-completion.sh gitignore inputrc osx ghci \
 			tmux.conf tmux-osx.conf tmux-linux.conf vimrc xvimrc \
-			zshrc zshrc-linux zshrc-osx bashrc jshintrc bowerrc
+			zshrc zshrc-linux zshrc-osx bashrc bash_prompt jshintrc \
+			bowerrc
 
 all: install
 
