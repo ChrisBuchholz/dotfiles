@@ -85,6 +85,3 @@
 [submodule "vim/bundle/go"]
 	path = vim/bundle/go
 	url = https://github.com/fatih/vim-go.git
-[submodule "vim/bundle/YouCompleteMe"]
-	path = vim/bundle/YouCompleteMe
-	url = https://github.com/Valloric/YouCompleteMe.git
