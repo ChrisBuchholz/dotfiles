@@ -124,3 +124,5 @@ bind '"\eOB": history-search-forward'
 ### styling
 
 . ~/.bash_prompt
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting

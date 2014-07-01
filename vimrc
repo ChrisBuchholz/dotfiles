@@ -1,5 +1,5 @@
 filetype off
-let g:pathogen_disabled = []
+let g:pathogen_disabled = ['vim-tmux-navigator']
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 filetype plugin indent on
@@ -105,7 +105,7 @@ set wildmenu
 autocmd filetype svn,*commit* setlocal spell
 
 " <Ctrl-l> redraws the screen and removes any search highlighting.
-nnoremap <silent> <C-l> :nohl<CR><C-l>
+"nnoremap <silent> <C-l> :nohl<CR><C-l>
 
 " in most terminal emulators, the mouse works fine, so enable it!
 if has('mouse')
@@ -177,14 +177,15 @@ nnoremap <silent> <leader>b :TagbarToggle<CR>
 nnoremap <silent> <leader>m :w<CR>:make<CR>:cw<CR>
 
 " text bubbling - using Tim Pope's unimpaired plugin
-nmap <S-h> <<
-nmap <S-j> ]e
-nmap <S-k> [e
-nmap <S-l> >>
-vmap <S-h> <<CR>gv
-vmap <S-j> ]egv
-vmap <S-k> [egv
-vmap <S-l> ><CR>gv
+nmap <C-h> <<
+nmap <C-j> ]e
+nmap <C-k> [e
+nmap <C-l> >>
+vmap <C-h> <<CR>gv
+vmap <C-j> ]egv
+vmap <C-k> [egv
+vmap <C-l> ><CR>gv
+
 
 " escape insert mode instantly
 if ! has('gui_running')
@@ -205,7 +206,7 @@ command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
             \ | wincmd p | diffthis
 endif
 
-" rebind join since we're using c-j for navigatio
+" rebind join since we're using c-j for navigation
 vmap <C-S-j> :join<CR>
 
 " Ctags ------------------------------------------------------------------------
@@ -222,12 +223,12 @@ nnoremap <C-v><C-g> :sp <cr>:exec("tag ".expand("<cword>"))<cr>
 " replace w, b and e motions with camelcasemotions' commands
 " this doesnt remove their normal behaviour - only add notion about
 " camelcased and underscored naming convertions
-map <silent> w <Plug>CamelCaseMotion_w
-map <silent> b <Plug>CamelCaseMotion_b
-map <silent> e <Plug>CamelCaseMotion_e
-sunmap w
-sunmap b
-sunmap e
+"map <silent> w <Plug>CamelCaseMotion_w
+"map <silent> b <Plug>CamelCaseMotion_b
+"map <silent> e <Plug>CamelCaseMotion_e
+"sunmap w
+"sunmap b
+"sunmap e
 
 " CtrlP ------------------------------------------------------------------------
 
@@ -320,7 +321,7 @@ command! PrettyXML call DoPrettyXML()
 
 highlight ColorColumn ctermbg=236 guibg=#3f3f3f
 highlight VertSplit ctermbg=236 ctermfg=236
-highlight NonText ctermfg=bg
+"highlight NonText ctermfg=bg
 highlight CursorLineNR ctermbg=235
 highlight SignColumn ctermbg=235 ctermfg=235
 highlight SyntasticWarningSign ctermbg=235
