@@ -10,7 +10,7 @@ set shell=/bin/sh
 
 " credentials
 let g:name = 'Christoffer Buchholz'
-let g:email = 'christoffer.buchholz@gmail.com'
+let g:email = 'chris@chrisbuchholz.me'
 
 " preferences
 syntax sync fromstart
@@ -186,7 +186,6 @@ vmap <C-j> ]egv
 vmap <C-k> [egv
 vmap <C-l> ><CR>gv
 
-
 " escape insert mode instantly
 if ! has('gui_running')
     set ttimeoutlen=10
@@ -217,18 +216,6 @@ set tags=./.tags;/
 nnoremap <C-g> <C-]>
 "nnoremap <C-v><C-g> :vs <cr>:exec("tag ".expand("<cword>"))<cr>
 nnoremap <C-v><C-g> :sp <cr>:exec("tag ".expand("<cword>"))<cr>
-
-" CamelCaseMotion --------------------------------------------------------------
-
-" replace w, b and e motions with camelcasemotions' commands
-" this doesnt remove their normal behaviour - only add notion about
-" camelcased and underscored naming convertions
-"map <silent> w <Plug>CamelCaseMotion_w
-"map <silent> b <Plug>CamelCaseMotion_b
-"map <silent> e <Plug>CamelCaseMotion_e
-"sunmap w
-"sunmap b
-"sunmap e
 
 " CtrlP ------------------------------------------------------------------------
 
@@ -286,7 +273,7 @@ au Filetype go nnoremap <C-g> :GoDef<cr>
 
 autocmd filetype crontab setlocal nobackup nowritebackup
 
-" XML srettifier ---------------------------------------------------------------
+" XML prettifier ---------------------------------------------------------------
 
 function! DoPrettyXML()
   " save the filetype so we can restore it later
