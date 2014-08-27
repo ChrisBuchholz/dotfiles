@@ -120,6 +120,8 @@ if has("gui_running")
     set mousehide
     " window size
     set lines=35 columns=110
+    " font
+    set guifont=Source\ Code\ Pro:h11
 endif
 
 if has("gui_macvim")
