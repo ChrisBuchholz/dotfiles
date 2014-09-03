@@ -3,6 +3,7 @@ export PATH=$HOME/.local/bin:$PATH
 export PATH=$HOME/Gophings/bin:$PATH
 export PATH=$HOME/.gem/ruby/*/bin:$PATH
 export PATH=$HOME/.cabal/bin:$PATH
+export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/9.3/bin
 export GOPATH=$HOME/Gophings:$GOPATH
 export MANPATH=$HOMEBREWDIR/share/man:$MANPATH
 export MANPATH=$HOMEBREWDIR/share/man:$MANPATH
@@ -16,6 +17,7 @@ export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 export GPGKEY=7EA01D78
 export GREP_OPTIONS='--color=auto'
 export TERM=xterm-256color
+export RI="--format ansi --width 70"
 
 # don't put duplicate lines in the history. See bash(1) for more options
 # ... or force ignoredups and ignorespace

@@ -1,9 +1,44 @@
-filetype off
-let g:pathogen_disabled = ['vim-tmux-navigator']
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
-filetype plugin indent on
 set nocompatible
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'gmarik/Vundle.vim'
+
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'rking/ag.vim'
+Plugin 'bling/vim-airline'
+Plugin 'craigemery/vim-autotag'
+Plugin 'bkad/CamelCaseMotion'
+Plugin 'hail2u/vim-css3-syntax'
+Plugin 'kien/ctrlp.vim'
+Plugin 'int3/vim-extradite'
+Plugin 'tpope/vim-fugitive'
+Plugin 'fatih/vim-go'
+Plugin 'sjl/gundo.vim'
+Plugin 'tpope/vim-haml'
+Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'digitaltoad/vim-jade'
+Plugin 'pangloss/vim-javascript'
+Plugin 'walm/jshint.vim'
+Plugin 'tomasr/molokai'
+Plugin 'mustache/vim-mustache-handlebars'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'scrooloose/nerdtree'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'justinmk/vim-sneak'
+Plugin 'tpope/vim-surround'
+Plugin 'scrooloose/syntastic'
+Plugin 'majutsushi/tagbar'
+Plugin 'tpope/vim-unimpaired'
+Plugin 'christoomey/vim-tmux-navigator'
+
+call vundle#end()
+filetype plugin indent on
+
+"let g:pathogen_disabled = ['vim-tmux-navigator']
+"call pathogen#runtime_append_all_bundles()
+"call pathogen#helptags()
 
 " shell
 set shell=/bin/sh
@@ -270,6 +305,12 @@ au Filetype go nnoremap <C-g> :GoDef<cr>
 " following go settings are not needed when using vim-go
 "let g:gofmt_command = "goimports"
 "autocmd FileType go autocmd BufWritePre <buffer> :silent Fmt
+
+" Ruby ------------------------------------------------------------------------
+
+autocmd Filetype ruby set shiftwidth=2
+autocmd Filetype ruby set tabstop=2
+autocmd Filetype ruby set softtabstop=2
 
 " Crontab ----------------------------------------------------------------------
 
