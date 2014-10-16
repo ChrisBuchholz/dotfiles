@@ -7,10 +7,10 @@ nmap <C-h> :xccmd shiftLeft<CR>
 nmap <C-j> :xccmd moveCurrentLineDown<CR>
 nmap <C-k> :xccmd moveCurrentLineUp<CR>
 nmap <C-l> :xccmd shiftRight<CR>
-vmap <C-h> :xccmd shiftLeft<CR>
-vmap <C-j> :xccmd moveCurrentLineDown<CR>
-vmap <C-k> :xccmd moveCurrentLineUp<CR>
-vmap <C-l> :xccmd shiftRight<CR>
+vmap <C-h> :xccmd shiftLeft<CR>gv
+vmap <C-j> :xccmd moveCurrentLineDown<CR>gv
+vmap <C-k> :xccmd moveCurrentLineUp<CR>gv
+vmap <C-l> :xccmd shiftRight<CR>gv
 
 nmap ,r :run<CR>
 nmap ,m :make<CR>

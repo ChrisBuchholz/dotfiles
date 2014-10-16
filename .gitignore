@@ -9,3 +9,4 @@ config/fish/fishd.*
 config/cipherhub
 vim/.netrwhist
 vim/undodir
+config/keybase

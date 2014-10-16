@@ -1,9 +1,9 @@
 # Makefile for dotfiles (cf. https://github.com/pix/dotfiles)
 
 DIR =
-DOT_DIR = 	fonts local vim config
+DOT_DIR = 	fonts local vim nvim config
 DOT_FILE = 	profile git-completion.sh gitignore inputrc osx ghci \
-			tmux.conf tmux-osx.conf tmux-linux.conf vimrc xvimrc \
+			tmux.conf tmux-osx.conf tmux-linux.conf vimrc xvimrc nvimrc \
 			zshrc zshrc-linux zshrc-osx bashrc bash_prompt jshintrc \
 			bowerrc
 

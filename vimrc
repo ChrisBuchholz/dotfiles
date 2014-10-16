@@ -24,7 +24,6 @@ Plugin 'walm/jshint.vim'
 Plugin 'tomasr/molokai'
 Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'scrooloose/nerdcommenter'
-Plugin 'scrooloose/nerdtree'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'justinmk/vim-sneak'
 Plugin 'tpope/vim-surround'
@@ -36,10 +35,6 @@ Plugin 'christoomey/vim-tmux-navigator'
 call vundle#end()
 filetype plugin indent on
 
-"let g:pathogen_disabled = ['vim-tmux-navigator']
-"call pathogen#runtime_append_all_bundles()
-"call pathogen#helptags()
-
 " shell
 set shell=/bin/sh
 
@@ -49,9 +44,6 @@ let g:email = 'chris@chrisbuchholz.me'
 
 " preferences
 syntax sync fromstart
-
-let g:NERDTreeMouseMode = 2
-let g:NERDTreeWinSize = 24
 
 let mapleader = ","
 let maplocalleader = "\\"
