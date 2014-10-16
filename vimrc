@@ -25,12 +25,10 @@ Plugin 'tomasr/molokai'
 Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'vim-ruby/vim-ruby'
-Plugin 'justinmk/vim-sneak'
 Plugin 'tpope/vim-surround'
 Plugin 'scrooloose/syntastic'
 Plugin 'majutsushi/tagbar'
 Plugin 'tpope/vim-unimpaired'
-Plugin 'christoomey/vim-tmux-navigator'
 
 call vundle#end()
 filetype plugin indent on
@@ -112,6 +110,9 @@ set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set nobackup
 set noswapfile
 set completeopt-=preview
+
+" clear search
+nnoremap <esc> :noh<return><esc>
 
 " persistent undo
 set undodir=~/.vim/undodir
@@ -198,8 +199,7 @@ function! SetCursorPosition()
     end
 endfunction
 
-" explorer settings
-nnoremap <silent> <leader>f :NERDTreeToggle<CR>
+" tagbar settings
 nnoremap <silent> <leader>b :TagbarToggle<CR>
 
 " :make
@@ -250,7 +250,7 @@ nnoremap <C-v><C-g> :sp <cr>:exec("tag ".expand("<cword>"))<cr>
 
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
-let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_working_path_mode = 'rw'
 let g:ctrlp_clear_cache_on_exit = 0
 let g:ctrlp_show_hidden = 1
 let g:ctrlp_custom_ignore = '\v\~$|\.(o|swp|pyc|wav|mp3|ogg|blend)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])|__init__\.py'
