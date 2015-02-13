@@ -3,10 +3,16 @@ export PATH=$HOME/.local/bin:$PATH
 export PATH=$HOME/Gophings/bin:$PATH
 export PATH=$HOME/.gem/ruby/*/bin:$PATH
 export PATH=$HOME/.cabal/bin:$PATH
+export PATH=$(brew --prefix)/lib/pythonX.Y/site-packages:$PATH
 export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/9.3/bin
 export GOPATH=$HOME/Gophings:$GOPATH
+export GOBIN=$HOME/Gophings/bin
 export MANPATH=$HOMEBREWDIR/share/man:$MANPATH
 export MANPATH=$HOMEBREWDIR/share/man:$MANPATH
+
+export DOCKER_HOST=tcp://192.168.59.103:2376
+export DOCKER_CERT_PATH=/Users/cb/.boot2docker/certs/boot2docker-vm
+export DOCKER_TLS_VERIFY=1
 
 export VISUAL=vim
 export EDITOR=vim
@@ -30,6 +36,31 @@ HISTFILESIZE=2000
 
 
 #### ----  functions ---- ####
+
+
+# remove XCode derived data
+dxdd() {
+    #Save the starting dir
+    startingDir=$PWD
+
+    #Go to the derivedData
+    cd ~/Library/Developer/Xcode/DerivedData
+
+    #Sometimes, 1 file remains, so loop until no files remain
+    numRemainingFiles=1
+    while [ $numRemainingFiles -gt 0 ]; do
+        #Delete the files, recursively
+        rm -rf *
+
+        #Update file count
+        numRemainingFiles=`ls | wc -l`
+    done
+
+    echo Done
+
+    #Go back to starting dir
+    cd $startingDir
+}
 
 
 # easy extraction

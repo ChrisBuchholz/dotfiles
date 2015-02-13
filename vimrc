@@ -5,7 +5,6 @@ call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'
 
-Plugin 'Valloric/YouCompleteMe'
 Plugin 'rking/ag.vim'
 Plugin 'bling/vim-airline'
 Plugin 'craigemery/vim-autotag'
@@ -27,6 +26,7 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'tpope/vim-surround'
 Plugin 'scrooloose/syntastic'
+Plugin 'scrooloose/nerdtree'
 Plugin 'majutsushi/tagbar'
 Plugin 'tpope/vim-unimpaired'
 
@@ -67,6 +67,11 @@ let g:airline_theme='badwolf'
 set ts=4 sw=4 et
 let g:indent_guides_start_level=2
 let g:indent_guides_guide_size=1
+
+let g:NERDTreeMouseMode = 2
+let g:NERDTreeWinSize = 24
+
+nnoremap <silent> <leader>f :NERDTreeToggle<CR>
 
 set list
 set listchars=tab:▸\ ,eol:\ ,extends:❯,precedes:❮
@@ -110,6 +115,8 @@ set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set nobackup
 set noswapfile
 set completeopt-=preview
+
+nnoremap 0 ^
 
 " clear search
 nnoremap <esc> :noh<return><esc>
@@ -294,10 +301,6 @@ let g:tagbar_type_go = {
 " overwrite go-to-tag with godef in go files
 au Filetype go nnoremap <C-g> :GoDef<cr>
 
-" following go settings are not needed when using vim-go
-"let g:gofmt_command = "goimports"
-"autocmd FileType go autocmd BufWritePre <buffer> :silent Fmt
-
 " Ruby ------------------------------------------------------------------------
 
 autocmd Filetype ruby set shiftwidth=2
@@ -339,12 +342,21 @@ function! DoPrettyXML()
 endfunction
 command! PrettyXML call DoPrettyXML()
 
+" Set PWD to current file -----------------------------------------------------
+
+function! DoUpdatePWDToCurrentFile()
+    cd %:p:h
+endfunction
+command! UpdatePWDToCurrentFile call DoUpdatePWDToCurrentFile()
+
 " Color modifications ---------------------------------------------------------
 
-highlight ColorColumn ctermbg=236 guibg=#3f3f3f
-highlight VertSplit ctermbg=236 ctermfg=236
-"highlight NonText ctermfg=bg
-highlight CursorLineNR ctermbg=235
-highlight SignColumn ctermbg=235 ctermfg=235
-highlight SyntasticWarningSign ctermbg=235
-highlight SyntasticErrorSign ctermbg=235
+"highlight ColorColumn ctermbg=236 guibg=#3f3f3f
+"highlight VertSplit ctermbg=236 ctermfg=236
+""highlight NonText ctermfg=bg
+"highlight CursorLineNR ctermbg=235
+"highlight SignColumn ctermbg=235 ctermfg=235
+"highlight SyntasticWarningSign ctermbg=235
+"highlight SyntasticErrorSign ctermbg=235
+"
+"highlight

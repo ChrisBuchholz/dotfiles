@@ -1,5 +1,7 @@
 set ignorecase
 
+nnoremap 0 ^
+
 nmap ,ci :xccmd commentAndUncommentCurrentLines<CR>
 vmap ,ci :xccmd commentAndUncommentCurrentLines<CR>
 
@@ -12,12 +14,8 @@ vmap <C-j> :xccmd moveCurrentLineDown<CR>gv
 vmap <C-k> :xccmd moveCurrentLineUp<CR>gv
 vmap <C-l> :xccmd shiftRight<CR>gv
 
-nmap ,r :run<CR>
-nmap ,m :make<CR>
+"vmap <C-j> :xccmd moveCurrentLineDown<CR>0v$
+"vmap <C-k> :xccmd moveCurrentLineUp<CR>0v$
 
-nmap ,s :xccmd changeToStandardEditor<CR>
-nmap ,a :xccmd changeToGeniusEditor<CR>
-nmap ,v :xccmd changeToVersionEditor<CR>
-nmap ,n :xccmd toggleNavigatorsVisibility<CR>
-nmap ,d :xccmd toggleDebuggerVisibility<CR>
-nmap ,u :xccmd toggleUtilitiesVisibility<CR>
+"vmap <C-j> :xccmd moveCurrentLineDown<CR>V
+"vmap <C-k> :xccmd moveCurrentLineUp<CR>V
