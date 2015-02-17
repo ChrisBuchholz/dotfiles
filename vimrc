@@ -7,21 +7,12 @@ Plugin 'gmarik/Vundle.vim'
 
 Plugin 'rking/ag.vim'
 Plugin 'bling/vim-airline'
-Plugin 'craigemery/vim-autotag'
-Plugin 'bkad/CamelCaseMotion'
-Plugin 'hail2u/vim-css3-syntax'
 Plugin 'kien/ctrlp.vim'
 Plugin 'int3/vim-extradite'
 Plugin 'tpope/vim-fugitive'
 Plugin 'fatih/vim-go'
 Plugin 'sjl/gundo.vim'
-Plugin 'tpope/vim-haml'
-Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'digitaltoad/vim-jade'
-Plugin 'pangloss/vim-javascript'
-Plugin 'walm/jshint.vim'
 Plugin 'tomasr/molokai'
-Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'tpope/vim-surround'
@@ -29,6 +20,9 @@ Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdtree'
 Plugin 'majutsushi/tagbar'
 Plugin 'tpope/vim-unimpaired'
+Plugin 'xolox/vim-easytags'
+Plugin 'xolox/vim-misc'
+Plugin 'christoomey/vim-tmux-navigator'
 
 call vundle#end()
 filetype plugin indent on
@@ -45,6 +39,7 @@ syntax sync fromstart
 
 let mapleader = ","
 let maplocalleader = "\\"
+noremap \ ,
 
 " Theme -----------------------------------------------------------------------
 
@@ -143,16 +138,16 @@ autocmd filetype svn,*commit* setlocal spell
 "nnoremap <silent> <C-l> :nohl<CR><C-l>
 
 " in most terminal emulators, the mouse works fine, so enable it!
-if has('mouse')
-    set mouse=a
-    set ttymouse=xterm2
-endif
+"if has('mouse')
+    "set mouse=
+    "set ttymouse=xterm2
+"endif
 
 if has("gui_running")
     " disable toolbar, menubar, scrollbars
     set guioptions=aiA " Disable toolbar, menu bar, scroll bars
     " hide mouse when typing
-    set mousehide
+    "set mousehide
     " window size
     set lines=35 columns=110
     " font
@@ -182,7 +177,6 @@ endif
 " and set proper typeface
 if &t_Co > 2 || has('gui_running')
     syntax on
-    set hlsearch
 endif
 
 " autocommands!
@@ -213,14 +207,14 @@ nnoremap <silent> <leader>b :TagbarToggle<CR>
 nnoremap <silent> <leader>m :w<CR>:make<CR>:cw<CR>
 
 " text bubbling - using Tim Pope's unimpaired plugin
-nmap <C-h> <<
-nmap <C-j> ]e
-nmap <C-k> [e
-nmap <C-l> >>
-vmap <C-h> <<CR>gv
-vmap <C-j> ]egv
-vmap <C-k> [egv
-vmap <C-l> ><CR>gv
+nnoremap <S-h> <<
+nmap <S-j> ]e
+nmap <S-k> [e
+nnoremap <S-l> >>
+vnoremap <S-h> <<CR>gv
+vmap <S-j> ]egv
+vmap <S-k> [egv
+vnoremap <S-l> ><CR>gv
 
 " escape insert mode instantly
 if ! has('gui_running')
@@ -244,14 +238,26 @@ endif
 " rebind join since we're using c-j for navigation
 vmap <C-S-j> :join<CR>
 
-" Ctags ------------------------------------------------------------------------
+" tags -------------------------------------------------------------------------
 
 set tags=./.tags;/
+let g:easytags_dynamic_files = 1
+let g:easytags_async = 1
+
+let g:easytags_languages = {
+\   'haskell': {
+\       'cmd': '~/.cabal/bin/hasktags',
+\       'args': ['-c'],
+\       'fileoutput_opt': '-o',
+\       'stdout_opt': '-f-',
+\       'recurse_flag': '.'
+\   }
+\}
 
 " go to definition
 nnoremap <C-g> <C-]>
-"nnoremap <C-v><C-g> :vs <cr>:exec("tag ".expand("<cword>"))<cr>
-nnoremap <C-v><C-g> :sp <cr>:exec("tag ".expand("<cword>"))<cr>
+nnoremap <C-s> :vs <cr>:exec("tag ".expand("<cword>"))<cr>
+"nnoremap <C-s> :sp <cr>:exec("tag ".expand("<cword>"))<cr>
 
 " CtrlP ------------------------------------------------------------------------
 
@@ -348,15 +354,3 @@ function! DoUpdatePWDToCurrentFile()
     cd %:p:h
 endfunction
 command! UpdatePWDToCurrentFile call DoUpdatePWDToCurrentFile()
-
-" Color modifications ---------------------------------------------------------
-
-"highlight ColorColumn ctermbg=236 guibg=#3f3f3f
-"highlight VertSplit ctermbg=236 ctermfg=236
-""highlight NonText ctermfg=bg
-"highlight CursorLineNR ctermbg=235
-"highlight SignColumn ctermbg=235 ctermfg=235
-"highlight SyntasticWarningSign ctermbg=235
-"highlight SyntasticErrorSign ctermbg=235
-"
-"highlight

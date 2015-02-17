@@ -5,17 +5,22 @@ nnoremap 0 ^
 nmap ,ci :xccmd commentAndUncommentCurrentLines<CR>
 vmap ,ci :xccmd commentAndUncommentCurrentLines<CR>
 
-nmap <C-h> :xccmd shiftLeft<CR>
-nmap <C-j> :xccmd moveCurrentLineDown<CR>
-nmap <C-k> :xccmd moveCurrentLineUp<CR>
-nmap <C-l> :xccmd shiftRight<CR>
-vmap <C-h> :xccmd shiftLeft<CR>gv
-vmap <C-j> :xccmd moveCurrentLineDown<CR>gv
-vmap <C-k> :xccmd moveCurrentLineUp<CR>gv
-vmap <C-l> :xccmd shiftRight<CR>gv
+nmap <S-H> :xccmd shiftLeft<CR>
+nmap <S-J> :xccmd moveCurrentLineDown<CR>
+nmap <S-K> :xccmd moveCurrentLineUp<CR>
+nmap <S-L> :xccmd shiftRight<CR>
+vmap <S-H> :xccmd shiftLeft<CR>gv
+vmap <S-J> :xccmd moveCurrentLineDown<CR>gv
+vmap <S-K> :xccmd moveCurrentLineUp<CR>gv
+vmap <S-L> :xccmd shiftRight<CR>gv
 
 "vmap <C-j> :xccmd moveCurrentLineDown<CR>0v$
 "vmap <C-k> :xccmd moveCurrentLineUp<CR>0v$
 
 "vmap <C-j> :xccmd moveCurrentLineDown<CR>V
 "vmap <C-k> :xccmd moveCurrentLineUp<CR>V
+
+nmap <C-h> <C-w>h
+nmap <C-j> <C-w>j
+nmap <C-k> <C-w>k
+nmap <C-l> <C-w>l

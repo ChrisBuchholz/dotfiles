@@ -3,6 +3,7 @@ export PATH=$HOME/.local/bin:$PATH
 export PATH=$HOME/Gophings/bin:$PATH
 export PATH=$HOME/.gem/ruby/*/bin:$PATH
 export PATH=$HOME/.cabal/bin:$PATH
+export PATH=$HOME/Library/Haskell/bin:$PATH
 export PATH=$(brew --prefix)/lib/pythonX.Y/site-packages:$PATH
 export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/9.3/bin
 export GOPATH=$HOME/Gophings:$GOPATH
@@ -24,6 +25,12 @@ export GPGKEY=7EA01D78
 export GREP_OPTIONS='--color=auto'
 export TERM=xterm-256color
 export RI="--format ansi --width 70"
+
+# Add GHC 7.8.3 to the PATH, via http://ghcformacosx.github.io/
+export GHC_DOT_APP="/Applications/ghc-7.8.3.app"
+if [ -d "$GHC_DOT_APP" ]; then
+    export PATH="${HOME}/.cabal/bin:${GHC_DOT_APP}/Contents/bin:${PATH}"
+fi
 
 # don't put duplicate lines in the history. See bash(1) for more options
 # ... or force ignoredups and ignorespace
@@ -124,12 +131,18 @@ maketags() {
     ctags -f .tags -R *
 }
 
+makehaskelltags() {
+    hasktags -c -o .tags .
+}
+
 # open man pages in Preview.app
 pman () {
     man -t $1 | open -f -a /Applications/Preview.app
 }
 
+
 #### aliases
+
 
 alias sshtnnl='ssh -D 8080 -f -C -q -N -p 443' # ssh tunnel on port 8080
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
@@ -147,7 +160,9 @@ alias brewup='brew update && brew upgrade'
 hash mvim 2>/dev/null && alias vim='mvim -v' # alias vim to terminal mvim if mvim exists
 alias ..='cd ..'
 
+
 ### bindings
+
 
 # Up Arrow: search and complete from previous history
 bind '"\eOA": history-search-backward'
@@ -156,6 +171,7 @@ bind '"\eOB": history-search-forward'
 
 
 ### styling
+
 
 . ~/.bash_prompt
 
