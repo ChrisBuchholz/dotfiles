@@ -5,14 +5,17 @@ nnoremap 0 ^
 nmap ,ci :xccmd commentAndUncommentCurrentLines<CR>
 vmap ,ci :xccmd commentAndUncommentCurrentLines<CR>
 
-nmap <S-H> :xccmd shiftLeft<CR>
-nmap <S-J> :xccmd moveCurrentLineDown<CR>
-nmap <S-K> :xccmd moveCurrentLineUp<CR>
-nmap <S-L> :xccmd shiftRight<CR>
-vmap <S-H> :xccmd shiftLeft<CR>gv
-vmap <S-J> :xccmd moveCurrentLineDown<CR>gv
-vmap <S-K> :xccmd moveCurrentLineUp<CR>gv
-vmap <S-L> :xccmd shiftRight<CR>gv
+" uncommented all the move lines stuff since it only use to keys anyways,
+" so its much easier to just remap the keys in xcodes keybinding editor
+
+"nmap <S-H> :xccmd shiftLeft<CR>
+"nmap <S-J> :xccmd moveCurrentLineDown<CR>
+"nmap <S-K> :xccmd moveCurrentLineUp<CR>
+"nmap <S-L> :xccmd shiftRight<CR>
+"vmap <S-H> :xccmd shiftLeft<CR>gv
+"vmap <S-J> :xccmd moveCurrentLineDown<CR>gv
+"vmap <S-K> :xccmd moveCurrentLineUp<CR>gv
+"vmap <S-L> :xccmd shiftRight<CR>gv
 
 "vmap <C-j> :xccmd moveCurrentLineDown<CR>0v$
 "vmap <C-k> :xccmd moveCurrentLineUp<CR>0v$

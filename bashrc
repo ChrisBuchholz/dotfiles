@@ -159,6 +159,7 @@ alias ql='qlmanage -p 2>/dev/null' # quicklook
 alias brewup='brew update && brew upgrade'
 hash mvim 2>/dev/null && alias vim='mvim -v' # alias vim to terminal mvim if mvim exists
 alias ..='cd ..'
+alias c='clear'
 
 
 ### bindings
