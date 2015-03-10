@@ -140,6 +140,26 @@ pman () {
     man -t $1 | open -f -a /Applications/Preview.app
 }
 
+rmount () {
+    #
+    # requires osxfuse, sshfs and ssh-copy-id and that you have keyless
+    # ssh login set up between you and the remote
+    #
+    # usage:
+    #   rmount 99.99.99.99 /some/path
+    #
+    # if you leave out the path it defaults to ./ (home folder)
+    #
+    REMOTE_HOST=$1
+    REMOTE_PATH=$2
+    MOUNT_PATH=/Volumes/$REMOTE_HOST
+    if [ -z "$2" ]; then
+        REMOTE_PATH=./
+    fi
+    [ -d $MOUNT_PATH ] || mkdir $MOUNT_PATH
+    sshfs -o reconnect -o volname=$REMOTE_HOST -o IdentityFile=~/.ssh/id_rsa $REMOTE_HOST:$REMOTE_PATH $MOUNT_PATH && open $MOUNT_PATH
+}
+
 
 #### aliases
 

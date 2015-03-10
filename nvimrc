@@ -115,6 +115,8 @@ set colorcolumn=80
 set clipboard=unnamed
 set wildmenu
 
+let g:go_fmt_command = "goimports"
+
 nnoremap <silent> <leader>f :NERDTreeToggle<CR>
 
 nnoremap 0 ^
