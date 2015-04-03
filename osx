@@ -103,3 +103,7 @@ defaults write com.apple.dashboard devmode -bool true
 # Show the ~/Library folder
 chflags nohidden ~/Library
 
+# Disable spindump
+# reference: http://jamesreubenknowles.com/disable-spindump-71
+sudo launchctl unload -w  /System/Library/LaunchDaemons/com.apple.spindump.plist
+
