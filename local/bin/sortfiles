@@ -1,29 +1,41 @@
 #!/bin/bash
-
-# sort all files in working directory numerically
 #
-# arguments: -p Afsnit -z 2
+# sortfiles.sh
 #
-# output example:
-#   Afsnit 01.avi Afsnit 02.avi Afsnit 03.avi
-#   ...
-#   Afsnit 22.avi ... Afsnit 88.avi
+# Copyright (c) 2015 Chris Buchholz
+#
 
-iter=1
-prefix="Afsnit"
-padding="2"
 IFS=$'\n'
+prefix='Episode'
+padding='2'
+readonly program="$(basename "$0")"
 
 usage() {
-cat << EOF
-usage: $0 options
+    cat <<EOF
+usage: $program [OPTIONS]...
 
-This script sorts files numerically
+This script sorts files in working directory numerically
 
 OPTIONS:
     -p   Prefix of the filename
     -z   Zero-padding of the item number
+
+DEFAULT:
+    -p   Episode
+    -z   02
+
+USAGE EXAMPLE:
+    sortfiles -p Video -z 3
+
+OUTPUT EXAMPLE:
+    video1.mp4   -> Video 001.mp4
+    video2.mp4   -> Video 002.mp4
+    ...
+    video55.mp4  -> Video 055.mp4
+    ...
+    video112.mp4 -> Video 112.mp4
 EOF
+    exit 0
 }
 
 while getopts "hp:z:" OPTION
@@ -46,10 +58,26 @@ do
     esac
 done
 
-for f in $( find . -maxdepth 1 -type f -not -name ".*" | sort -nk2 )
-do
-    extension=`echo $f | awk -F . '{print $NF}'`
-    num=`printf "%0${padding}d" $iter`
-    mv $f "$prefix $num.$extension"
-    iter=$(($iter+1))
-done
+run() {
+    iter=1
+    for f in $( find . -maxdepth 1 -type f -not -name ".*" | sort -nk2 )
+    do
+        extension=`echo $f | awk -F . '{print $NF}'`
+        num=`printf "%0${padding}d" $iter`
+        if [ $# -eq 0 ]; then
+            echo "$f -> $prefix $num.$extension"
+        else
+            mv $f "$prefix $num.$extension"
+        fi
+
+        iter=$(($iter+1))
+    done
+}
+
+run
+
+read -r -p "Rename files? [y/N] " response
+if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
+    run 1
+    echo "Done renaming files"
+fi

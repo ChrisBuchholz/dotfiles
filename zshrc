@@ -1,16 +1,18 @@
-export DISABLE_AUTO_TITLE=true
-export TERM=screen-256color
-export GPGKEY=7EA01D78
-export GREP_OPTIONS='--color=auto'
-export EDITOR=vim
-export VISUAL=vim
-
 unsetopt nomatch
 
-# terminal fix to bring back git completion
-zstyle ':completion:*:*:git:*' script /usr/local/etc/bash_completion.d/git-completion.bash
+export LANG="da_DK.UTF-8"
+export LC_ALL="da_DK.UTF-8"
+export CLICOLOR=1
+export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
+export VISUAL=vim
+export EDITOR=vim
+export GPGKEY=7EA01D78
+export GREP_OPTIONS='--color=auto'
 
-hash brew 2>/dev/null && . `brew --prefix`/etc/profile.d/z.sh
+# terminal fix to bring back git completion
+#zstyle ':completion:*:*:git:*' script /usr/local/etc/bash_completion.d/git-completion.bash
+
+#hash brew 2>/dev/null && . `brew --prefix`/etc/profile.d/z.sh
 
 
 # Function --------------------------------------------------------------------
@@ -77,16 +79,6 @@ listColors() {
     done
 }
 
-# create tags file with ctags
-maketags() {
-    ctags -f .tags -R *
-}
-
-# create tags file with hothasktags
-makehtags() {
-    find . | egrep '\.hs$' | xargs hothasktags > .tags
-}
-
 
 # Aliases ---------------------------------------------------------------------
 
@@ -140,8 +132,6 @@ function lsdirs () {
 source ~/.dotfiles/antigen/antigen.zsh
 
 # Load the oh-my-zsh's library.
-export ZSH=$HOME/.oh-my-zsh
-export OH_MY_ZSH_DEBUG="true"
 antigen use oh-my-zsh
 
 # Bundles from the default repo (robbyrussell's oh-my-zsh).
@@ -154,7 +144,7 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-completions
 
 # Load the theme.
-antigen theme dst
+antigen theme simple
 
 
 # Host specifics --------------------------------------------------------------
@@ -174,4 +164,3 @@ fi
 
 
 antigen apply
-

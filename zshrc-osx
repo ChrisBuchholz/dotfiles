@@ -1,28 +1,59 @@
-export PATH=$HOME/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/local/share/python3:/usr/local/share/python:/usr/local/share/npm/bin:$PATH
+export PATH=/usr/local/bin:$PATH
 export PATH=$HOME/.local/bin:$PATH
+export PATH=$HOME/Gophings/bin:$PATH
 export PATH=$HOME/.gem/ruby/*/bin:$PATH
-export PATH=/usr/local/Cellar/ruby/2.0.0-p247/bin:$PATH
 export PATH=$HOME/.cabal/bin:$PATH
-export PATH=/usr/local/Cellar/python/*/bin:$PATH
-export PATH=/usr/local/Cellar/python3/*/bin:$PATH
-export PATH=$HOME/.go/bin:$HOME/Gophings/bin:$PATH
+export PATH=$HOME/Library/Haskell/bin:$PATH
+export PATH=$(brew --prefix)/lib/pythonX.Y/site-packages:$PATH
+export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/9.3/bin
+export GOPATH=$HOME/Gophings:$GOPATH
+export GOBIN=$HOME/Gophings/bin
 export MANPATH=$HOMEBREWDIR/share/man:$MANPATH
-export NODE_PATH="/usr/local/lib/node_modules"
-export GOPATH=$HOME/.go:$HOME/Gophings:$GOPATH
+export MANPATH=$HOMEBREWDIR/share/man:$MANPATH
 
-export LANG="da_DK.UTF-8"
-export LC_ALL="da_DK.UTF-8"
-
-export CLICOLOR=1
-export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
+export TERM=xterm-256color
+export DISABLE_AUTO_TITLE=true
 
 
 # Functions -------------------------------------------------------------------
 
+# create tags file with ctags
+maketags() {
+    ctags -f .tags -R *
+}
 
+# create tags file with hothasktags
+makehaskelltags() {
+    hasktags -c -o .tags .
+}
+
+fixxcode () {
+    rm -frd ~/Library/Developer/Xcode/DerivedData/*
+    rm -frd ~/Library/Caches/com.apple.dt.Xcode/*
+}
 # open man pages in Preview.app
 pman () {
     man -t $1 | open -f -a /Applications/Preview.app
+}
+
+rmount () {
+    #
+    # requires osxfuse, sshfs and ssh-copy-id and that you have keyless
+    # ssh login set up between you and the remote
+    #
+    # usage:
+    #   rmount 99.99.99.99 /some/path
+    #
+    # if you leave out the path it defaults to ./ (home folder)
+    #
+    REMOTE_HOST=$1
+    REMOTE_PATH=$2
+    MOUNT_PATH=/Volumes/$REMOTE_HOST
+    if [ -z "$2" ]; then
+        REMOTE_PATH=./
+    fi
+    [ -d $MOUNT_PATH ] || mkdir $MOUNT_PATH
+    sshfs -o reconnect -o volname=$REMOTE_HOST -o IdentityFile=~/.ssh/id_rsa $REMOTE_HOST:$REMOTE_PATH $MOUNT_PATH && open $MOUNT_PATH
 }
 
 

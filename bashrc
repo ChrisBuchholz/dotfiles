@@ -69,6 +69,10 @@ dxdd() {
     cd $startingDir
 }
 
+fixxcode () {
+    rm -frd ~/Library/Developer/Xcode/DerivedData/*
+    rm -frd ~/Library/Caches/com.apple.dt.Xcode/*
+}
 
 # easy extraction
 extract () {
