@@ -164,6 +164,14 @@ rmount () {
     sshfs -o reconnect -o volname=$REMOTE_HOST -o IdentityFile=~/.ssh/id_rsa $REMOTE_HOST:$REMOTE_PATH $MOUNT_PATH && open $MOUNT_PATH
 }
 
+vactivate() {
+    if [ -f "$PWD/bin/activate" ]; then
+        source "$PWD/bin/activate"
+    else
+        echo "No virtual environment to activate in $PWD"
+    fi
+}
+
 
 #### aliases
 
