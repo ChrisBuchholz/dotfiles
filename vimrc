@@ -22,6 +22,7 @@ Plugin 'majutsushi/tagbar'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'xolox/vim-easytags'
 Plugin 'xolox/vim-misc'
+Plugin 'klen/python-mode'
 
 call vundle#end()
 filetype plugin indent on
@@ -43,7 +44,7 @@ noremap \ ,
 " Theme -----------------------------------------------------------------------
 
 colorscheme molokai
-let g:molokai_original = 0
+let g:molokai_original = 1
 let g:rehash256 = 1
 set background=dark
 
@@ -77,6 +78,7 @@ set hidden
 set scrolloff=3
 set vb t_vb=
 set showmatch
+set cursorline
 set matchpairs+=<:>
 set matchtime=3
 set wrap
@@ -237,7 +239,11 @@ nnoremap <C-g> <C-]>
 nnoremap <C-s> :vs <cr>:exec("tag ".expand("<cword>"))<cr>
 "nnoremap <C-s> :sp <cr>:exec("tag ".expand("<cword>"))<cr>
 
- "CtrlP ------------------------------------------------------------------------
+" Python ----------------------------------------------------------------------
+let g:pymode_rope = 1
+let g:pymode_rope_goto_definition_bind = "<C-g>"
+
+"CtrlP ------------------------------------------------------------------------
 
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
