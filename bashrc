@@ -23,7 +23,7 @@ export CLICOLOR=1
 export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 export GPGKEY=7EA01D78
 export GREP_OPTIONS='--color=auto'
-export TERM=xterm-256color
+export TERM=screen-256color
 export RI="--format ansi --width 70"
 
 # Add GHC 7.8.3 to the PATH, via http://ghcformacosx.github.io/
@@ -167,6 +167,10 @@ rmount () {
 vactivate() {
     if [ -f "$PWD/bin/activate" ]; then
         source "$PWD/bin/activate"
+    elif [ -f "$PWD/venv/bin/activate" ]; then
+        source "$PWD/venv/bin/activate"
+    elif [ -f "$PWD/env/bin/activate" ]; then
+        source "$PWD/env/bin/activate"
     else
         echo "No virtual environment to activate in $PWD"
     fi
