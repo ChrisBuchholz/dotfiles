@@ -79,6 +79,18 @@ listColors() {
     done
 }
 
+vactivate() {
+    if [ -f "$PWD/bin/activate" ]; then
+        source "$PWD/bin/activate"
+    elif [ -f "$PWD/venv/bin/activate" ]; then
+        source "$PWD/venv/bin/activate"
+    elif [ -f "$PWD/env/bin/activate" ]; then
+        source "$PWD/env/bin/activate"
+    else
+        echo "No virtual environment to activate in $PWD"
+    fi
+}
+
 
 # Aliases ---------------------------------------------------------------------
 
@@ -90,7 +102,8 @@ alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
 alias flush="dscacheutil -flushcache"
 alias sniff="sudo ngrep -d 'en0' -t '^(GET|POST) ' 'tcp and port 80'"
 alias httpdump="sudo tcpdump -i en1 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET \/.*\""
-alias server="open http://localhost:8080/ && python -m SimpleHTTPServer 8080"
+alias webserver="open http://localhost:8080/ && python -m SimpleHTTPServer 8080"
+alias phpserver="php -S localhost:3000"
 alias tmux='tmux -2'
 alias ltop='top -F -R -o cpu'
 hash mvim 2>/dev/null && alias vim='mvim -v' # alias vim to terminal mvim if mvim exists
@@ -136,7 +149,6 @@ antigen use oh-my-zsh
 
 # Bundles from the default repo (robbyrussell's oh-my-zsh).
 antigen bundle git
-antigen bundle svn
 antigen bundle command-not-found
 
 # Syntax highlighting bundle.
@@ -144,7 +156,7 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-completions
 
 # Load the theme.
-antigen theme simple
+antigen theme steeef
 
 
 # Host specifics --------------------------------------------------------------

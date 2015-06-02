@@ -23,6 +23,7 @@ Plugin 'tpope/vim-unimpaired'
 Plugin 'xolox/vim-easytags'
 Plugin 'xolox/vim-misc'
 Plugin 'klen/python-mode'
+Plugin 'christoomey/vim-tmux-navigator'
 
 call vundle#end()
 filetype plugin indent on
@@ -37,7 +38,7 @@ let g:email = 'chris@chrisbuchholz.me'
 " preferences
 syntax sync fromstart
 
-let mapleader = ","
+let mapleader = "\<Space>"
 let maplocalleader = "\\"
 noremap \ ,
 
@@ -119,6 +120,8 @@ set wildmenu
 nnoremap <silent> <leader>f :NERDTreeToggle<CR>
 
 nnoremap 0 ^
+
+nnoremap <Leader>w :w<CR>
 
 "spell check when writing commit logs
 autocmd filetype svn,*commit* setlocal spell
@@ -245,7 +248,7 @@ let g:pymode_rope_goto_definition_bind = "<C-g>"
 
 "CtrlP ------------------------------------------------------------------------
 
-let g:ctrlp_map = '<c-p>'
+let g:ctrlp_map = '<Leader>o'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'rw'
 let g:ctrlp_clear_cache_on_exit = 0
@@ -253,6 +256,18 @@ let g:ctrlp_show_hidden = 1
 let g:ctrlp_custom_ignore = '\v\~$|\.(o|swp|pyc|wav|mp3|ogg|blend)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])|__init__\.py'
 nnoremap <silent> <leader>t :CtrlPTag<cr>
 nnoremap <silent> <leader>r :CtrlPMRU<cr>
+
+let g:ctrlp_use_caching = 0
+if executable('ag')
+    set grepprg=ag\ --nogroup\ --nocolor
+
+    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+else
+  let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
+  let g:ctrlp_prompt_mappings = {
+    \ 'AcceptSelection("e")': ['<space>', '<cr>', '<2-LeftMouse>'],
+    \ }
+endif
 
 "Gundo ------------------------------------------------------------------------
 

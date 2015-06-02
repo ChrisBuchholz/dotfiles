@@ -11,7 +11,7 @@ export GOBIN=$HOME/Gophings/bin
 export MANPATH=$HOMEBREWDIR/share/man:$MANPATH
 export MANPATH=$HOMEBREWDIR/share/man:$MANPATH
 
-export TERM=xterm-256color
+export TERM=screen-256color
 export DISABLE_AUTO_TITLE=true
 
 
@@ -27,10 +27,29 @@ makehaskelltags() {
     hasktags -c -o .tags .
 }
 
-fixxcode () {
-    rm -frd ~/Library/Developer/Xcode/DerivedData/*
-    rm -frd ~/Library/Caches/com.apple.dt.Xcode/*
+dxdd() {
+    #Save the starting dir
+    startingDir=$PWD
+
+    #Go to the derivedData
+    cd ~/Library/Developer/Xcode/DerivedData
+
+    #Sometimes, 1 file remains, so loop until no files remain
+    numRemainingFiles=1
+    while [ $numRemainingFiles -gt 0 ]; do
+        #Delete the files, recursively
+        rm -rf *
+
+        #Update file count
+        numRemainingFiles=`ls | wc -l`
+    done
+
+    echo Done
+
+    #Go back to starting dir
+    cd $startingDir
 }
+
 # open man pages in Preview.app
 pman () {
     man -t $1 | open -f -a /Applications/Preview.app
