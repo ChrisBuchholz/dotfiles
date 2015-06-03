@@ -107,6 +107,7 @@ alias phpserver="php -S localhost:3000"
 alias tmux='tmux -2'
 alias ltop='top -F -R -o cpu'
 hash mvim 2>/dev/null && alias vim='mvim -v' # alias vim to terminal mvim if mvim exists
+alias c='clear'
 
 
 # Named directories -----------------------------------------------------------
