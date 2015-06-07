@@ -20,9 +20,8 @@ Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdtree'
 Plugin 'majutsushi/tagbar'
 Plugin 'tpope/vim-unimpaired'
-Plugin 'xolox/vim-easytags'
+Plugin 'szw/vim-tags'
 Plugin 'xolox/vim-misc'
-Plugin 'klen/python-mode'
 Plugin 'christoomey/vim-tmux-navigator'
 
 call vundle#end()
@@ -243,8 +242,8 @@ nnoremap <C-s> :vs <cr>:exec("tag ".expand("<cword>"))<cr>
 "nnoremap <C-s> :sp <cr>:exec("tag ".expand("<cword>"))<cr>
 
 " Python ----------------------------------------------------------------------
-let g:pymode_rope = 1
-let g:pymode_rope_goto_definition_bind = "<C-g>"
+
+let g:syntastic_python_checkers = ['flake8']
 
 "CtrlP ------------------------------------------------------------------------
 
