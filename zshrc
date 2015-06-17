@@ -139,6 +139,10 @@ function lsdirs () {
     done
 }
 
+function MKVToMP4 () {
+    ffmpeg -i $1 -vcodec copy -acodec copy $2
+}
+
 
 # Antigen ---------------------------------------------------------------------
 
@@ -170,6 +174,15 @@ if [ "$UNAME" = "Linux" ]; then
 elif [ "$UNAME" = "Darwin" ]; then
     # Max OS X (Darwin)
     source ~/.zshrc-osx
+fi
+
+
+# Secrets --------
+
+
+SECRETS=~/.zshrc-secrets
+if [ -f $SECRETS ]; then
+    source $SECRETS
 fi
 
 
