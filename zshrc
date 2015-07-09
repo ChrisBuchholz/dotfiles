@@ -92,6 +92,7 @@ vactivate() {
 }
 
 
+
 # Aliases ---------------------------------------------------------------------
 
 
@@ -102,7 +103,6 @@ alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
 alias flush="dscacheutil -flushcache"
 alias sniff="sudo ngrep -d 'en0' -t '^(GET|POST) ' 'tcp and port 80'"
 alias httpdump="sudo tcpdump -i en1 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET \/.*\""
-alias webserver="open http://localhost:8080/ && python -m SimpleHTTPServer 8080"
 alias phpserver="php -S localhost:3000"
 alias tmux='tmux -2'
 alias ltop='top -F -R -o cpu'
@@ -142,6 +142,26 @@ function lsdirs () {
 function MKVToMP4 () {
     ffmpeg -i $1 -vcodec copy -acodec copy $2
 }
+
+
+function webserver () {
+    PORT=$1
+    if [ -z "$1" ]; then
+        PORT=8080
+    fi
+
+    python -m SimpleHTTPServer $1
+}
+
+
+function airplay() {
+    IP=$2
+    if [ -z "$2" ]; then
+        IP="192.168.0.17"
+    fi
+    airstream $1 -o $IP
+}
+
 
 
 # Antigen ---------------------------------------------------------------------

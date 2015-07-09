@@ -23,6 +23,10 @@ Plugin 'tpope/vim-unimpaired'
 Plugin 'szw/vim-tags'
 Plugin 'xolox/vim-misc'
 Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'rust-lang/rust.vim'
+Plugin 'davidhalter/jedi-vim'
+Plugin 'Shougo/neocomplete.vim'
+Plugin 'phildawes/racer'
 
 call vundle#end()
 filetype plugin indent on
@@ -139,7 +143,7 @@ if has("gui_running")
      "window size
     set lines=35 columns=110
      "font
-    set guifont=Source\ Code\ Pro:h11
+    "set guifont=Source\ Code\ Pro:h11
 endif
 
 if has("gui_macvim")
@@ -307,3 +311,33 @@ function! DoUpdatePWDToCurrentFile()
     cd %:p:h
 endfunction
 command! UpdatePWDToCurrentFile call DoUpdatePWDToCurrentFile()
+
+
+" The Silver Searcher ---------------------------------------------------------
+
+if executable('ag')
+  " Use ag over grep
+  set grepprg=ag\ --nogroup\ --nocolor
+
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+
+  " ag is fast enough that CtrlP doesn't need to cache
+  let g:ctrlp_use_caching = 0
+endif
+
+nnoremap <leader>k :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
+
+" Completion ------------------------------------------------------------------
+
+autocmd FileType python setl omnifunc=jedi#completions
+"autocmd FileType rust setl omnifunc=racer#Complete
+let g:jedi#force_py_version = 3
+
+
+" if patter matches, local omnifunc will be called
+if !exists('g:neocomplete#sources#omni#input_patterns')
+    let g:neocomplete#sources#omni#input_patterns = {}
+endif
+let g:neocomplete#sources#omni#input_patterns.rust =
+    \ '[^.[:digit:] *\t]\%(\.\|\::\)\%(\h\w*\)\?'
