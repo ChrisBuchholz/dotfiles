@@ -24,7 +24,6 @@ Plugin 'szw/vim-tags'
 Plugin 'xolox/vim-misc'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'rust-lang/rust.vim'
-Plugin 'davidhalter/jedi-vim'
 Plugin 'Shougo/neocomplete.vim'
 Plugin 'phildawes/racer'
 
@@ -45,14 +44,18 @@ let mapleader = "\<Space>"
 let maplocalleader = "\\"
 noremap \ ,
 
+
 " Theme -----------------------------------------------------------------------
+
 
 colorscheme molokai
 let g:molokai_original = 1
 let g:rehash256 = 1
 set background=dark
 
+
 " Airline ---------------------------------------------------------------------
+
 
 let g:airline_powerline_fonts = 0
 let g:airline_left_sep=''
@@ -61,7 +64,9 @@ let g:airline_right_sep=''
 let g:airline_right_alt_sep=''
 let g:airline_theme='badwolf'
 
+
 " Stuff -----------------------------------------------------------------------
+
 
 set ts=4 sw=4 et
 let g:indent_guides_start_level=2
@@ -224,7 +229,9 @@ endif
  "rebind join since we're using c-j for navigation
 vmap <C-S-j> :join<CR>
 
-"tags -------------------------------------------------------------------------
+
+" tags ------------------------------------------------------------------------
+
 
 set tags=./.tags;/
 let g:easytags_dynamic_files = 1
@@ -240,16 +247,23 @@ let g:easytags_languages = {
 \   }
 \}
 
- "go to definition
+
+" go to definition ------------------------------------------------------------
+
+
 nnoremap <C-g> <C-]>
 nnoremap <C-s> :vs <cr>:exec("tag ".expand("<cword>"))<cr>
 "nnoremap <C-s> :sp <cr>:exec("tag ".expand("<cword>"))<cr>
 
+
 " Python ----------------------------------------------------------------------
+
 
 let g:syntastic_python_checkers = ['flake8']
 
+
 "CtrlP ------------------------------------------------------------------------
+
 
 let g:ctrlp_map = '<Leader>o'
 let g:ctrlp_cmd = 'CtrlP'
@@ -260,21 +274,29 @@ let g:ctrlp_custom_ignore = '\v\~$|\.(o|swp|pyc|wav|mp3|ogg|blend)$|(^|[/\\])\.(
 nnoremap <silent> <Leader>t :CtrlPTag<cr>
 nnoremap <silent> <Leader>r :CtrlPMRU<cr>
 
+
 "Gundo ------------------------------------------------------------------------
+
 
 nnoremap <silent> <leader>u :GundoToggle<cr>
 
+
 "Ruby ------------------------------------------------------------------------
+
 
 autocmd Filetype ruby set shiftwidth=2
 autocmd Filetype ruby set tabstop=2
 autocmd Filetype ruby set softtabstop=2
 
+
 "Crontab ----------------------------------------------------------------------
+
 
 autocmd filetype crontab setlocal nobackup nowritebackup
 
+
 "XML prettifier ---------------------------------------------------------------
+
 
 function! DoPrettyXML()
    "save the filetype so we can restore it later
@@ -315,6 +337,7 @@ command! UpdatePWDToCurrentFile call DoUpdatePWDToCurrentFile()
 
 " The Silver Searcher ---------------------------------------------------------
 
+
 if executable('ag')
   " Use ag over grep
   set grepprg=ag\ --nogroup\ --nocolor
@@ -328,12 +351,13 @@ endif
 
 nnoremap <leader>k :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 
+
 " Completion ------------------------------------------------------------------
 
-autocmd FileType python setl omnifunc=jedi#completions
-"autocmd FileType rust setl omnifunc=racer#Complete
-let g:jedi#force_py_version = 3
 
+let g:neocomplete#enable_at_startup = 1
+
+let g:racer_cmd = 'racer'
 
 " if patter matches, local omnifunc will be called
 if !exists('g:neocomplete#sources#omni#input_patterns')
