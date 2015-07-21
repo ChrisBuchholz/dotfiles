@@ -40,10 +40,12 @@ extract () {
   fi
 }
 
+
 # creates an archive from given directory
 mktar() { tar cvf  "${1%%/}.tar"     "${1%%/}/"; }
 mktgz() { tar cvzf "${1%%/}.tar.gz"  "${1%%/}/"; }
 mktbz() { tar cvjf "${1%%/}.tar.bz2" "${1%%/}/"; }
+
 
 # Test if HTTP compression (RFC 2616 + SDCH) is enabled for a given URL.
 # Send a fake UA string for sites that sniff it instead of using the Accept-Encoding header. (Looking at you, ajax.googleapis.com!)
@@ -51,10 +53,12 @@ httpcompression() {
   encoding="$(curl -LIs -H 'User-Agent: Mozilla/5 Gecko' -H 'Accept-Encoding: gzip,deflate,compress,sdch' "$1" | grep '^Content-Encoding:')" && echo "$1 is encoded using ${encoding#* }" || echo "$1 is not using any encoding"
 }
 
+
 # all the dig info
 digga() {
   dig +nocmd "$1" any +multiline +noall +answer
 }
+
 
 # make and cd into directory
 mcd() {
@@ -67,10 +71,12 @@ mcd() {
     fi
 }
 
+
 # simpler find
 search() {
     find . -name "$1" -exec grep -li "$2" {} \;
 }
+
 
 # terminal colors
 listColors() {
@@ -88,6 +94,47 @@ vactivate() {
         source "$PWD/env/bin/activate"
     else
         echo "No virtual environment to activate in $PWD"
+    fi
+}
+
+
+function lsdirs () {
+    for key in ${(k)NAMED_DIRS}
+    do
+        printf "%-10s %s\n" $key  ${NAMED_DIRS[$key]}
+    done
+}
+
+
+function MKVToMP4 () {
+    ffmpeg -i $1 -vcodec copy -acodec copy $2
+}
+
+
+function webserver () {
+    PORT=$1
+    if [ -z "$1" ]; then
+        PORT=8080
+    fi
+
+    python -m SimpleHTTPServer $1
+}
+
+
+function airplay() {
+    IP=$2
+    if [ -z "$2" ]; then
+        IP="192.168.0.17"
+    fi
+    airstream $1 -o $IP
+}
+
+
+# open all files in git repo that are not staged, committed or ignored
+function gim() {
+    CMD='git ls-files --other --exclude-standard -m'
+    if eval $CMD; then
+        vim `eval $CMD` -O
     fi
 }
 
@@ -116,11 +163,11 @@ alias c='clear'
 typeset -A NAMED_DIRS
 
 NAMED_DIRS=(
-    www         ~/WWW
-    royalbeer   ~/WWW/royalbeer.tv/web/wp-content/themes/royalbeer
-    hde         ~/WWW/hdejendomme/web/wp-content/themes
+    webapi      ~/OC/Projekter/ocmg-webapi/ocmg-webapi
+    ocid        ~/OC/Projekter/ocid/ocid
+    flaskocid   ~/OC/Projekter/Flask-ocid
+    occommon    ~/OC/Projekter/ocmg-py3-common
     projekter   ~/Projekter
-    war         ~/Gophings/src/github.com/ChrisBuchholz/war
 )
 
 for key in ${(k)NAMED_DIRS}
@@ -131,37 +178,6 @@ do
         unset "NAMED_DIRS[$key]"
     fi
 done
-
-function lsdirs () {
-    for key in ${(k)NAMED_DIRS}
-    do
-        printf "%-10s %s\n" $key  ${NAMED_DIRS[$key]}
-    done
-}
-
-function MKVToMP4 () {
-    ffmpeg -i $1 -vcodec copy -acodec copy $2
-}
-
-
-function webserver () {
-    PORT=$1
-    if [ -z "$1" ]; then
-        PORT=8080
-    fi
-
-    python -m SimpleHTTPServer $1
-}
-
-
-function airplay() {
-    IP=$2
-    if [ -z "$2" ]; then
-        IP="192.168.0.17"
-    fi
-    airstream $1 -o $IP
-}
-
 
 
 # Antigen ---------------------------------------------------------------------
@@ -197,7 +213,7 @@ elif [ "$UNAME" = "Darwin" ]; then
 fi
 
 
-# Secrets --------
+# Secrets ---------------------------------------------------------------------
 
 
 SECRETS=~/.zshrc-secrets

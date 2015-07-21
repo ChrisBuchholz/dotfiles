@@ -12,6 +12,7 @@ export GOBIN=$HOME/Gophings/bin
 export MANPATH=$HOMEBREWDIR/share/man:$MANPATH
 export MANPATH=$HOMEBREWDIR/share/man:$MANPATH
 export RUST_SRC_PATH=$HOME/dev/rust/src
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
 
 export TERM=screen-256color
 export DISABLE_AUTO_TITLE=true
