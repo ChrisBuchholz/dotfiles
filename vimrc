@@ -14,18 +14,18 @@ Plugin 'fatih/vim-go'
 Plugin 'sjl/gundo.vim'
 Plugin 'tomasr/molokai'
 Plugin 'scrooloose/nerdcommenter'
-Plugin 'vim-ruby/vim-ruby'
+"Plugin 'vim-ruby/vim-ruby'
 Plugin 'tpope/vim-surround'
 Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdtree'
 Plugin 'majutsushi/tagbar'
 Plugin 'tpope/vim-unimpaired'
-Plugin 'szw/vim-tags'
+"Plugin 'szw/vim-tags'
 Plugin 'xolox/vim-misc'
-Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'rust-lang/rust.vim'
-Plugin 'Shougo/neocomplete.vim'
-Plugin 'phildawes/racer'
+"Plugin 'christoomey/vim-tmux-navigator'
+"Plugin 'rust-lang/rust.vim'
+"Plugin 'Shougo/neocomplete.vim'
+"Plugin 'phildawes/racer'
 
 call vundle#end()
 filetype plugin indent on
@@ -76,7 +76,6 @@ let g:NERDTreeMouseMode = 2
 let g:NERDTreeWinSize = 24
 
 set list
-set listchars=tab:▸\ ,eol:\ ,extends:❯,precedes:❮
 set number
 set numberwidth=5
 set tabstop=4
@@ -124,6 +123,10 @@ set undoreload=10000
 set colorcolumn=80
 set clipboard=unnamed
 set wildmenu
+
+if &listchars ==# 'eol:$'
+  set listchars=tab:>\ ,trail:\ ,extends:>,precedes:<,nbsp:+
+endif
 
 nnoremap <silent> <leader>f :NERDTreeToggle<CR>
 
