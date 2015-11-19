@@ -1,15 +1,13 @@
+set -x GOPATH $HOME/Gophings
 set -x PATH /usr/local/bin $PATH
 set -x PATH $HOME/.local/bin $PATH
-set -x PATH $HOME/Gophings/bin $PATH
 set -x PATH $HOME/.gem/ruby/*/bin $PATH
 set -x PATH $HOME/.rvm/gems/*/bin $PATH
 set -x PATH $HOME/.cabal/bin $PATH
 set -x PATH $HOME/Library/Haskell/bin $PATH
 set -x PATH (brew --prefix)/lib/python2.7/site-packages $PATH
 set -x PATH (brew --prefix)/lib/python3.4/site-packages $PATH
-set -x PATH $HOME/.local/bin/racer/target/release $PATH
-set -x GOBIN $HOME/Gophings $PATH
-set -x GOBIN $HOME/Gophing $PATH
+set -x PATH $PATH $GOPATH/bin
 set -x MANPATH $HOMEBREWDIR/share/man $MANPATH
 set -x MANPATH $HOMEBREWDIR/share/man $MANPATH
 
