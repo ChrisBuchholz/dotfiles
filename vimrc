@@ -10,28 +10,23 @@ Plugin 'bling/vim-airline'
 Plugin 'kien/ctrlp.vim'
 Plugin 'int3/vim-extradite'
 Plugin 'tpope/vim-fugitive'
-Plugin 'fatih/vim-go'
 Plugin 'sjl/gundo.vim'
 Plugin 'tomasr/molokai'
 Plugin 'scrooloose/nerdcommenter'
-"Plugin 'vim-ruby/vim-ruby'
 Plugin 'tpope/vim-surround'
 Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdtree'
 Plugin 'majutsushi/tagbar'
 Plugin 'tpope/vim-unimpaired'
-"Plugin 'szw/vim-tags'
 Plugin 'xolox/vim-misc'
-"Plugin 'christoomey/vim-tmux-navigator'
-"Plugin 'rust-lang/rust.vim'
-"Plugin 'Shougo/neocomplete.vim'
-"Plugin 'phildawes/racer'
+Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'rust-lang/rust.vim'
 
 call vundle#end()
 filetype plugin indent on
 
 " shell
-set shell=/bin/sh
+set shell=/usr/local/bin/fish
 
 " credentials
 let g:name = 'Christoffer Buchholz'
@@ -355,16 +350,7 @@ endif
 nnoremap <leader>k :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 
 
-" Completion ------------------------------------------------------------------
+" Rust ------------------------------------------------------------------------
 
 
-let g:neocomplete#enable_at_startup = 1
-
-let g:racer_cmd = 'racer'
-
-" if patter matches, local omnifunc will be called
-if !exists('g:neocomplete#sources#omni#input_patterns')
-    let g:neocomplete#sources#omni#input_patterns = {}
-endif
-let g:neocomplete#sources#omni#input_patterns.rust =
-    \ '[^.[:digit:] *\t]\%(\.\|\::\)\%(\h\w*\)\?'
+let g:rustfmt_autosave = 1
