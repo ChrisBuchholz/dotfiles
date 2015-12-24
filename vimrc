@@ -21,12 +21,14 @@ Plugin 'tpope/vim-unimpaired'
 Plugin 'xolox/vim-misc'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'rust-lang/rust.vim'
+Plugin 'racer-rust/vim-racer'
+Plugin 'apple/swift', {'rtp': 'utils/vim/'}
 
 call vundle#end()
 filetype plugin indent on
 
 " shell
-set shell=/usr/local/bin/fish
+set shell=/bin/bash
 
 " credentials
 let g:name = 'Christoffer Buchholz'
@@ -353,4 +355,11 @@ nnoremap <leader>k :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 " Rust ------------------------------------------------------------------------
 
 
-let g:rustfmt_autosave = 1
+set hidden
+
+let g:rustfmt_autosave = 0
+let g:racer_cmd = $HOME."/.multirust/toolchains/nightly/cargo/bin/racer"
+let $RUST_SRC_PATH = $HOME."/.local/src/rust/src"
+
+autocmd FileType rust nnoremap <C-g> :call RacerGoToDefinition()<cr>
+autocmd FileType rust nnoremap <C-s> :vsplit<cr>:call RacerGoToDefinition()<cr>
