@@ -1,10 +1,6 @@
 DIR =
-DOT_DIR = 			fonts local vim nvim
-DOT_FILE = 			git-completion.sh gitignore osx ghci tmux.conf \
-					tmux-osx.conf \
-					tmux-linux.conf vimrc xvimrc nvimrc zshrc zshrc-linux \
-					zshrc-osx \
-					jshintrc bowerrc
+DOT_DIR = 			fonts local vim
+DOT_FILE = 			gitignore osx ghci tmux.conf vimrc xvimrc
 CONFIG_SUBDIR = 	fish
 
 all: preinstall install
