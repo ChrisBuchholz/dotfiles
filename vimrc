@@ -73,8 +73,8 @@ let g:NERDTreeMouseMode = 2
 let g:NERDTreeWinSize = 24
 
 set list
-set number
-set numberwidth=5
+"set nonumber
+"set numberwidth=5
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
