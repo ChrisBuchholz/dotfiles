@@ -1,16 +1,23 @@
-# Makefile for dotfiles (cf. https://github.com/pix/dotfiles)
-
 DIR =
-DOT_DIR = 	fonts local vim nvim config
-DOT_FILE = 	git-completion.sh gitignore osx ghci tmux.conf tmux-osx.conf \
-			tmux-linux.conf vimrc xvimrc nvimrc zshrc zshrc-linux zshrc-osx \
-			jshintrc bowerrc
+DOT_DIR = 			fonts local vim nvim
+DOT_FILE = 			git-completion.sh gitignore osx ghci tmux.conf \
+					tmux-osx.conf \
+					tmux-linux.conf vimrc xvimrc nvimrc zshrc zshrc-linux \
+					zshrc-osx \
+					jshintrc bowerrc
+CONFIG_SUBDIR = 	fish
 
-all: install
+all: preinstall install
 
-install: $(HOME)/.history $(foreach f, $(DIR), install-dir-$(f)) \
-	 $(foreach f, $(DOT_DIR), install-dotdir-$(f)) \
-	 $(foreach f, $(DOT_FILE), install-file-$(f))
+install: $(HOME)/.history \
+	$(foreach f, $(DIR), install-dir-$(f)) \
+	$(foreach f, $(DOT_DIR), install-dotdir-$(f)) \
+	$(foreach f, $(DOT_FILE), install-file-$(f)) \
+	$(foreach f, $(CONFIG_SUBDIR), install-config-subdir-$(f))
+
+preinstall:
+	@echo "  MKDIR creating ~/.config"
+	@mkdir -p $(HOME)/.config
 
 $(HOME)/.history:
 	@echo "  MKDIR Creating ~/.history"
@@ -28,13 +35,22 @@ install-file-%: %
 	@echo "  LN  $< to ~/.$<"
 	@ln -sf $(CURDIR)/$< $(HOME)/.$<
 
+install-config-subdir-%: $(CURDIR)/config/%
+	@echo "  LN  config/$* to ~/.config/$*"
+	@ln -sf $(CURDIR)/config/$* $(HOME)/.config/$*
+
 clean: $(foreach f, $(DIR), clean-$(f)) \
-       $(foreach f, $(DOT_DIR), clean-.$(f)) \
-       $(foreach f, $(DOT_FILE), clean-.$(f))
+	$(foreach f, $(DOT_DIR), clean-.$(f)) \
+	$(foreach f, $(DOT_FILE), clean-.$(f)) \
+	$(foreach f, $(CONFIG_SUBDIR), cleanconfig-subdir-$(f))
 
 clean-%:
 	@echo "  CLEAN  ~/$*"
 	@sh -c "if [ -h ~/$* ]; then rm ~/$*; fi"
+
+cleanconfig-subdir-%:
+	@echo "  CLEAN  ~/.config/$*"
+	@sh -c "if [ -h ~/.config/$* ]; then rm ~/.config/$*; fi"
 
 .PHONY : clean
 
