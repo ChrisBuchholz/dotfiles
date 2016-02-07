@@ -30,3 +30,5 @@ function mkcd --description "mkdir and cd into it afterwards"
   mkdir "$argv[1]"
   cd "$argv[1]"
 end
+
+[ -e $HOME/.secrets ]; and . $HOME/.secrets
