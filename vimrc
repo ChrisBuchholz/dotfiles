@@ -7,39 +7,22 @@ Plugin 'gmarik/Vundle.vim'
 
 Plugin 'rking/ag.vim'
 Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'kien/ctrlp.vim'
 Plugin 'int3/vim-extradite'
 Plugin 'tpope/vim-fugitive'
 Plugin 'sjl/gundo.vim'
 Plugin 'tomasr/molokai'
 Plugin 'scrooloose/nerdcommenter'
-Plugin 'tpope/vim-surround'
 Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdtree'
-Plugin 'majutsushi/tagbar'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'xolox/vim-misc'
 Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'rust-lang/rust.vim'
-Plugin 'racer-rust/vim-racer'
 Plugin 'apple/swift', {'rtp': 'utils/vim/'}
 
 call vundle#end()
 filetype plugin indent on
-
-" shell
-set shell=/bin/bash
-
-" credentials
-let g:name = 'Christoffer Buchholz'
-let g:email = 'chris@chrisbuchholz.me'
-
-" preferences
-syntax sync fromstart
-
-let mapleader = "\<Space>"
-let maplocalleader = "\\"
-noremap \ ,
 
 
 " Theme -----------------------------------------------------------------------
@@ -49,11 +32,6 @@ colorscheme molokai
 let g:molokai_original = 1
 let g:rehash256 = 1
 set background=dark
-
-
-" Airline ---------------------------------------------------------------------
-
-
 let g:airline_powerline_fonts = 0
 let g:airline_left_sep=''
 let g:airline_left_alt_sep=''
@@ -65,16 +43,17 @@ let g:airline_theme='badwolf'
 " Stuff -----------------------------------------------------------------------
 
 
-set ts=4 sw=4 et
+set shell=/bin/bash
+let g:name = 'Christoffer Buchholz'
+let g:email = 'chris@chrisbuchholz.me'
+syntax sync fromstart
+let mapleader = "\<Space>"
+let maplocalleader = "\\"
+noremap \ ,
+set viminfo='10,\"100,:20,%,n~/.viminfo
 let g:indent_guides_start_level=2
 let g:indent_guides_guide_size=1
-
-let g:NERDTreeMouseMode = 2
-let g:NERDTreeWinSize = 24
-
 set list
-"set nonumber
-"set numberwidth=5
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
@@ -86,24 +65,18 @@ set showmatch
 set cursorline
 set matchpairs+=<:>
 set matchtime=3
-set wrap
 set linebreak
 set autoindent
 set smartindent
 set nowrap
 set ignorecase
 set smartcase
-set nolazyredraw
 set encoding=utf8
 set fileencoding=utf8
 set fileformat=unix
-set backspace=indent,eol,start
+set backspace=2
 set history=1000
 set ruler
-set foldmethod=indent   " fold based on indent
-set foldnestmax=10      " deepest fold is 10 levels
-set nofoldenable        " dont fold by default
-set foldlevel=1         " this is just what i use
 set showcmd
 set incsearch
 set laststatus=2
@@ -120,84 +93,37 @@ set undoreload=10000
 set colorcolumn=80
 set clipboard=unnamed
 set wildmenu
+syntax on
+set guioptions=aiA " Disable toolbar, menu bar, scroll bars
+set lines=35 columns=110
+set fuopt+=maxhorz
 
 if &listchars ==# 'eol:$'
   set listchars=tab:>\ ,trail:\ ,extends:>,precedes:<,nbsp:+
 endif
 
-nnoremap <silent> <leader>f :NERDTreeToggle<CR>
-
-nnoremap 0 ^
-
-nnoremap <Leader>w :w<CR>
-
-"spell check when writing commit logs
-autocmd filetype svn,*commit* setlocal spell
-
-"Save when losing focus
+" save changes when focus is lost
 au FocusLost * :wa
-
-"Resize splits when the window is resized
+" resize buffers when window size changes
 au VimResized * exe "normal! \<c-w>="
+" dont use expandtab in make files
+au FileType make set noexpandtab
+" restore cursor position
+au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") && &filetype != "gitcommit" | exe("normal `\"") | endif
+" remove trailing whitespace on buffer write
+au BufWritePre * :%s/\s\+$//e
+" crontab
+autocmd filetype crontab setlocal nobackup nowritebackup
 
-if has("gui_running")
-     "disable toolbar, menubar, scrollbars
-    set guioptions=aiA " Disable toolbar, menu bar, scroll bars
-     "hide mouse when typing
-    "set mousehide
-     "window size
-    set lines=35 columns=110
-     "font
-    "set guifont=Source\ Code\ Pro:h11
-endif
-
-if has("gui_macvim")
-     "set macvim specific stuff
-     "max horizontal height of window
-    set fuopt+=maxhorz
-endif
-
-if has("title")
-    set title
-endif
-
-if has("title") && (has("gui_running") || &title)
-    set titlestring=
-    set titlestring+=%f\ " file name
-    set titlestring+=%h%m%r%w
-    set titlestring+=\ -\ %{v:progname}
-    set titlestring+=\ -\ %{substitute(getcwd(),\ $HOME,\ '~',\ '')}
-endif
-
-"switch syntax highlighting on when terminal has colors
-"also switch on highlighting the last used search pattern
-"and set proper typeface
-if &t_Co > 2 || has('gui_running')
-    syntax on
-endif
-
-"autocommands!
-autocmd FileType make set noexpandtab
-
-"jump to last cursor position when opening a file
-"dont do it when writing a commit log entry
-autocmd BufReadPost * call SetCursorPosition()
-function! SetCursorPosition()
-    if &filetype !~ 'svn\|commit\c'
-        if line("'\"") > 0 && line("'\"") <= line("$")
-            exe "normal! g`\""
-            normal! zz
-        endif
-    end
-endfunction
-
-"tagbar settings
-nnoremap <silent> <leader>b :TagbarToggle<CR>
-
-":make
+let g:NERDTreeMouseMode = 2
+let g:NERDTreeWinSize = 24
+nnoremap <silent> <leader>f :NERDTreeToggle<CR>
+nnoremap 0 ^
+nnoremap <Leader>w :w<CR>
 nnoremap <silent> <leader>m :w<CR>:make<CR>:cw<CR>
+nnoremap <silent> <leader>u :GundoToggle<cr>
 
-"text bubbling - using Tim Pope's unimpaired plugin
+" text bubbling - using Tim Pope's unimpaired plugin
 nnoremap <S-h> <<
 nmap <S-j> ]e
 nmap <S-k> [e
@@ -207,7 +133,7 @@ vmap <S-j> ]egv
 vmap <S-k> [egv
 vnoremap <S-l> ><CR>gv
 
-"escape insert mode instantly
+" escape insert mode instantly
 if ! has('gui_running')
     set ttimeoutlen=10
     augroup FastEscape
@@ -217,17 +143,11 @@ if ! has('gui_running')
     augroup END
 endif
 
-"remove trailing whitespace on buffer write
-autocmd BufWritePre * :%s/\s\+$//e
-
-"diff unsaved changes to file
+" diff unsaved changes to file
 if !exists(":DiffOrig")
 command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
             \ | wincmd p | diffthis
 endif
-
- "rebind join since we're using c-j for navigation
-vmap <C-S-j> :join<CR>
 
 
 " tags ------------------------------------------------------------------------
@@ -236,16 +156,6 @@ vmap <C-S-j> :join<CR>
 set tags=./.tags;/
 let g:easytags_dynamic_files = 1
 let g:easytags_async = 1
-
-let g:easytags_languages = {
-\   'haskell': {
-\       'cmd': '~/.cabal/bin/hasktags',
-\       'args': ['-c'],
-\       'fileoutput_opt': '-o',
-\       'stdout_opt': '-f-',
-\       'recurse_flag': '.'
-\   }
-\}
 
 
 " go to definition ------------------------------------------------------------
@@ -262,7 +172,7 @@ nnoremap <C-s> :vs <cr>:exec("tag ".expand("<cword>"))<cr>
 let g:syntastic_python_checkers = ['flake8']
 
 
-"CtrlP ------------------------------------------------------------------------
+" CtrlP ------------------------------------------------------------------------
 
 
 let g:ctrlp_map = '<Leader>o'
@@ -275,27 +185,7 @@ nnoremap <silent> <Leader>t :CtrlPTag<cr>
 nnoremap <silent> <Leader>r :CtrlPMRU<cr>
 
 
-"Gundo ------------------------------------------------------------------------
-
-
-nnoremap <silent> <leader>u :GundoToggle<cr>
-
-
-"Ruby ------------------------------------------------------------------------
-
-
-autocmd Filetype ruby set shiftwidth=2
-autocmd Filetype ruby set tabstop=2
-autocmd Filetype ruby set softtabstop=2
-
-
-"Crontab ----------------------------------------------------------------------
-
-
-autocmd filetype crontab setlocal nobackup nowritebackup
-
-
-"XML prettifier ---------------------------------------------------------------
+" XML prettifier ---------------------------------------------------------------
 
 
 function! DoPrettyXML()
@@ -327,13 +217,6 @@ function! DoPrettyXML()
 endfunction
 command! PrettyXML call DoPrettyXML()
 
-"Set PWD to current file -----------------------------------------------------
-
-function! DoUpdatePWDToCurrentFile()
-    cd %:p:h
-endfunction
-command! UpdatePWDToCurrentFile call DoUpdatePWDToCurrentFile()
-
 
 " The Silver Searcher ---------------------------------------------------------
 
@@ -348,18 +231,3 @@ if executable('ag')
   " ag is fast enough that CtrlP doesn't need to cache
   let g:ctrlp_use_caching = 0
 endif
-
-nnoremap <leader>k :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
-
-
-" Rust ------------------------------------------------------------------------
-
-
-set hidden
-
-let g:rustfmt_autosave = 0
-let g:racer_cmd = $HOME."/.multirust/toolchains/nightly/cargo/bin/racer"
-let $RUST_SRC_PATH = $HOME."/.local/src/rust/src"
-
-autocmd FileType rust nnoremap <C-g> :call RacerGoToDefinition()<cr>
-autocmd FileType rust nnoremap <C-s> :vsplit<cr>:call RacerGoToDefinition()<cr>
