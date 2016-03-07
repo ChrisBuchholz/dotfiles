@@ -16,6 +16,7 @@ set -x MANPATH $HOMEBREWDIR/share/man $MANPATH
 set -x PATH $HOME/.multirust/toolchains/nightly/cargo/bin $PATH
 set -x PATH /Library/Developer/Toolchains/swift-latest.xctoolchain/usr/bin $PATH
 set -x RUST_SRC_PATH $HOME/.local/src/rust/src
+#set -x PYTHONPATH /System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python $PYTHONPATH
 
 set -x TERM screen-256color
 set -x DISABLE_AUTO_TITLE true
