@@ -33,3 +33,5 @@ function mkcd --description "mkdir and cd into it afterwards"
 end
 
 [ -e $HOME/.secrets ]; and . $HOME/.secrets
+
+eval (python3.5 -m virtualfish auto_activation global_requirements)

@@ -5,6 +5,7 @@ local/Cellar
 local/share
 config/configstore
 config/fish/fish_history
+config/fish/fish_read_history
 config/fish/fishd.*
 config/cipherhub
 vim/.netrwhist
