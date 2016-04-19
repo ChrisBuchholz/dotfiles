@@ -15,18 +15,20 @@ function fish_prompt
         set suffix '#'
     case '*'
         set color_cwd $fish_color_cwd
-        set suffix '>'
+        set suffix '$'
     end
 
-    echo -n -s "$USER" @ "$__fish_prompt_hostname" ' ' (set_color $color_cwd) (prompt_pwd) (set_color normal) "$suffix "
+    echo -n -s "$USER" @ "$__fish_prompt_hostname" ' ' (set_color $color_cwd) (prompt_pwd) (set_color normal) " "
 
     if set -q VIRTUAL_ENV
-        echo -n -s (set_color -b blue white) "(" (basename "$VIRTUAL_ENV") ")" (set_color normal) " "
+        echo -n -s (set_color blue) "|" (basename "$VIRTUAL_ENV") "|" (set_color normal) " "
     end
 
     set -l GIT_BRANCH (git branch ^/dev/null | grep \* | sed 's/* //')
 
     if [ $GIT_BRANCH ]
-        echo -n -s (set_color -b brown white) "(" $GIT_BRANCH ")" (set_color normal)" "
+        echo -n -s (set_color brown) "<" $GIT_BRANCH ">" (set_color normal)" "
     end
+
+    echo -n -s "$suffix "
 end
