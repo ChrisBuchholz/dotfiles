@@ -6,15 +6,11 @@ set -x PATH /usr/local/bin $PATH
 set -x PATH $HOME/.local/bin $PATH
 set -x PATH $PATH $GOBIN
 set -x PATH $HOME/.gem/ruby/*/bin $PATH
-set -x PATH $HOME/.cabal/bin $PATH
-set -x PATH $HOME/Library/Haskell/bin $PATH
 set -x PATH (brew --prefix)/lib/python2.7/site-packages $PATH
-set -x PATH (brew --prefix)/lib/python3.4/site-packages $PATH
-set -x PATH $HOME/.local/bin/racer/target/release $PATH
+set -x PATH (brew --prefix)/lib/python3.5/site-packages $PATH
 set -x MANPATH $HOMEBREWDIR/share/man $MANPATH
 set -x MANPATH $HOMEBREWDIR/share/man $MANPATH
 set -x PATH $HOME/.multirust/toolchains/nightly/cargo/bin $PATH
-set -x PATH /Library/Developer/Toolchains/swift-latest.xctoolchain/usr/bin $PATH
 set -x RUST_SRC_PATH $HOME/.local/src/rust/src
 #set -x PYTHONPATH /System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python $PYTHONPATH
 
