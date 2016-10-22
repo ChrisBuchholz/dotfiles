@@ -8,7 +8,7 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'rking/ag.vim'
 Plugin 'bling/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'kien/ctrlp.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'int3/vim-extradite'
 Plugin 'tpope/vim-fugitive'
 Plugin 'sjl/gundo.vim'
@@ -20,9 +20,18 @@ Plugin 'tpope/vim-unimpaired'
 Plugin 'xolox/vim-misc'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'apple/swift', {'rtp': 'utils/vim/'}
+Plugin 'mattn/webapi-vim'
+Plugin 'rust-lang/rust.vim'
+Plugin 'racer-rust/vim-racer'
+Plugin 'ervandew/supertab'
 
 call vundle#end()
 filetype plugin indent on
+
+
+"let g:rustfmt_autosave = 1
+let g:racer_cmd = expand('~/.cargo/bin/racer')
+let g:racer_experimental_completer = 1
 
 
 " Theme -----------------------------------------------------------------------
@@ -38,6 +47,7 @@ let g:airline_left_alt_sep=''
 let g:airline_right_sep=''
 let g:airline_right_alt_sep=''
 let g:airline_theme='badwolf'
+
 
 
 " Stuff -----------------------------------------------------------------------
@@ -96,7 +106,6 @@ set wildmenu
 syntax on
 set guioptions=aiA " Disable toolbar, menu bar, scroll bars
 set lines=35 columns=110
-set fuopt+=maxhorz
 
 if &listchars ==# 'eol:$'
   set listchars=tab:>\ ,trail:\ ,extends:>,precedes:<,nbsp:+
@@ -162,8 +171,11 @@ let g:easytags_async = 1
 
 
 nnoremap <C-g> <C-]>
-nnoremap <C-s> :vs <cr>:exec("tag ".expand("<cword>"))<cr>
-"nnoremap <C-s> :sp <cr>:exec("tag ".expand("<cword>"))<cr>
+nnoremap <C-x> :vs <cr>:exec("tag ".expand("<cword>"))<cr>
+nnoremap <C-s> :sp <cr>:exec("tag ".expand("<cword>"))<cr>
+au FileType rust map <C-g> gd
+au FileType rust map <C-x> gx
+au FileType rust map <C-s> gs
 
 
 " Python ----------------------------------------------------------------------
