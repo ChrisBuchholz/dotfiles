@@ -1,9 +1,13 @@
 set ignorecase
 
+let mapleader = "\<Space>"
+
 nnoremap 0 ^
 
-nmap ,ci :xcmenucmd Comment Selection<CR>
-vmap ,ci :xcmenucmd Comment Selection<CR>
+nnoremap <Space>ci :xcmenucmd Comment Selection<CR>
+vnoremap <Space>ci :xcmenucmd Comment Selection<CR>
+
+nmap <Space>o :xccmd openQuickly<CR>
 
 nmap <S-H> :xccmd shiftLeft<CR>
 nmap <S-J> :xccmd moveCurrentLineDown<CR>
