@@ -2,8 +2,8 @@ set ignorecase
 
 nnoremap 0 ^
 
-vmap ,ci :xccmd commentAndUncommentCurrentLines<CR>
-nmap ,ci :xccmd commentAndUncommentCurrentLines<CR>
+nmap ,ci :xcmenucmd Comment Selection<CR>
+vmap ,ci :xcmenucmd Comment Selection<CR>
 
 nmap <S-H> :xccmd shiftLeft<CR>
 nmap <S-J> :xccmd moveCurrentLineDown<CR>
