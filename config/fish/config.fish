@@ -59,6 +59,7 @@ function installXvim
 end
 
 function e 
+    set editor 'code-insiders'
     set hasPath false
 
     for arg in $argv
@@ -68,8 +69,8 @@ function e
     end
 
     if [ $hasPath = true ]
-        code-insiders $argv
+        eval $editor $argv
     else
-        fzf | read -l result; and code-insiders $argv $result
+        fzf | read -l result; and eval $editor $argv $result
     end
 end
