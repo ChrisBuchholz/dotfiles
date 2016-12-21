@@ -7,6 +7,7 @@ nnoremap 0 ^
 nnoremap <Space>ci :xcmenucmd Comment Selection<CR>
 vnoremap <Space>ci :xcmenucmd Comment Selection<CR>
 
+nmap <Space>b :xcmenucmd Add Breakpoint at Current Line<CR>
 nmap <Space>o :xccmd openQuickly<CR>
 
 nmap <S-H> :xccmd shiftLeft<CR>

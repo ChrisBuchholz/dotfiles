@@ -1,6 +1,6 @@
 DIR =
 DOT_DIR = 			fonts local vim
-DOT_FILE = 			gitignore osx ghci tmux.conf vimrc xvimrc
+DOT_FILE = 			gitignore osx ghci tmux.conf vimrc xvimrc hushlogin
 CONFIG_SUBDIR = 	fish
 
 all: preinstall install
