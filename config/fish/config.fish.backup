@@ -12,7 +12,6 @@ set -x PATH /usr/local/lib/python3.6/site-packages $PATH
 set -x PATH $HOME/.cargo/bin $PATH
 set -x PATH $HOME/tmp/racer/target/release $PATH
 set -x PATH /usr/local/lib/node_modules $PATH
-set -x PATH /Users/cb/bin/google-cloud-sdk/bin $PATH
 set -x MANPATH /usr/local/share/man $MANPATH
 set -x MANPATH /usr/local/share/man $MANPATH
 set -x TERM screen-256color
@@ -28,7 +27,7 @@ set -x VIRTUALFISH_DEFAULT_PYTHON 'python3'
 
 alias swiftrun "swift build; eval (swift package dump-package | jq '.name' -r | sed 's/^/\.build\/debug\//')"
 
-eval (python3.6 -m virtualfish auto_activation global_requirements)
+#eval (python3.6 -m virtualfish auto_activation global_requirements)
 
 function virtualhooks --on-event virtualenv_did_activate
     if test -f "$VIRTUAL_ENV/virtualhooks.fish"
