@@ -1,4 +1,4 @@
-set -e fish_greeting
+set --universal fish_greeting ""
 
 set -x EDITOR vim
 set -x GOPATH $HOME/Gophings
@@ -28,7 +28,7 @@ set -x VIRTUALFISH_DEFAULT_PYTHON 'python3'
 
 alias swiftrun "swift build; eval (swift package dump-package | jq '.name' -r | sed 's/^/\.build\/debug\//')"
 
-eval (python3.6 -m virtualfish auto_activation global_requirements)
+#eval (python3.6 -m virtualfish auto_activation global_requirements)
 
 function virtualhooks --on-event virtualenv_did_activate
     if test -f "$VIRTUAL_ENV/virtualhooks.fish"

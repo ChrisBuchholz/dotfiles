@@ -41,6 +41,8 @@ Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'elixir-lang/vim-elixir'
 Plug 'slashmili/alchemist.vim'
+Plug 'stephpy/vim-yaml'
+"Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
 call plug#end()
 
@@ -101,6 +103,10 @@ au BufReadPost *
 au filetype crontab setlocal nobackup nowritebackup
 
 let g:vim_markdown_folding_disabled = 1
+
+let g:alchemist_tag_disable = 1
+
+let g:deoplete#enable_at_startup = 1
 
 
 " Theme ----------------------------------------------------------------------
@@ -244,8 +250,6 @@ au FileType swift nmap <leader>, :call Send_keys_to_Tmux('Up Enter')<CR>
 " Elixir ---------------------------------------------------------------------
 
 
-"let g:syntastic_swift_checkers = ['swiftpm', 'swiftlint']
-
 if filereadable(getcwd()."/mix.exs")
     au FileType elixir nmap <leader>r :execute ":Tmux mix "<CR>
     au FileType elixir nmap <leader>b :execute ":Tmux mix compile"<CR>
@@ -257,6 +261,8 @@ end
 
 au FileType elixir nmap <leader>. :call Send_keys_to_Tmux('C-c')<CR>
 au FileType elixir nmap <leader>, :call Send_keys_to_Tmux('Up Enter')<CR>
+
+"au FileType elixir BufReadPre,BufWritePost * Neomake
 
 
 " Python ---------------------------------------------------------------------
